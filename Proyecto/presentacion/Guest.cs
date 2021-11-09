@@ -40,7 +40,7 @@ namespace Proyecto.presentacion
         {
             Truco t = new Truco(true, null, null);
             t.Show();
-            t.Hide();
+            base.Hide();
         }
     }
 }

@@ -17,25 +17,16 @@ namespace Proyecto.logica
         public bool blackJack(CartaInglesa c1, CartaInglesa c2) //Verifica si las cartas forman blackjack
         {
             bool devuelve = false;
-            int valor1 = c1.ValorCarta;
-            int valor2 = c2.ValorCarta;
-            if (valor1 == 1)
-            {
-                valor1 = 11;
-            }
-            if (valor2 == 1)
-            {
-                valor2 = 11;
-            }
-            if (valor1 == 11 && valor2 == 11)
-            {
-                valor1 = 1;
-                valor2 = 2;
-            }
-            if (c1.ValorCarta + c2.ValorCarta == 21)
+
+            if(c1.Numero == "A" && c2.ValorCarta == 10)
             {
                 devuelve = true;
             }
+            else if (c1.ValorCarta == 10 && c2.Numero == "A")
+            {
+                devuelve = true;
+            }
+
             return devuelve;
         }
         public bool divide(CartaInglesa c1, CartaInglesa c2) //Verifica si las cartas dan posibilidad a dividir

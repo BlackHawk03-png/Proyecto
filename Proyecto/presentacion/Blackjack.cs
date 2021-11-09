@@ -219,7 +219,26 @@ namespace Proyecto.presentacion
                 MessageBox.Show("Ninguno gana, ninguno pierde", "¡Doble Blackjack!");
                 inicio();
             }
-            if (funciones.blackJack(c1, c2))
+            else if (co1.Numero == "A")
+            {
+                DialogResult d;
+                d = MessageBox.Show("La casa tiene un as, ¿quieres comprar un seguro?", "¡Alerta!",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                if (d == DialogResult.Yes)
+                {
+                    presupuesto -= apuesta / 2;
+                    if (funciones.blackJack(co1, co2))
+                    {
+                        MessageBox.Show("La casa hizo blackjack, por suerte tienes seguro", "Atencion",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        presupuesto += apuesta;
+                        pierde();
+                        return;
+                    }
+                }
+            }
+            else if (funciones.blackJack(c1, c2))
             {
                 MessageBox.Show("¡Blackjack!", "¡Felicidades!");
                 gana();
@@ -232,21 +251,7 @@ namespace Proyecto.presentacion
                 return;
             }
 
-            if (co1.Numero == "A")
-            {
-                DialogResult d;
-                d = MessageBox.Show("La casa tiene un as, ¿quieres comprar un seguro?", "¡Alerta!", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                if (d == DialogResult.Yes)
-                {
-                    presupuesto -= apuesta / 2;
-                    if (funciones.blackJack(co1, co2))
-                    {
-                        presupuesto += apuesta;
-                        pierde();
-                        return;
-                    }
-                }
-            }
+            
             
             btnDoblar.Show();
             btnPedir.Show();
@@ -273,7 +278,7 @@ namespace Proyecto.presentacion
             c3 = b.robarCartaInglesa();
             btnCarta3.BackgroundImage = Image.FromFile(@"..\..\imagenes\blackjack\" + c3.RutaImg + ".png");
             cartas[2] = c3;
-            if (!funciones.superaLimite(cartas))
+            if (funciones.superaLimite(cartas))
             {
                 pierde();
                 return;
@@ -348,7 +353,7 @@ namespace Proyecto.presentacion
             int valorAGanar = funciones.valorAGanar(cartas);
             cantCartas = 2;
             btnCartaO2.BackgroundImage = Image.FromFile(@"..\..\imagenes\blackjack\" + co2.RutaImg + ".png");
-            while (cantCartas < 7 || (cartasTotal < 17 && cartasTotal < valorAGanar))
+            while (cantCartas < 7 && (cartasTotal < 17 && cartasTotal < valorAGanar))
             {
                 switch (cantCartas)
                 {
@@ -462,7 +467,7 @@ namespace Proyecto.presentacion
             co5 = null;
             co6 = null;
             co7 = null;
-
+            b.limpiarInglesas();
             for(int x = 0; x < cartas.Length; x++)
             {
                 cartas[x] = null;

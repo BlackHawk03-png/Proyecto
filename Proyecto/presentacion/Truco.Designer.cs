@@ -332,6 +332,7 @@ namespace Proyecto.presentacion
             this.MaximumSize = new System.Drawing.Size(1280, 720);
             this.MinimumSize = new System.Drawing.Size(1280, 720);
             this.Name = "Truco";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Truco";
             this.Load += new System.EventHandler(this.Truco_Load);
             this.panel1.ResumeLayout(false);
