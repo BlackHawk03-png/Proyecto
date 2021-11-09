@@ -24,7 +24,7 @@ namespace Proyecto.logica
         {
             usadasEspañolas.Clear();
         }
-        public void limpiarInglesas()
+        public void limpiarInglesas() //hmmmm
         {
             usadasInglesas.Clear();
         }
