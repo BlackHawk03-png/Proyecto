@@ -20,7 +20,7 @@ namespace Proyecto.logica
         private ArrayList usadasEspañolas = new ArrayList();
         private ArrayList usadasInglesas = new ArrayList();
 
-        public void limpiarEspañolas()
+        public void limpiarEspañolas() //cupala Pose
         {
             usadasEspañolas.Clear();
         }
