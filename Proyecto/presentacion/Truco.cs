@@ -62,6 +62,21 @@ namespace Proyecto.presentacion
             puntosEnJuego = 0,
             ronda = 1;
 
+        private void btnCarta3_Click(object sender, EventArgs e)
+        {
+            btnCarta3.Enabled = false;
+        }
+
+        private void btnCarta2_Click(object sender, EventArgs e)
+        {
+            btnCarta2.Enabled = false;
+        }
+
+        private void btnCarta1_Click(object sender, EventArgs e)
+        {
+            btnCarta1.Enabled = false;
+        }
+
         public Truco(bool t, Usuario j1, Usuario j2)
         {
             InitializeComponent();
@@ -82,8 +97,11 @@ namespace Proyecto.presentacion
         }
         private void iniciarJuego()
         {
-            Conexion.CrearPartidaTruco(jugador1.Username, jugador2.Username, tipo);
-            id = Conexion.RecibirIdPartida(true);
+            if (Usuario.usuarioActual.Username != "")
+            {
+                Conexion.CrearPartidaTruco(jugador1.Username, jugador2.Username, tipo);
+                id = Conexion.RecibirIdPartida(true);
+            }
             PartidaTruco p = new PartidaTruco(id, jugador1, jugador2, tipo);
         }
         private void btnEnvido_Click(object sender, EventArgs e)
@@ -239,6 +257,10 @@ namespace Proyecto.presentacion
             btnVale4.Hide();
             btnQuiero.Hide();
             btnNoQuiero.Hide();
+        }
+        private void inicioMano()
+        {
+
         }
     }
 }

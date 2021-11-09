@@ -192,6 +192,7 @@ namespace Proyecto.presentacion
             this.btnCarta1.Size = new System.Drawing.Size(134, 205);
             this.btnCarta1.TabIndex = 9;
             this.btnCarta1.UseVisualStyleBackColor = false;
+            this.btnCarta1.Click += new System.EventHandler(this.btnCarta1_Click);
             // 
             // btnCarta2
             // 
@@ -203,6 +204,7 @@ namespace Proyecto.presentacion
             this.btnCarta2.Size = new System.Drawing.Size(134, 205);
             this.btnCarta2.TabIndex = 10;
             this.btnCarta2.UseVisualStyleBackColor = false;
+            this.btnCarta2.Click += new System.EventHandler(this.btnCarta2_Click);
             // 
             // btnCarta3
             // 
@@ -214,6 +216,7 @@ namespace Proyecto.presentacion
             this.btnCarta3.Size = new System.Drawing.Size(134, 205);
             this.btnCarta3.TabIndex = 11;
             this.btnCarta3.UseVisualStyleBackColor = false;
+            this.btnCarta3.Click += new System.EventHandler(this.btnCarta3_Click);
             // 
             // btnTruco
             // 
