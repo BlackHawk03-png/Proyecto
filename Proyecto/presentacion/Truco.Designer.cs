@@ -300,6 +300,7 @@ namespace Proyecto.presentacion
             this.btnIniciarJuego.TabIndex = 41;
             this.btnIniciarJuego.Text = "Iniciar juego";
             this.btnIniciarJuego.UseVisualStyleBackColor = true;
+            this.btnIniciarJuego.Click += new System.EventHandler(this.btnIniciarJuego_Click);
             // 
             // Truco
             // 

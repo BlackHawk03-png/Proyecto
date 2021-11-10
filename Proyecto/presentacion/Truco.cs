@@ -62,6 +62,11 @@ namespace Proyecto.presentacion
             puntosEnJuego = 0,
             ronda = 1;
 
+        private void btnIniciarJuego_Click(object sender, EventArgs e)
+        {
+            iniciarJuego();
+        }
+
         private void btnCarta3_Click(object sender, EventArgs e)
         {
             btnCarta3.Enabled = false;
@@ -91,9 +96,7 @@ namespace Proyecto.presentacion
                 Application.Exit();
             }
             
-            iniciarJuego();
             b.barajaEspañola();
-            repartir();
         }
         private void iniciarJuego()
         {
@@ -198,8 +201,9 @@ namespace Proyecto.presentacion
 
         private void btnFlor_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Flor!");
+            MessageBox.Show("Tenés flor. ganas 3 puntos", "Felicidades");
             puntosJugador += 3;
+            btnFlor.Hide();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -253,14 +257,19 @@ namespace Proyecto.presentacion
         }
         private void inicio()
         {
+            
+        }
+        private void inicioMano()
+        {
             btnReTruco.Hide();
             btnVale4.Hide();
             btnQuiero.Hide();
             btnNoQuiero.Hide();
-        }
-        private void inicioMano()
-        {
+            
 
+            repartir();
+
+            btnIniciarJuego.Hide();
         }
     }
 }
