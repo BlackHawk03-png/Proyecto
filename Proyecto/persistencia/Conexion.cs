@@ -14,9 +14,9 @@ namespace Proyecto.persistencia
     class Conexion
     {
        public Conexion()
-        {
+       {
             cloudinary.Api.Secure = true;
-        }
+       }
         private static string connectionString = "Datasource=127.0.0.1;port=3306;username=root;password=;database=proyecto;SSL Mode=None";
         private static MySqlConnection databaseConnection = new MySqlConnection(connectionString);
 
@@ -308,7 +308,7 @@ namespace Proyecto.persistencia
                 throw e;
             }
         }
-        public static void CrearPartidaTruco(string jugador1, string jugador2, bool tipo) //terminar
+        public static void CrearPartidaTruco(string jugador1, string jugador2, bool tipo) //Sin terminar, falta actualizar
         {
             try
             {
@@ -449,7 +449,7 @@ namespace Proyecto.persistencia
                 throw e;
             }
         }
-        public static void ActualizarUsuario(string username, string password, string nombre, string mail, string sexo) //Sin terminar, error en que lo que deberia actualizar lo pone en blanco
+        public static void ActualizarUsuario(string username, string password, string nombre, string mail, string sexo)
         {
             try
             {
@@ -525,5 +525,33 @@ namespace Proyecto.persistencia
         {
 
         }
+        public static int[] estadisticasUsuario(string username) //Sin terminar, faltan consultas
+        {
+            int[] estadisticas = { 0, 0, 0, 0 }; // [0] = jugadasBlackjack / [1] = ganadasBlackjack / [2] = jugadasTruco / [3] = ganadasTruco
+            //Consultas SQL para recibir partidas jugadas y ganadas de ambos juegos para un jugador
+            return estadisticas;
+        }
+        public static string nombreMedalla(int idMedalla) //Sin terminar, faltan consultas
+        {
+            string nombreMedalla = "";
+            //Consulta SQL para recibir el nombre de una medalla segun un id
+            return nombreMedalla;
+        }
+        public static ArrayList actualizarMedallas(string username) //Sin terminar
+        {
+            ArrayList medallasGanadas = new ArrayList();
+            int[] estadisticas = estadisticasUsuario(username);
+
+            if(estadisticas[0] == 1)
+            {
+                medallasGanadas.Add(nombreMedalla(1));
+            }
+            if (estadisticas[0] == 5)
+            {
+                medallasGanadas.Add(nombreMedalla(2));
+            }
+            return medallasGanadas;
+        }
+
     }
 }

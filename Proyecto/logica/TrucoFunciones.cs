@@ -233,6 +233,10 @@ namespace Proyecto.logica
             {
                 ganador = 2;
             }
+            else
+            {
+                ganador = 3;
+            }
             return ganador;
         }
         public bool verificaFlor(CartaEspañola[] c, CartaEspañola muestra) //Devuelve un valor verdadero en caso de tener Flor
@@ -251,22 +255,6 @@ namespace Proyecto.logica
 
             }
             return verifica;
-        }
-        public CartaEspañola[] repartirCartas()
-        {
-            Random azar = new Random();
-            CartaEspañola c = new CartaEspañola(0, "");
-            CartaEspañola[] cartas = { c, c, c, c, c, c, c};
-            int num = 0;
-            string palo = "";
-            string[] palos = { "Pica", "Corazones", "Diamantes", "Treboles" };
-            for (int x = 0; x < cartas.Length; x++)
-            {
-                num = azar.Next(12);
-                palo = palos[azar.Next(3)];
-
-            }
-            return cartas;
         }
     }
 }

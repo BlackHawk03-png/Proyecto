@@ -15,6 +15,7 @@ namespace Proyecto.presentacion
     public partial class Truco : Form
     {
         string jugador1, jugador2, ganadorEnvido; //jugador2 es el CPU
+        string[] ganadoresManos = { "", "", "" };
         bool tipo;
         int id;
 
@@ -93,6 +94,23 @@ namespace Proyecto.presentacion
             var x = btnCarta1.Location;
             x.Y -= 40;
             btnCarta1.Location = x;
+
+            CartaEspañola[] cartasO = { co1, co2, co3 };
+            if (tf.cartaGanadora(c1, cartasO[azar.Next(3)], muestra) == 1)
+            {
+                ganadoresManos[nroMano - 1] = jugador1;
+            }
+            else if (tf.cartaGanadora(c1, cartasO[azar.Next(3)], muestra) == 2)
+            {
+                ganadoresManos[nroMano - 1] = jugador2;
+            }
+            else
+            {
+                ganadoresManos[nroMano - 1] = "Emparde";
+            }
+
+            nroMano++;
+
         }
 
         public Truco(bool t, string j1, string j2)
@@ -138,8 +156,6 @@ namespace Proyecto.presentacion
             }*/
             PartidaTruco p = new PartidaTruco(id, jugador1, jugador2, tipo);
 
-
-
             while (!finalizaPartida(p))
             {
                 inicioRonda();
@@ -165,7 +181,8 @@ namespace Proyecto.presentacion
         private void btnEnvido_Click(object sender, EventArgs e)
         {
             cantoEnvido = true;
-            int a = azar.Next(2);
+            int a = 0;
+            //int a = azar.Next(2);
             if (a == 0)
             {
                 CartaEspañola[] cartas = { c1, c2, c3 };
@@ -184,13 +201,27 @@ namespace Proyecto.presentacion
                     MessageBox.Show("Son buenas", envido2.ToString() + "son mejores, perdiste el envido");
                     puntosJugador2++;
                 }
+                else
+                {
+                    if (mano)
+                    {
+                        MessageBox.Show("Empate, ganas por mano", "Atención",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Empate, tu oponente gana por mano", "Atención",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    
+                }
                 envido = true;
             }
             else
             {
                 puntosJugador1++;
                 labelPuntajeUser.Text = puntosJugador1.ToString();
-                labelPuntajeCPU.Text = puntosJugador1.ToString();
+                labelPuntajeCPU.Text = puntosJugador2.ToString();
             }
         }
 
@@ -316,6 +347,8 @@ namespace Proyecto.presentacion
                 btnFlor.Hide();
                 btnEnvido.Show();
             }
+
+
         }
         private void primeraMano()
         {
@@ -369,10 +402,20 @@ namespace Proyecto.presentacion
                 mano = true;
             }
             repartir();
-            btnReTruco.Hide();
-            btnVale4.Hide();
-            btnQuiero.Hide();
-            btnNoQuiero.Hide();
+            nroMano = 1;
+            ganadoresManos[0] = "";
+            ganadoresManos[1] = "";
+            ganadoresManos[2] = "";
+            truco = false;
+            cantoTruco = false;
+            retruco = false;
+            cantoReTruco = false;
+            vale4 = false;
+            cantoVal4 = false;
+            envido = false;
+            cantoEnvido = false;
+            flor = false;
+
             //btnIniciarJuego.Hide();
             do
             {
@@ -386,6 +429,10 @@ namespace Proyecto.presentacion
 
 
             //Conexion a la base de datos, persistir mano
+        }
+        private void terminaRonda()
+        {
+
         }
     }
 }
