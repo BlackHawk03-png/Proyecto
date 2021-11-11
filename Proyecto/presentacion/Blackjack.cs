@@ -251,8 +251,6 @@ namespace Proyecto.presentacion
                 return;
             }
 
-            
-            
             btnDoblar.Show();
             btnPedir.Show();
             btnPlantarse.Show();

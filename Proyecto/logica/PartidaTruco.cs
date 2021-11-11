@@ -10,7 +10,7 @@ namespace Proyecto.logica
     {
         //Hacer esta clase como la CartaEspañola (tiene atributos con sus gettrs
         //y setters para guardarlos y pasarlos a la base de datos)
-        public PartidaTruco(int id, Usuario j1, Usuario j2, bool t) //si tipo es false es contra la CPU, sino online
+        public PartidaTruco(int id, string j1, string j2, bool t) //si tipo es false es contra la CPU, sino online
         {
             idPartida = id;
             jugador1 = j1;
@@ -18,7 +18,7 @@ namespace Proyecto.logica
         }
         //Tanteador parcial que se va a ir actualizando
         private int idPartida;
-        private Usuario jugador1, jugador2;
+        private string jugador1, jugador2, ganador;
         private bool tipo;
 
         public int IdPartida
@@ -26,12 +26,12 @@ namespace Proyecto.logica
             get { return idPartida; }
             set { idPartida = value; }
         }
-        public Usuario Jugador1
+        public string Jugador1
         {
             get { return Jugador1; }
             set { jugador1 = value; }
         }
-        public Usuario Jugador2
+        public string Jugador2
         {
             get { return Jugador2; }
             set { jugador2 = value; }
@@ -40,6 +40,11 @@ namespace Proyecto.logica
         {
             get { return tipo; }
             set { tipo = value; }
+        }
+        public string Ganador
+        {
+            get { return ganador; }
+            set { ganador = value; }
         }
     }
 }

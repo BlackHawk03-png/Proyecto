@@ -13,70 +13,117 @@ namespace Proyecto.logica
 
         }
         public int valorEnvido(CartaEspañola[] c, CartaEspañola muestra) //Devuelve el valor de envido
-        {
-            int[] valores = { 0, 0, 0 };
+        { 
             int valorTotal = 0;
-            /*for (int i = 0; i < 3; i++)
+
+            switch (muestra.Numero)
             {
-                valores[i] = c[i].Numero;
-                if (c[i].Palo == muestra.Palo)
+                case 2:
+                    muestra.Puntos = 30;
+                    break;
+                case 4:
+                    muestra.Puntos = 29;
+                    break;
+                case 5:
+                    muestra.Puntos = 28;
+                    break;
+                case 11:
+                    muestra.Puntos = 27;
+                    break;
+                case 10:
+                    muestra.Puntos = 27;
+                    break;
+
+            }
+            for (int i = 0; i < 3; i++)
+            {
+                if (esPieza(c[i], muestra))
                 {
                     switch (c[i].Numero)
                     {
                         case 2:
-                            valores[i] = 30;
+                            c[i].Puntos = 30;
                             break;
                         case 4:
-                            valores[i] = 29;
+                            c[i].Puntos = 29;
                             break;
                         case 5:
-                            valores[i] = 28;
+                            c[i].Puntos = 28;
                             break;
                         case 11:
-                            valores[i] = 27;
+                            c[i].Puntos = 27;
                             break;
                         case 10:
-                            valores[i] = 27;
+                            c[i].Puntos = 27;
+                            break;
+                        case 12:
+                            c[i].Puntos = muestra.Puntos;
                             break;
                     }
                 }
-                if (c[i].Palo != muestra.Palo && c[i].Numero > 9 && c[i].Numero < 13)
+                else if (c[i].Numero >= 10)
                 {
-                    valores[i] = 0;
+                    c[i].Puntos = 0;
                 }
-            }*/
-            if(esPieza(c[0], muestra) || esPieza(c[1], muestra) || esPieza(c[2], muestra))
+                else 
+                { 
+                    c[i].Puntos = c[i].Numero;
+                } 
+            }
+
+            if (esPieza(c[0], muestra))
             {
-                if (esPieza(c[0], muestra))
+                if (c[1].Puntos > c[2].Puntos)
                 {
-                    if (c[1].Puntos > c[2].Puntos) { valorTotal = c[0].Puntos + c[1].Puntos; }
-                    if (c[1].Puntos < c[2].Puntos) { valorTotal = c[0].Puntos + c[2].Puntos; }
+                    valorTotal = c[0].Puntos + c[1].Puntos;
                 }
-                else if (esPieza(c[1], muestra))
+                else
                 {
-                    if (c[0].Puntos > c[2].Puntos) { valorTotal = c[1].Puntos + c[0].Puntos; }
-                    if (c[0].Puntos < c[2].Puntos) { valorTotal = c[1].Puntos + c[2].Puntos; }
+                    valorTotal = c[0].Puntos + c[2].Puntos;
                 }
-                else if (esPieza(c[2], muestra))
+            }
+            else if (esPieza(c[1], muestra))
+            {
+                if (c[0].Puntos > c[2].Puntos)
                 {
-                    if (c[0].Puntos > c[1].Puntos) { valorTotal = c[2].Puntos + c[0].Puntos; }
-                    if (c[0].Puntos < c[1].Puntos) { valorTotal = c[2].Puntos + c[1].Puntos; }
+                    valorTotal = c[1].Puntos + c[0].Puntos;
                 }
+                else
+                {
+                    valorTotal = c[1].Puntos + c[2].Puntos;
+                }
+            }
+            else if (esPieza(c[2], muestra))
+            {
+                if (c[0].Puntos > c[1].Puntos)
+                {
+                    valorTotal = c[2].Puntos + c[0].Puntos;
+                }
+                else
+                {
+                    valorTotal = c[2].Puntos + c[1].Puntos;
+                }
+            }
+            else if (c[0].Palo == c[1].Palo)
+            {
+                valorTotal = c[0].Puntos + c[1].Puntos + 20;
+            }
+            else if (c[0].Palo == c[2].Palo)
+            {
+                valorTotal = c[0].Puntos + c[2].Puntos + 20;
+            }
+            else if (c[1].Palo == c[2].Palo)
+            {
+                valorTotal = c[1].Puntos + c[2].Puntos + 20;
             }
             else
             {
-                valorTotal = valores[0] + valores[1] + valores[2];
-                if (c[0].Palo == c[1].Palo)
+                for(int x = 0; x < 3; x++)
                 {
-                    valorTotal = valores[0] + valores[1] + 20;
-                }
-                else if (c[0].Palo == c[2].Palo)
-                {
-                    valorTotal = valores[0] + valores[2] + 20;
-                }
-                else if (c[1].Palo == c[2].Palo)
-                {
-                    valorTotal = valores[1] + valores[2] + 20;
+                    if(c[x].Puntos > valorTotal)
+                    {
+                        valorTotal = c[x].Puntos;
+                    }
                 }
             }
             

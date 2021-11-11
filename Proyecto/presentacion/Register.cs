@@ -46,33 +46,39 @@ namespace Proyecto.presentacion
                     /*if (checkBoxFemale.Checked)
                         sexo = "F";
                     else sexo = "M";*/
-
-                    if (Usuario.mailValido(txtMail.Text))
+                    if (txtUsername.Text == "" || txtPassword.Text == "" || txtNombre.Text == "" || txtApellido.Text == "")
                     {
-                        Conexion.insertarUsuario(txtUsername.Text, txtPassword.Text, txtNombre.Text, txtApellido.Text, sexo, txtMail.Text, fecha);
-                        MessageBox.Show("User correctly created", "Great!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        txtUsername.Text = "";
-                        txtPassword.Text = "";
-                        txtNombre.Text = "";
-                        txtApellido.Text = "";
-                        txtMail.Text = "";
-                        checkBoxFemale.Checked = false;
-                        checkBoxMale.Checked = false;
+                        if (Usuario.mailValido(txtMail.Text))
+                        {
+                            Conexion.insertarUsuario(txtUsername.Text, txtPassword.Text, txtNombre.Text, txtApellido.Text, sexo, txtMail.Text, fecha);
+                            MessageBox.Show("Usuario correctamente creado", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            txtUsername.Text = "";
+                            txtPassword.Text = "";
+                            txtNombre.Text = "";
+                            txtApellido.Text = "";
+                            txtMail.Text = "";
+                            checkBoxFemale.Checked = false;
+                            checkBoxMale.Checked = false;
+                        }
+                        else
+                        {
+                            MessageBox.Show("El mail que ingresó es inválido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("The mail is invalid", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Hay campos sin rellenar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("You have to choose your sex", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Tienes que elegir tu sexo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show("The username or the mail you entered is already in use" +
-                    "\nTry to put other username or mail", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("El nombre de usuario y/o el mail que ingresaste ya están en uso" +
+                    "\nPrueba poner otro nombre de usuario u otro mail", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

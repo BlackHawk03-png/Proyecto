@@ -79,6 +79,9 @@ namespace Proyecto.logica
         }
         public CartaEspañola robarCartaEspañola() //Roba una carta española
         {
+            usadasEspañolas.Add(40);
+            usadasEspañolas.Add(33);
+
             Random azar = new Random();
             CartaEspañola devuelve = null;
             int a = azar.Next(40);

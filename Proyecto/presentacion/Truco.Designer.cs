@@ -53,11 +53,14 @@ namespace Proyecto.presentacion
             this.btnNoQuiero = new System.Windows.Forms.Button();
             this.btnVolver = new System.Windows.Forms.Button();
             this.btnIniciarJuego = new System.Windows.Forms.Button();
+            this.picPerfil = new System.Windows.Forms.PictureBox();
+            this.panelMarcoDiferencial = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCartaO1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCartaO2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCartaO3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureMuestra)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picPerfil)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -250,7 +253,7 @@ namespace Proyecto.presentacion
             // 
             // btnReTruco
             // 
-            this.btnReTruco.Location = new System.Drawing.Point(892, 555);
+            this.btnReTruco.Location = new System.Drawing.Point(892, 615);
             this.btnReTruco.Name = "btnReTruco";
             this.btnReTruco.Size = new System.Drawing.Size(116, 54);
             this.btnReTruco.TabIndex = 15;
@@ -260,7 +263,7 @@ namespace Proyecto.presentacion
             // 
             // btnVale4
             // 
-            this.btnVale4.Location = new System.Drawing.Point(892, 495);
+            this.btnVale4.Location = new System.Drawing.Point(892, 615);
             this.btnVale4.Name = "btnVale4";
             this.btnVale4.Size = new System.Drawing.Size(116, 54);
             this.btnVale4.TabIndex = 16;
@@ -302,6 +305,29 @@ namespace Proyecto.presentacion
             this.btnIniciarJuego.UseVisualStyleBackColor = true;
             this.btnIniciarJuego.Click += new System.EventHandler(this.btnIniciarJuego_Click);
             // 
+            // picPerfil
+            // 
+            this.picPerfil.BackColor = System.Drawing.Color.Transparent;
+            this.picPerfil.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picPerfil.BackgroundImage")));
+            this.picPerfil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picPerfil.ErrorImage = ((System.Drawing.Image)(resources.GetObject("picPerfil.ErrorImage")));
+            this.picPerfil.InitialImage = ((System.Drawing.Image)(resources.GetObject("picPerfil.InitialImage")));
+            this.picPerfil.Location = new System.Drawing.Point(161, 498);
+            this.picPerfil.Name = "picPerfil";
+            this.picPerfil.Size = new System.Drawing.Size(167, 167);
+            this.picPerfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picPerfil.TabIndex = 42;
+            this.picPerfil.TabStop = false;
+            // 
+            // panelMarcoDiferencial
+            // 
+            this.panelMarcoDiferencial.BackColor = System.Drawing.Color.Transparent;
+            this.panelMarcoDiferencial.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelMarcoDiferencial.BackgroundImage")));
+            this.panelMarcoDiferencial.Location = new System.Drawing.Point(157, 494);
+            this.panelMarcoDiferencial.Name = "panelMarcoDiferencial";
+            this.panelMarcoDiferencial.Size = new System.Drawing.Size(175, 175);
+            this.panelMarcoDiferencial.TabIndex = 43;
+            // 
             // Truco
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -309,6 +335,8 @@ namespace Proyecto.presentacion
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.picPerfil);
+            this.Controls.Add(this.panelMarcoDiferencial);
             this.Controls.Add(this.btnIniciarJuego);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnNoQuiero);
@@ -342,6 +370,7 @@ namespace Proyecto.presentacion
             ((System.ComponentModel.ISupportInitialize)(this.picCartaO2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCartaO3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureMuestra)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picPerfil)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -370,5 +399,7 @@ namespace Proyecto.presentacion
         private System.Windows.Forms.Button btnNoQuiero;
         private System.Windows.Forms.Button btnVolver;
         private System.Windows.Forms.Button btnIniciarJuego;
+        private System.Windows.Forms.PictureBox picPerfil;
+        private System.Windows.Forms.Panel panelMarcoDiferencial;
     }
 }
