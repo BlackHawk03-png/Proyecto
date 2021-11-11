@@ -46,7 +46,8 @@ namespace Proyecto.presentacion
                     /*if (checkBoxFemale.Checked)
                         sexo = "F";
                     else sexo = "M";*/
-                    if (txtUsername.Text == "" || txtPassword.Text == "" || txtNombre.Text == "" || txtApellido.Text == "")
+
+                    if (txtUsername.Text.Equals("") == false && txtPassword.Text.Equals("") == false && txtNombre.Text.Equals("") == false && txtApellido.Text.Equals("") == false)
                     {
                         if (Usuario.mailValido(txtMail.Text))
                         {

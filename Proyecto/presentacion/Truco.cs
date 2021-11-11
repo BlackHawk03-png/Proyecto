@@ -78,6 +78,26 @@ namespace Proyecto.presentacion
             var x = btnCarta3.Location;
             x.Y -= 40;
             btnCarta3.Location = x;
+
+            CartaEspañola[] cartasO = { co1, co2, co3 };
+
+            int numCartaO = azar.Next(3);
+            while (cartasO[numCartaO].FueJugada)
+            {
+                numCartaO = azar.Next(3);
+            }
+            if (tf.cartaGanadora(c1, cartasO[numCartaO], muestra) == 1)
+            {
+                ganadoresManos[nroMano - 1] = jugador1;
+            }
+            else if (tf.cartaGanadora(c1, cartasO[numCartaO], muestra) == 2)
+            {
+                ganadoresManos[nroMano - 1] = jugador2;
+            }
+            else
+            {
+                ganadoresManos[nroMano - 1] = "Emparde";
+            }
         }
 
         private void btnCarta2_Click(object sender, EventArgs e)
@@ -86,6 +106,26 @@ namespace Proyecto.presentacion
             var x = btnCarta2.Location;
             x.Y -= 40;
             btnCarta2.Location = x;
+
+            CartaEspañola[] cartasO = { co1, co2, co3 };
+
+            int numCartaO = azar.Next(3);
+            while (cartasO[numCartaO].FueJugada)
+            {
+                numCartaO = azar.Next(3);
+            }
+            if (tf.cartaGanadora(c1, cartasO[numCartaO], muestra) == 1)
+            {
+                ganadoresManos[nroMano - 1] = jugador1;
+            }
+            else if (tf.cartaGanadora(c1, cartasO[numCartaO], muestra) == 2)
+            {
+                ganadoresManos[nroMano - 1] = jugador2;
+            }
+            else
+            {
+                ganadoresManos[nroMano - 1] = "Emparde";
+            }
         }
 
         private void btnCarta1_Click(object sender, EventArgs e)
@@ -96,11 +136,17 @@ namespace Proyecto.presentacion
             btnCarta1.Location = x;
 
             CartaEspañola[] cartasO = { co1, co2, co3 };
-            if (tf.cartaGanadora(c1, cartasO[azar.Next(3)], muestra) == 1)
+
+            int numCartaO = azar.Next(3);
+            while (cartasO[numCartaO].FueJugada)
+            {
+                numCartaO = azar.Next(3);
+            }
+            if (tf.cartaGanadora(c1, cartasO[numCartaO], muestra) == 1)
             {
                 ganadoresManos[nroMano - 1] = jugador1;
             }
-            else if (tf.cartaGanadora(c1, cartasO[azar.Next(3)], muestra) == 2)
+            else if (tf.cartaGanadora(c1, cartasO[numCartaO], muestra) == 2)
             {
                 ganadoresManos[nroMano - 1] = jugador2;
             }
@@ -109,8 +155,66 @@ namespace Proyecto.presentacion
                 ganadoresManos[nroMano - 1] = "Emparde";
             }
 
+            if (comparaManos() == 1)
+            {
+                terminaRonda(true);
+            }
+            else if (comparaManos() == 2)
+            {
+                terminaRonda(false);
+            }
             nroMano++;
 
+        }
+
+        private int comparaManos() //Si gana el jugador1, devuelve 1, si gana el jugador2 devuelve 2, sino 3
+        {
+            int devuelve = 0;
+            if (ganadoresManos[0] == jugador1 && ganadoresManos[1] == jugador1)
+            {
+                devuelve = 1;
+            }
+            else if (ganadoresManos[0] == jugador2 && ganadoresManos[1] == jugador2)
+            {
+                devuelve = 2;
+            }
+            else if (ganadoresManos[0] == jugador1 && ganadoresManos[2] == jugador1)
+            {
+                devuelve = 1;
+            }
+            else if (ganadoresManos[0] == jugador2 && ganadoresManos[2] == jugador2)
+            {
+                devuelve = 2;
+            }
+            else if (ganadoresManos[0] == "Emparde" && ganadoresManos[1] == jugador1)
+            {
+                devuelve = 1;
+            }
+            else if (ganadoresManos[0] == "Emparde" && ganadoresManos[1] == jugador2)
+            {
+                devuelve = 2;
+            }
+            else if (ganadoresManos[0] == "Emparde" && ganadoresManos[1] == "Emparde" && ganadoresManos[2] == jugador1)
+            {
+                devuelve = 1;
+            }
+            else if (ganadoresManos[0] == "Emparde" && ganadoresManos[1] == "Emparde" && ganadoresManos[2] == jugador2)
+            {
+                devuelve = 2;
+            }
+            else if (ganadoresManos[0] == "Emparde" && ganadoresManos[1] == "Emparde" && ganadoresManos[2] == "Emparde")
+            {
+                if (mano)
+                {
+                    devuelve = 1;
+                }
+                else
+                {
+                    devuelve = 2;
+                }
+            }
+
+            return devuelve;
         }
 
         public Truco(bool t, string j1, string j2)
@@ -354,10 +458,7 @@ namespace Proyecto.presentacion
         {
             
         }
-        private void cpuMano()
-        {
 
-        }
         private void pierde()
         {
 
@@ -430,9 +531,18 @@ namespace Proyecto.presentacion
 
             //Conexion a la base de datos, persistir mano
         }
-        private void terminaRonda()
+        private void terminaRonda(bool ganador) //si es true el ganador es el usuario
         {
-
+            if (ganador)
+            {
+                puntosJugador1 += puntosEnJuego;
+                labelPuntajeUser.Text = puntosJugador1.ToString();
+            }
+            if (!ganador)
+            {
+                puntosJugador2 += puntosEnJuego;
+                labelPuntajeCPU.Text = puntosJugador1.ToString();
+            }
         }
     }
 }
