@@ -8,6 +8,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -195,7 +196,7 @@ namespace Proyecto.presentacion
             btnFicha.Hide();
             btnIzquierda.Hide();
             btnDerecha.Hide();
-            txtApuesta.Text += apuesta;
+            txtApuesta.Text = "Apuesta: " + apuesta;
             presupuesto -= apuesta;
             txtPresupuesto.Text = "Presupuesto: " + presupuesto;
             
@@ -275,7 +276,9 @@ namespace Proyecto.presentacion
             txtApuesta.Text = "Apuesta: " + apuesta;
             c3 = b.robarCartaInglesa();
             btnCarta3.BackgroundImage = Image.FromFile(@"..\..\imagenes\blackjack\" + c3.RutaImg + ".png");
+            Thread.Sleep(1);
             cartas[2] = c3;
+            txtValores.Text = funciones.actualizaValores(cartas);
             if (funciones.superaLimite(cartas))
             {
                 pierde();
@@ -351,7 +354,7 @@ namespace Proyecto.presentacion
             int valorAGanar = funciones.valorAGanar(cartas);
             cantCartas = 2;
             btnCartaO2.BackgroundImage = Image.FromFile(@"..\..\imagenes\blackjack\" + co2.RutaImg + ".png");
-            while (cantCartas < 7 && (cartasTotal < 17 && cartasTotal < valorAGanar))
+            while (cantCartas < 7 && (cartasTotal < 17 || cartasTotal < valorAGanar))
             {
                 switch (cantCartas)
                 {
@@ -488,6 +491,7 @@ namespace Proyecto.presentacion
             btnApostar.Show();
             btnFicha.BackColor = Color.Transparent;
             txtValores.Text = "Valor de sus cartas: ";
+            //apuesta = 0;
             txtApuesta.Text = "Apuesta: ";
         }
     }

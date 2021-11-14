@@ -59,6 +59,7 @@ namespace Proyecto.presentacion
             // btnCarta1
             // 
             this.btnCarta1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCarta1.Enabled = false;
             this.btnCarta1.Location = new System.Drawing.Point(274, 510);
             this.btnCarta1.Name = "btnCarta1";
             this.btnCarta1.Size = new System.Drawing.Size(100, 140);
@@ -69,6 +70,7 @@ namespace Proyecto.presentacion
             // btnCarta2
             // 
             this.btnCarta2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCarta2.Enabled = false;
             this.btnCarta2.Location = new System.Drawing.Point(374, 510);
             this.btnCarta2.Name = "btnCarta2";
             this.btnCarta2.Size = new System.Drawing.Size(100, 140);
@@ -128,6 +130,7 @@ namespace Proyecto.presentacion
             // btnCarta3
             // 
             this.btnCarta3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCarta3.Enabled = false;
             this.btnCarta3.Location = new System.Drawing.Point(474, 510);
             this.btnCarta3.Name = "btnCarta3";
             this.btnCarta3.Size = new System.Drawing.Size(100, 140);
@@ -137,6 +140,7 @@ namespace Proyecto.presentacion
             // btnCarta4
             // 
             this.btnCarta4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCarta4.Enabled = false;
             this.btnCarta4.Location = new System.Drawing.Point(574, 510);
             this.btnCarta4.Name = "btnCarta4";
             this.btnCarta4.Size = new System.Drawing.Size(100, 140);
@@ -146,6 +150,7 @@ namespace Proyecto.presentacion
             // btnCarta5
             // 
             this.btnCarta5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCarta5.Enabled = false;
             this.btnCarta5.Location = new System.Drawing.Point(674, 510);
             this.btnCarta5.Name = "btnCarta5";
             this.btnCarta5.Size = new System.Drawing.Size(100, 140);
@@ -155,6 +160,7 @@ namespace Proyecto.presentacion
             // btnCarta6
             // 
             this.btnCarta6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCarta6.Enabled = false;
             this.btnCarta6.Location = new System.Drawing.Point(774, 510);
             this.btnCarta6.Name = "btnCarta6";
             this.btnCarta6.Size = new System.Drawing.Size(100, 140);
@@ -164,6 +170,7 @@ namespace Proyecto.presentacion
             // btnCartaO6
             // 
             this.btnCartaO6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCartaO6.Enabled = false;
             this.btnCartaO6.Location = new System.Drawing.Point(774, 59);
             this.btnCartaO6.Name = "btnCartaO6";
             this.btnCartaO6.Size = new System.Drawing.Size(100, 140);
@@ -173,6 +180,7 @@ namespace Proyecto.presentacion
             // btnCartaO5
             // 
             this.btnCartaO5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCartaO5.Enabled = false;
             this.btnCartaO5.Location = new System.Drawing.Point(674, 59);
             this.btnCartaO5.Name = "btnCartaO5";
             this.btnCartaO5.Size = new System.Drawing.Size(100, 140);
@@ -182,6 +190,7 @@ namespace Proyecto.presentacion
             // btnCartaO4
             // 
             this.btnCartaO4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCartaO4.Enabled = false;
             this.btnCartaO4.Location = new System.Drawing.Point(574, 59);
             this.btnCartaO4.Name = "btnCartaO4";
             this.btnCartaO4.Size = new System.Drawing.Size(100, 140);
@@ -191,6 +200,7 @@ namespace Proyecto.presentacion
             // btnCartaO3
             // 
             this.btnCartaO3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCartaO3.Enabled = false;
             this.btnCartaO3.Location = new System.Drawing.Point(474, 59);
             this.btnCartaO3.Name = "btnCartaO3";
             this.btnCartaO3.Size = new System.Drawing.Size(100, 140);
@@ -200,6 +210,7 @@ namespace Proyecto.presentacion
             // btnCartaO2
             // 
             this.btnCartaO2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCartaO2.Enabled = false;
             this.btnCartaO2.Location = new System.Drawing.Point(374, 59);
             this.btnCartaO2.Name = "btnCartaO2";
             this.btnCartaO2.Size = new System.Drawing.Size(100, 140);
@@ -209,6 +220,7 @@ namespace Proyecto.presentacion
             // btnCartaO1
             // 
             this.btnCartaO1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCartaO1.Enabled = false;
             this.btnCartaO1.Location = new System.Drawing.Point(274, 59);
             this.btnCartaO1.Name = "btnCartaO1";
             this.btnCartaO1.Size = new System.Drawing.Size(100, 140);

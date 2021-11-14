@@ -38,7 +38,7 @@ namespace Proyecto.presentacion
 
         private void btnTruco_Click(object sender, EventArgs e)
         {
-            Truco t = new Truco(true, null, null);
+            Truco t = new Truco(true, "Guest", "CPU");
             t.Show();
             base.Hide();
         }

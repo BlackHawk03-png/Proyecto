@@ -129,7 +129,7 @@ namespace Proyecto.logica
             
             return valorTotal;
         }
-        public void valorCarta(CartaEspañola c, CartaEspañola muestra) //Devuelve el valor de la mano
+        public int valorCarta(CartaEspañola c, CartaEspañola muestra) //Devuelve el valor de la mano
         {
             if (esPieza(c, muestra))
             {
@@ -186,6 +186,7 @@ namespace Proyecto.logica
                 else if (c.Numero == 5) { c.Valor = 2; c.Puntos = 5; }
                 else if (c.Numero == 4) { c.Valor = 1; c.Puntos = 4; }
             }
+            return c.Valor;
         }
         public bool esMata(CartaEspañola c)
         {
@@ -225,11 +226,11 @@ namespace Proyecto.logica
         {
             int ganador = 0; //Emparda
             
-            if(c1.Valor > c2.Valor)
+            if(valorCarta(c1, muestra) > valorCarta(c2, muestra))
             {
                 ganador = 1;
             }
-            else if(c1.Valor < c2.Valor)
+            else if(valorCarta(c1, muestra) < valorCarta(c2, muestra))
             {
                 ganador = 2;
             }

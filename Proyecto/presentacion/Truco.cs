@@ -86,18 +86,55 @@ namespace Proyecto.presentacion
             {
                 numCartaO = azar.Next(3);
             }
-            if (tf.cartaGanadora(c1, cartasO[numCartaO], muestra) == 1)
+            var y = picCartaO1.Location;
+            switch (numCartaO)
+            {
+                case 0:
+                    y = picCartaO1.Location;
+                    y.Y += 40;
+                    picCartaO1.Location = x;
+                    break;
+                case 1:
+                    y = picCartaO2.Location;
+                    y.Y += 40;
+                    picCartaO2.Location = x;
+                    break;
+                case 2:
+                    y = picCartaO3.Location;
+                    y.Y += 40;
+                    picCartaO3.Location = x;
+                    break;
+            }
+            if (tf.cartaGanadora(c3, cartasO[numCartaO], muestra) == 1)
             {
                 ganadoresManos[nroMano - 1] = jugador1;
+                MessageBox.Show("Ganaste esta mano", "Atención",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             }
-            else if (tf.cartaGanadora(c1, cartasO[numCartaO], muestra) == 2)
+            else if (tf.cartaGanadora(c3, cartasO[numCartaO], muestra) == 2)
             {
                 ganadoresManos[nroMano - 1] = jugador2;
+                MessageBox.Show("Perdiste esta mano", "Atención",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
                 ganadoresManos[nroMano - 1] = "Emparde";
+                MessageBox.Show("Emparde", "Atención",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            if (comparaManos() == 1)
+            {
+                terminaRonda(true);
+                return;
+            }
+            else if (comparaManos() == 2)
+            {
+                terminaRonda(false);
+                return;
+            }
+            nroMano++;
         }
 
         private void btnCarta2_Click(object sender, EventArgs e)
@@ -114,18 +151,55 @@ namespace Proyecto.presentacion
             {
                 numCartaO = azar.Next(3);
             }
-            if (tf.cartaGanadora(c1, cartasO[numCartaO], muestra) == 1)
+            var y = picCartaO1.Location;
+            switch (numCartaO)
+            {
+                case 0:
+                    y = picCartaO1.Location;
+                    y.Y += 40;
+                    picCartaO1.Location = x;
+                    break;
+                case 1:
+                    y = picCartaO2.Location;
+                    y.Y += 40;
+                    picCartaO2.Location = x;
+                    break;
+                case 2:
+                    y = picCartaO3.Location;
+                    y.Y += 40;
+                    picCartaO3.Location = x;
+                    break;
+            }
+            if (tf.cartaGanadora(c2, cartasO[numCartaO], muestra) == 1)
             {
                 ganadoresManos[nroMano - 1] = jugador1;
+                MessageBox.Show("Ganaste esta mano", "Atención",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             }
-            else if (tf.cartaGanadora(c1, cartasO[numCartaO], muestra) == 2)
+            else if (tf.cartaGanadora(c2, cartasO[numCartaO], muestra) == 2)
             {
                 ganadoresManos[nroMano - 1] = jugador2;
+                MessageBox.Show("Perdiste esta mano", "Atención",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
                 ganadoresManos[nroMano - 1] = "Emparde";
+                MessageBox.Show("Emparde", "Atención",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            if (comparaManos() == 1)
+            {
+                terminaRonda(true);
+                return;
+            }
+            else if (comparaManos() == 2)
+            {
+                terminaRonda(false);
+                return;
+            }
+            nroMano++;
         }
 
         private void btnCarta1_Click(object sender, EventArgs e)
@@ -142,76 +216,140 @@ namespace Proyecto.presentacion
             {
                 numCartaO = azar.Next(3);
             }
+            var y = picCartaO1.Location;
+            switch (numCartaO)
+            {
+                case 0:
+                    y = picCartaO1.Location;
+                    y.Y += 40;
+                    picCartaO1.Location = x;
+                    co1.FueJugada = true;
+                    break;
+                case 1:
+                    y = picCartaO2.Location;
+                    y.Y += 40;
+                    picCartaO2.Location = x;
+                    co2.FueJugada = true;
+                    break;
+                case 2:
+                    y = picCartaO3.Location;
+                    y.Y += 40;
+                    picCartaO3.Location = x;
+                    co3.FueJugada = true;
+                    break;
+            }
             if (tf.cartaGanadora(c1, cartasO[numCartaO], muestra) == 1)
             {
                 ganadoresManos[nroMano - 1] = jugador1;
+                MessageBox.Show("Ganaste esta mano", "Atención",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             }
             else if (tf.cartaGanadora(c1, cartasO[numCartaO], muestra) == 2)
             {
                 ganadoresManos[nroMano - 1] = jugador2;
+                MessageBox.Show("Perdiste esta mano", "Atención",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
                 ganadoresManos[nroMano - 1] = "Emparde";
+                MessageBox.Show("Emparde", "Atención",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
             if (comparaManos() == 1)
             {
                 terminaRonda(true);
+                return;
             }
             else if (comparaManos() == 2)
             {
                 terminaRonda(false);
+                return;
             }
             nroMano++;
-
         }
 
         private int comparaManos() //Si gana el jugador1, devuelve 1, si gana el jugador2 devuelve 2, sino 3
         {
             int devuelve = 0;
-            if (ganadoresManos[0] == jugador1 && ganadoresManos[1] == jugador1)
+
+            if (ganadoresManos[0] == jugador1)
             {
-                devuelve = 1;
-            }
-            else if (ganadoresManos[0] == jugador2 && ganadoresManos[1] == jugador2)
-            {
-                devuelve = 2;
-            }
-            else if (ganadoresManos[0] == jugador1 && ganadoresManos[2] == jugador1)
-            {
-                devuelve = 1;
-            }
-            else if (ganadoresManos[0] == jugador2 && ganadoresManos[2] == jugador2)
-            {
-                devuelve = 2;
-            }
-            else if (ganadoresManos[0] == "Emparde" && ganadoresManos[1] == jugador1)
-            {
-                devuelve = 1;
-            }
-            else if (ganadoresManos[0] == "Emparde" && ganadoresManos[1] == jugador2)
-            {
-                devuelve = 2;
-            }
-            else if (ganadoresManos[0] == "Emparde" && ganadoresManos[1] == "Emparde" && ganadoresManos[2] == jugador1)
-            {
-                devuelve = 1;
-            }
-            else if (ganadoresManos[0] == "Emparde" && ganadoresManos[1] == "Emparde" && ganadoresManos[2] == jugador2)
-            {
-                devuelve = 2;
-            }
-            else if (ganadoresManos[0] == "Emparde" && ganadoresManos[1] == "Emparde" && ganadoresManos[2] == "Emparde")
-            {
-                if (mano)
+                if (ganadoresManos[1] == jugador1)
                 {
                     devuelve = 1;
                 }
-                else
+                else if (ganadoresManos[2] == jugador1)
+                {
+                        devuelve = 1;
+                }
+                else if (ganadoresManos[1] == jugador2 && ganadoresManos[2] == "Emparde")
+                {
+                    devuelve = 1;
+                }
+                else if (ganadoresManos[1] == "Emparde")
+                {
+                    devuelve = 1;
+                }
+            }
+            else if(ganadoresManos[0] == jugador2)
+            {
+                if (ganadoresManos[1] == jugador2)
                 {
                     devuelve = 2;
                 }
+                else if (ganadoresManos[2] == jugador2)
+                {
+                    devuelve = 2;
+                }
+                else if (ganadoresManos[1] == jugador1 && ganadoresManos[2] == "Emparde")
+                {
+                    devuelve = 2;
+                }
+                else if (ganadoresManos[1] == "Emparde")
+                {
+                    devuelve = 2;
+                }
+            }
+            else if(ganadoresManos[0] == "Emparde")
+            {
+                if (ganadoresManos[1] == jugador1)
+                {
+                    devuelve = 1;
+                }
+                else if (ganadoresManos[1] == jugador2)
+                {
+                    devuelve = 2;
+                }
+                else if (ganadoresManos[1] == "Emparde" && ganadoresManos[2] == jugador1)
+                {
+                    devuelve = 1;
+                }
+                else if (ganadoresManos[1] == "Emparde" && ganadoresManos[2] == jugador2)
+                {
+                    devuelve = 2;
+                }
+                else if (ganadoresManos[1] == "Emparde" && ganadoresManos[2] == "Emparde")
+                {
+                    if (mano)
+                    {
+                        devuelve = 1;
+                    }
+                    else
+                    {
+                        devuelve = 2;
+                    }
+                }
+            }
+  
+            if (ganadoresManos[1] == jugador1 && ganadoresManos[2] == jugador1)
+            {
+                devuelve = 1;
+            }
+            else if (ganadoresManos[1] == jugador2 && ganadoresManos[2] == jugador2)
+            {
+                devuelve = 2;
             }
 
             return devuelve;
@@ -253,34 +391,33 @@ namespace Proyecto.presentacion
         }
         private void iniciarJuego()
         {
-            /*if (Usuario.usuarioActual.Username != "")
+            if (Usuario.usuarioActual.Username != "")
             {
                 Conexion.CrearPartidaTruco(jugador1, jugador2, tipo);
                 id = Conexion.RecibirIdPartida(true);
-            }*/
+            }
             PartidaTruco p = new PartidaTruco(id, jugador1, jugador2, tipo);
 
-            while (!finalizaPartida(p))
-            {
-                inicioRonda();
-            }
+            inicioRonda();
+            
             //Conexion con la base de datos, persistir la partida
             //Mensaje al ganador
         }
-        private bool finalizaPartida(PartidaTruco p)
+        private void finalizaPartida()
         {
-            bool finaliza = false;
-            if (puntosJugador1 == 40)
+            if (Usuario.usuarioActual.Username != "")
             {
-                p.Ganador = jugador1;
-                finaliza = true;
+                Main2 m = new Main2();
+                m.Show();
+                base.Hide();
+                //Conexion con la base de datos para actualizar la partida
             }
-            else if (puntosJugador2 == 40)
+            else
             {
-                p.Ganador = jugador2;
-                finaliza = true;
+                Guest g = new Guest();
+                g.Show();
+                base.Hide();
             }
-            return finaliza;
         }
         private void btnEnvido_Click(object sender, EventArgs e)
         {
@@ -294,32 +431,49 @@ namespace Proyecto.presentacion
                 cartas[0] = co1;
                 cartas[1] = co2;
                 cartas[2] = co3;
-                int envido2 = tf.valorEnvido(cartas, muestra);
-                if(envido1 > envido2)
+
+                if (!tf.verificaFlor(cartas, muestra))
                 {
-                    MessageBox.Show("¡Wow!", "Son buenas, ganaste el envido");
-                    puntosJugador1++;
-                }
-                else if(envido2 > envido1)
-                {
-                    MessageBox.Show("Son buenas", envido2.ToString() + "son mejores, perdiste el envido");
-                    puntosJugador2++;
-                }
-                else
-                {
-                    if (mano)
+                    int envido2 = tf.valorEnvido(cartas, muestra);
+                    if (envido1 > envido2)
                     {
-                        MessageBox.Show("Empate, ganas por mano", "Atención",
-                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Son buenas, ganaste el envido", "Atención");
+                        puntosJugador1++;
+                        labelPuntajeUser.Text = puntosJugador1.ToString();
+                    }
+                    else if (envido2 > envido1)
+                    {
+                        MessageBox.Show(envido2.ToString() + " son mejores, perdiste el envido", "Son buenas");
+                        puntosJugador2++;
+                        labelPuntajeCPU.Text = puntosJugador2.ToString();
                     }
                     else
                     {
-                        MessageBox.Show("Empate, tu oponente gana por mano", "Atención",
-                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (mano)
+                        {
+                            MessageBox.Show("Empate, ganas por mano", "Atención",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            puntosJugador1++;
+                            labelPuntajeUser.Text = puntosJugador1.ToString();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Empate, tu oponente gana por mano", "Atención",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            puntosJugador2++;
+                            labelPuntajeCPU.Text = puntosJugador2.ToString();
+                        }
+
                     }
-                    
+                    envido = true;
                 }
-                envido = true;
+                else
+                {
+                    MessageBox.Show("Tu oponente tiene flor, gana 3 puntos", "Atención",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    puntosJugador2 += 3;
+                    labelPuntajeCPU.Text = puntosJugador2.ToString();
+                }
             }
             else
             {
@@ -327,6 +481,7 @@ namespace Proyecto.presentacion
                 labelPuntajeUser.Text = puntosJugador1.ToString();
                 labelPuntajeCPU.Text = puntosJugador2.ToString();
             }
+            //btnEnvido.Hide();
         }
 
         private void btnQuiero_Click(object sender, EventArgs e)
@@ -340,14 +495,18 @@ namespace Proyecto.presentacion
             int a = azar.Next(2); //Si es 0 el cpu quiere, sino no quiere
             if (a == 0)
             {
+                MessageBox.Show("Tu oponente quiere vale 4", "Atención",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
                 puntosEnJuego = 4;
                 vale4 = true;
             }
             else
             {
-                puntosJugador1 += 2;
+                MessageBox.Show("Tu oponente no quiere vale 4", "Atención",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                puntosEnJuego = 3;
                 labelPuntajeUser.Text = puntosJugador1.ToString();
-                repartir();
+                terminaRonda(true);
             }
         }
 
@@ -357,6 +516,8 @@ namespace Proyecto.presentacion
             cantoReTruco = true;
             if (a == 0)
             {
+                MessageBox.Show("Tu oponente quiere retruco", "Atención",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
                 puntosEnJuego = 3;
                 retruco = true;
                 btnVale4.Show();
@@ -364,8 +525,11 @@ namespace Proyecto.presentacion
             }
             else
             {
-                puntosJugador1++;
+                MessageBox.Show("Tu oponente no quiere retruco", "Atención",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                puntosEnJuego = 2;
                 labelPuntajeUser.Text = puntosJugador1.ToString();
+                terminaRonda(true);
             }
                 
         }
@@ -376,6 +540,8 @@ namespace Proyecto.presentacion
             int a = azar.Next(2); //Si es 0 el cpu quiere, sino no quiere
             if (a == 0)
             {
+                MessageBox.Show("Tu oponente quiere truco", "Atención",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
                 puntosEnJuego = 2;
                 truco = true;
                 btnReTruco.Show();
@@ -383,8 +549,11 @@ namespace Proyecto.presentacion
             }
             else
             {
-                puntosJugador1++;
+                MessageBox.Show("Tu oponente  no quiere truco", "Atención",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                puntosEnJuego = 1;
                 labelPuntajeUser.Text = puntosJugador1.ToString();
+                terminaRonda(true);
             }
 
 
@@ -392,8 +561,9 @@ namespace Proyecto.presentacion
 
         private void btnFlor_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Tenés flor. ganas 3 puntos", "Felicidades");
+            MessageBox.Show("Tenés flor, ganas 3 puntos", "Felicidades");
             puntosJugador1 += 3;
+            labelPuntajeUser.Text = puntosJugador1.ToString();
             btnFlor.Hide();
         }
 
@@ -408,8 +578,7 @@ namespace Proyecto.presentacion
         }
         private void repartir()
         {
-            c1 = new CartaEspañola(12, "Basto");
-            //c1 = b.robarCartaEspañola();
+            c1 = b.robarCartaEspañola();
             btnCarta1.BackgroundImage = Image.FromFile(@"..\..\imagenes\truco\" + c1.RutaImg + ".png");
             co1 = b.robarCartaEspañola();
             picCartaO1.BackgroundImage = Image.FromFile(@"..\..\imagenes\truco\" + co1.RutaImg + ".png");
@@ -421,8 +590,7 @@ namespace Proyecto.presentacion
             btnCarta3.BackgroundImage = Image.FromFile(@"..\..\imagenes\truco\" + c3.RutaImg + ".png");
             co3 = b.robarCartaEspañola();
             picCartaO3.BackgroundImage = Image.FromFile(@"..\..\imagenes\truco\" + co3.RutaImg + ".png");
-            muestra = new CartaEspañola(5, "Basto");
-            //muestra = b.robarCartaEspañola();
+            muestra = b.robarCartaEspañola();
             pictureMuestra.BackgroundImage = Image.FromFile(@"..\..\imagenes\truco\" + muestra.RutaImg + ".png");
 
             btnCarta1.Enabled = true;
@@ -430,16 +598,28 @@ namespace Proyecto.presentacion
             btnCarta3.Enabled = true;
 
             picCartaO1.Show();
+            picCartaO1.Location = new Point(340, 25);
             picCartaO2.Show();
+            picCartaO2.Location = new Point(520, 25);
             picCartaO3.Show();
+            picCartaO3.Location = new Point(700, 25);
             btnCarta1.Show();
+            btnCarta1.Location = new Point(340, 464);
             btnCarta2.Show();
+            btnCarta2.Location = new Point(520, 464);
             btnCarta3.Show();
+            btnCarta3.Location = new Point(700, 464);
             btnTruco.Show();
             btnReTruco.Hide();
             btnVale4.Hide();
             btnQuiero.Hide();
             btnNoQuiero.Hide();
+
+            nroMano = 1;
+            ganadoresManos[0] = "!";
+            ganadoresManos[1] = "·";
+            ganadoresManos[2] = "$";
+
             CartaEspañola[] cartas = { c1, c2, c3 };
             if (tf.verificaFlor(cartas, muestra))
             {
@@ -471,6 +651,8 @@ namespace Proyecto.presentacion
             btnCarta1.Hide();
             btnCarta2.Hide();
             btnCarta3.Hide();
+
+
             btnEnvido.Hide();
             btnFlor.Hide();
             btnQuiero.Hide();
@@ -478,6 +660,39 @@ namespace Proyecto.presentacion
             btnTruco.Hide();
             btnReTruco.Hide();
             btnVale4.Hide();
+
+            c1 = null;
+            co1 = null;
+            c2 = null;
+            co2 = null;
+            c3 = null;
+            co3 = null;
+
+            mano = false;
+            finalizaRonda = false;
+            truco = false;
+            cantoTruco = false;
+            retruco = false;
+            cantoReTruco = false;
+            vale4 = false;
+            cantoVal4 = false;
+            envido = false;
+            cantoEnvido = false;
+            flor = false;
+            gana = false;
+            buenasj1 = false;
+            buenasj2 = false;
+            puntosJugador1 = 0;
+            puntosJugador2 = 0;
+            puntosEnJuego = 1;
+            ronda = 1;
+            nroMano = 1;
+            ganadoresManos[0] = "!";
+            ganadoresManos[1] = "·";
+            ganadoresManos[2] = "$";
+
+            labelPuntajeCPU.Text = "";
+            labelPuntajeUser.Text = "";
         }
         private void inicioRonda()
         {
@@ -493,6 +708,19 @@ namespace Proyecto.presentacion
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 buenasj2 = true;
             }
+            if (puntosJugador1 >= 40)
+            {
+                MessageBox.Show("Felicidades, ganaste la partida", "Atención",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                finalizaPartida();
+            }
+            else if (puntosJugador2 >= 40)
+            {
+                MessageBox.Show("Perdiste la partida", "Atención",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                finalizaPartida();
+            }
+
 
             if (mano) 
             { 
@@ -504,9 +732,6 @@ namespace Proyecto.presentacion
             }
             repartir();
             nroMano = 1;
-            ganadoresManos[0] = "";
-            ganadoresManos[1] = "";
-            ganadoresManos[2] = "";
             truco = false;
             cantoTruco = false;
             retruco = false;
@@ -518,11 +743,8 @@ namespace Proyecto.presentacion
             flor = false;
 
             //btnIniciarJuego.Hide();
-            do
-            {
-                jugarMano();
-            }
-            while (!finalizaRonda);
+            jugarMano();
+
             
         }
         private void jugarMano()
@@ -535,14 +757,19 @@ namespace Proyecto.presentacion
         {
             if (ganador)
             {
+                MessageBox.Show("Ganaste la ronda, ganas " + puntosEnJuego + " puntos", "Atención",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
                 puntosJugador1 += puntosEnJuego;
                 labelPuntajeUser.Text = puntosJugador1.ToString();
             }
             if (!ganador)
             {
+                MessageBox.Show("Perdiste la ronda, tu oponente gana " + puntosEnJuego + " puntos", "Atención",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
                 puntosJugador2 += puntosEnJuego;
-                labelPuntajeCPU.Text = puntosJugador1.ToString();
+                labelPuntajeCPU.Text = puntosJugador2.ToString();
             }
+            inicioRonda();
         }
     }
 }
