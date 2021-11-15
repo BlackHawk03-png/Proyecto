@@ -103,7 +103,7 @@ namespace Proyecto.presentacion
             }
             else
             {
-                MessageBox.Show("The mail is invalid", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("El mail que ingresó es inválido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
         }

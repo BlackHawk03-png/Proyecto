@@ -48,7 +48,7 @@ namespace Proyecto
             this.btnLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLogin.Location = new System.Drawing.Point(78, 102);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(373, 85);
+            this.btnLogin.Size = new System.Drawing.Size(372, 85);
             this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "Login";
             this.btnLogin.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -65,9 +65,9 @@ namespace Proyecto
             this.btnRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegister.Image = ((System.Drawing.Image)(resources.GetObject("btnRegister.Image")));
             this.btnRegister.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRegister.Location = new System.Drawing.Point(457, 102);
+            this.btnRegister.Location = new System.Drawing.Point(456, 102);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(479, 86);
+            this.btnRegister.Size = new System.Drawing.Size(478, 86);
             this.btnRegister.TabIndex = 4;
             this.btnRegister.Text = "Register";
             this.btnRegister.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -84,7 +84,7 @@ namespace Proyecto
             this.btnGuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuest.Image = ((System.Drawing.Image)(resources.GetObject("btnGuest.Image")));
             this.btnGuest.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuest.Location = new System.Drawing.Point(942, 102);
+            this.btnGuest.Location = new System.Drawing.Point(940, 102);
             this.btnGuest.Name = "btnGuest";
             this.btnGuest.Size = new System.Drawing.Size(317, 85);
             this.btnGuest.TabIndex = 6;
@@ -112,7 +112,7 @@ namespace Proyecto
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.71025F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.00743F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70.28232F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1262, 677);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1260, 677);
             this.tableLayoutPanel1.TabIndex = 12;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
@@ -123,7 +123,7 @@ namespace Proyecto
             this.AutoSize = true;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1262, 677);
+            this.ClientSize = new System.Drawing.Size(1260, 677);
             this.Controls.Add(this.tableLayoutPanel1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -133,7 +133,6 @@ namespace Proyecto
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inicio";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

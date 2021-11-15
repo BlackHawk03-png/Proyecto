@@ -45,7 +45,7 @@ namespace Proyecto.presentacion
             }
             else
             {
-                MessageBox.Show("The username or the password is incorrect", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("El nombre de usuario o contraseña es incorrecto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void btnPassword_Click_1(object sender, EventArgs e)
@@ -53,7 +53,6 @@ namespace Proyecto.presentacion
             UsuarioCambiarPass ucp = new UsuarioCambiarPass();
             ucp.Show();
             base.Hide();
-            //MessageBox.Show("Coming soon...", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         private void btnImprime_Click(object sender, EventArgs e)
         {
