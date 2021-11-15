@@ -279,6 +279,7 @@ namespace Proyecto.presentacion
             this.btnNoQuiero.TabIndex = 17;
             this.btnNoQuiero.Text = "No quiero";
             this.btnNoQuiero.UseVisualStyleBackColor = true;
+            this.btnNoQuiero.Click += new System.EventHandler(this.btnNoQuiero_Click);
             // 
             // btnVolver
             // 

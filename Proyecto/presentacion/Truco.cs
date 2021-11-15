@@ -51,6 +51,8 @@ namespace Proyecto.presentacion
 
         Random azar = new Random();
 
+        
+
         private void btnVolver_Click(object sender, EventArgs e)
         {
             if(Usuario.usuarioActual.Username != "")
@@ -486,7 +488,17 @@ namespace Proyecto.presentacion
 
         private void btnQuiero_Click(object sender, EventArgs e)
         {
-
+            puntosEnJuego = 3;
+            retruco = true;
+            btnVale4.Show();
+            btnReTruco.Hide();
+        }
+        private void btnNoQuiero_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Pierdes por no aceptar retruco", "Atención",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            puntosEnJuego = 2;
+            terminaRonda(false);
         }
 
         private void btnVale4_Click(object sender, EventArgs e)
@@ -544,8 +556,25 @@ namespace Proyecto.presentacion
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
                 puntosEnJuego = 2;
                 truco = true;
-                btnReTruco.Show();
+                //btnReTruco.Show();
                 btnTruco.Hide();
+
+                int b = azar.Next(2);
+                if (b == 0)
+                {
+                    MessageBox.Show("Tu oponente quiere retruco," +
+                        "\nseleccione si quiere, no quiere, o quiere vale 4", "Atención",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    btnQuiero.Show();
+                    btnNoQuiero.Show();
+                    btnVale4.Show();
+                    btnCarta1.Enabled = false;
+                    btnCarta2.Enabled = false;
+                    btnCarta3.Enabled = false;
+                    btnFlor.Enabled = false;
+                    btnEnvido.Enabled = false;
+                }
+                
             }
             else
             {
@@ -555,7 +584,6 @@ namespace Proyecto.presentacion
                 labelPuntajeUser.Text = puntosJugador1.ToString();
                 terminaRonda(true);
             }
-
 
         }
 
