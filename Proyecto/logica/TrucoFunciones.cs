@@ -76,10 +76,14 @@ namespace Proyecto.logica
                 if (c[1].Puntos > c[2].Puntos)
                 {
                     valorTotal = c[0].Puntos + c[1].Puntos;
+                    c[0].FueEnvido = true;
+                    c[1].FueEnvido = true;
                 }
                 else
                 {
                     valorTotal = c[0].Puntos + c[2].Puntos;
+                    c[0].FueEnvido = true;
+                    c[2].FueEnvido = true;
                 }
             }
             else if (esPieza(c[1], muestra))
@@ -87,10 +91,14 @@ namespace Proyecto.logica
                 if (c[0].Puntos > c[2].Puntos)
                 {
                     valorTotal = c[1].Puntos + c[0].Puntos;
+                    c[0].FueEnvido = true;
+                    c[1].FueEnvido = true;
                 }
                 else
                 {
                     valorTotal = c[1].Puntos + c[2].Puntos;
+                    c[1].FueEnvido = true;
+                    c[2].FueEnvido = true;
                 }
             }
             else if (esPieza(c[2], muestra))
@@ -98,23 +106,33 @@ namespace Proyecto.logica
                 if (c[0].Puntos > c[1].Puntos)
                 {
                     valorTotal = c[2].Puntos + c[0].Puntos;
+                    c[2].FueEnvido = true;
+                    c[0].FueEnvido = true;
                 }
                 else
                 {
                     valorTotal = c[2].Puntos + c[1].Puntos;
+                    c[1].FueEnvido = true;
+                    c[2].FueEnvido = true;
                 }
             }
             else if (c[0].Palo == c[1].Palo)
             {
                 valorTotal = c[0].Puntos + c[1].Puntos + 20;
+                c[0].FueEnvido = true;
+                c[1].FueEnvido = true;
             }
             else if (c[0].Palo == c[2].Palo)
             {
                 valorTotal = c[0].Puntos + c[2].Puntos + 20;
+                c[0].FueEnvido = true;
+                c[2].FueEnvido = true;
             }
             else if (c[1].Palo == c[2].Palo)
             {
                 valorTotal = c[1].Puntos + c[2].Puntos + 20;
+                c[1].FueEnvido = true;
+                c[2].FueEnvido = true;
             }
             else
             {
@@ -123,6 +141,7 @@ namespace Proyecto.logica
                     if(c[x].Puntos > valorTotal)
                     {
                         valorTotal = c[x].Puntos;
+                        c[x].FueEnvido = true;
                     }
                 }
             }

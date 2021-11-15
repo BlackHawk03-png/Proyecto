@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -81,6 +82,9 @@ namespace Proyecto.presentacion
             x.Y -= 40;
             btnCarta3.Location = x;
 
+            btnEnvido.Hide();
+            btnFlor.Hide();
+
             CartaEspañola[] cartasO = { co1, co2, co3 };
 
             int numCartaO = azar.Next(3);
@@ -92,19 +96,26 @@ namespace Proyecto.presentacion
             switch (numCartaO)
             {
                 case 0:
-                    y = picCartaO1.Location;
-                    y.Y += 40;
-                    picCartaO1.Location = x;
+                    picCartaO1.BackgroundImage = Image.FromFile(@"..\..\imagenes\truco\" + co1.RutaImg + ".png");
+                    c1.FueJugada = true;
+                    //    y = picCartaO1.Location;
+                    //    y.Y += 40;
+                    //    picCartaO1.Location = x;
+
                     break;
                 case 1:
-                    y = picCartaO2.Location;
-                    y.Y += 40;
-                    picCartaO2.Location = x;
+                    picCartaO2.BackgroundImage = Image.FromFile(@"..\..\imagenes\truco\" + co2.RutaImg + ".png");
+                    c2.FueJugada = true;
+                    //    y = picCartaO2.Location;
+                    //  y.Y += 40;
+                    //    picCartaO2.Location = x;
                     break;
                 case 2:
-                    y = picCartaO3.Location;
-                    y.Y += 40;
-                    picCartaO3.Location = x;
+                    picCartaO3.BackgroundImage = Image.FromFile(@"..\..\imagenes\truco\" + co3.RutaImg + ".png");
+                    c3.FueJugada = true;
+                    //   y = picCartaO3.Location;
+                    //   y.Y += 40;
+                    //   picCartaO3.Location = x;
                     break;
             }
             if (tf.cartaGanadora(c3, cartasO[numCartaO], muestra) == 1)
@@ -126,6 +137,7 @@ namespace Proyecto.presentacion
                 MessageBox.Show("Emparde", "Atención",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            
             if (comparaManos() == 1)
             {
                 terminaRonda(true);
@@ -146,6 +158,9 @@ namespace Proyecto.presentacion
             x.Y -= 40;
             btnCarta2.Location = x;
 
+            btnEnvido.Hide();
+            btnFlor.Hide();
+
             CartaEspañola[] cartasO = { co1, co2, co3 };
 
             int numCartaO = azar.Next(3);
@@ -157,19 +172,26 @@ namespace Proyecto.presentacion
             switch (numCartaO)
             {
                 case 0:
-                    y = picCartaO1.Location;
-                    y.Y += 40;
-                    picCartaO1.Location = x;
+                    picCartaO1.BackgroundImage = Image.FromFile(@"..\..\imagenes\truco\" + co1.RutaImg + ".png");
+                    c1.FueJugada = true;
+                    //    y = picCartaO1.Location;
+                    //    y.Y += 40;
+                    //    picCartaO1.Location = x;
+
                     break;
                 case 1:
-                    y = picCartaO2.Location;
-                    y.Y += 40;
-                    picCartaO2.Location = x;
+                    picCartaO2.BackgroundImage = Image.FromFile(@"..\..\imagenes\truco\" + co2.RutaImg + ".png");
+                    c2.FueJugada = true;
+                    //    y = picCartaO2.Location;
+                    //  y.Y += 40;
+                    //    picCartaO2.Location = x;
                     break;
                 case 2:
-                    y = picCartaO3.Location;
-                    y.Y += 40;
-                    picCartaO3.Location = x;
+                    picCartaO3.BackgroundImage = Image.FromFile(@"..\..\imagenes\truco\" + co3.RutaImg + ".png");
+                    c3.FueJugada = true;
+                    //   y = picCartaO3.Location;
+                    //   y.Y += 40;
+                    //   picCartaO3.Location = x;
                     break;
             }
             if (tf.cartaGanadora(c2, cartasO[numCartaO], muestra) == 1)
@@ -191,6 +213,7 @@ namespace Proyecto.presentacion
                 MessageBox.Show("Emparde", "Atención",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            
             if (comparaManos() == 1)
             {
                 terminaRonda(true);
@@ -211,6 +234,9 @@ namespace Proyecto.presentacion
             x.Y -= 40;
             btnCarta1.Location = x;
 
+            btnEnvido.Hide();
+            btnFlor.Hide();
+
             CartaEspañola[] cartasO = { co1, co2, co3 };
 
             int numCartaO = azar.Next(3);
@@ -222,22 +248,26 @@ namespace Proyecto.presentacion
             switch (numCartaO)
             {
                 case 0:
-                    y = picCartaO1.Location;
-                    y.Y += 40;
-                    picCartaO1.Location = x;
-                    co1.FueJugada = true;
+                    picCartaO1.BackgroundImage = Image.FromFile(@"..\..\imagenes\truco\" + co1.RutaImg + ".png");
+                    c1.FueJugada = true;
+                //    y = picCartaO1.Location;
+                //    y.Y += 40;
+                //    picCartaO1.Location = x;
+
                     break;
                 case 1:
-                    y = picCartaO2.Location;
-                    y.Y += 40;
-                    picCartaO2.Location = x;
-                    co2.FueJugada = true;
+                    picCartaO2.BackgroundImage = Image.FromFile(@"..\..\imagenes\truco\" + co2.RutaImg + ".png");
+                    c2.FueJugada = true;
+                //    y = picCartaO2.Location;
+                  //  y.Y += 40;
+                //    picCartaO2.Location = x;
                     break;
                 case 2:
-                    y = picCartaO3.Location;
-                    y.Y += 40;
-                    picCartaO3.Location = x;
-                    co3.FueJugada = true;
+                    picCartaO3.BackgroundImage = Image.FromFile(@"..\..\imagenes\truco\" + co3.RutaImg + ".png");
+                    c3.FueJugada = true;
+                 //   y = picCartaO3.Location;
+                 //   y.Y += 40;
+                 //   picCartaO3.Location = x;
                     break;
             }
             if (tf.cartaGanadora(c1, cartasO[numCartaO], muestra) == 1)
@@ -259,6 +289,7 @@ namespace Proyecto.presentacion
                 MessageBox.Show("Emparde", "Atención",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            
             if (comparaManos() == 1)
             {
                 terminaRonda(true);
@@ -440,14 +471,16 @@ namespace Proyecto.presentacion
                     if (envido1 > envido2)
                     {
                         MessageBox.Show("Son buenas, ganaste el envido", "Atención");
-                        puntosJugador1++;
+                        puntosJugador1 += 2;
                         labelPuntajeUser.Text = puntosJugador1.ToString();
+                        ganadorEnvido = jugador1;
                     }
                     else if (envido2 > envido1)
                     {
                         MessageBox.Show(envido2.ToString() + " son mejores, perdiste el envido", "Son buenas");
-                        puntosJugador2++;
+                        puntosJugador2 += 2;
                         labelPuntajeCPU.Text = puntosJugador2.ToString();
+                        ganadorEnvido = jugador2;
                     }
                     else
                     {
@@ -455,15 +488,17 @@ namespace Proyecto.presentacion
                         {
                             MessageBox.Show("Empate, ganas por mano", "Atención",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            puntosJugador1++;
+                            puntosJugador1 += 2;
                             labelPuntajeUser.Text = puntosJugador1.ToString();
+                            ganadorEnvido = jugador1;
                         }
                         else
                         {
                             MessageBox.Show("Empate, tu oponente gana por mano", "Atención",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            puntosJugador2++;
+                            puntosJugador2 += 2;
                             labelPuntajeCPU.Text = puntosJugador2.ToString();
+                            ganadorEnvido = jugador2;
                         }
 
                     }
@@ -492,6 +527,11 @@ namespace Proyecto.presentacion
             retruco = true;
             btnVale4.Show();
             btnReTruco.Hide();
+            btnCarta1.Enabled = true;
+            btnCarta2.Enabled = true;
+            btnCarta3.Enabled = true;
+            btnFlor.Enabled = true;
+            btnEnvido.Enabled = true;
         }
         private void btnNoQuiero_Click(object sender, EventArgs e)
         {
@@ -557,7 +597,7 @@ namespace Proyecto.presentacion
                 puntosEnJuego = 2;
                 truco = true;
                 //btnReTruco.Show();
-                btnTruco.Hide();
+                
 
                 int b = azar.Next(2);
                 if (b == 0)
@@ -573,6 +613,7 @@ namespace Proyecto.presentacion
                     btnCarta3.Enabled = false;
                     btnFlor.Enabled = false;
                     btnEnvido.Enabled = false;
+                    btnTruco.Hide();
                 }
                 
             }
@@ -609,15 +650,15 @@ namespace Proyecto.presentacion
             c1 = b.robarCartaEspañola();
             btnCarta1.BackgroundImage = Image.FromFile(@"..\..\imagenes\truco\" + c1.RutaImg + ".png");
             co1 = b.robarCartaEspañola();
-            picCartaO1.BackgroundImage = Image.FromFile(@"..\..\imagenes\truco\" + co1.RutaImg + ".png");
+            //picCartaO1.BackgroundImage = Image.FromFile(@"..\..\imagenes\truco\" + co1.RutaImg + ".png");
             c2 = b.robarCartaEspañola();
             btnCarta2.BackgroundImage = Image.FromFile(@"..\..\imagenes\truco\" + c2.RutaImg + ".png");
             co2 = b.robarCartaEspañola();
-            picCartaO2.BackgroundImage = Image.FromFile(@"..\..\imagenes\truco\" + co2.RutaImg + ".png");
+            //picCartaO2.BackgroundImage = Image.FromFile(@"..\..\imagenes\truco\" + co2.RutaImg + ".png");
             c3 = b.robarCartaEspañola();
             btnCarta3.BackgroundImage = Image.FromFile(@"..\..\imagenes\truco\" + c3.RutaImg + ".png");
             co3 = b.robarCartaEspañola();
-            picCartaO3.BackgroundImage = Image.FromFile(@"..\..\imagenes\truco\" + co3.RutaImg + ".png");
+            //picCartaO3.BackgroundImage = Image.FromFile(@"..\..\imagenes\truco\" + co3.RutaImg + ".png");
             muestra = b.robarCartaEspañola();
             pictureMuestra.BackgroundImage = Image.FromFile(@"..\..\imagenes\truco\" + muestra.RutaImg + ".png");
 
@@ -627,10 +668,13 @@ namespace Proyecto.presentacion
 
             picCartaO1.Show();
             picCartaO1.Location = new Point(340, 25);
+            picCartaO1.BackgroundImage = Image.FromFile(@"..\..\imagenes\blackjack\parteTrasera.png");
             picCartaO2.Show();
             picCartaO2.Location = new Point(520, 25);
+            picCartaO2.BackgroundImage = Image.FromFile(@"..\..\imagenes\blackjack\parteTrasera.png");
             picCartaO3.Show();
             picCartaO3.Location = new Point(700, 25);
+            picCartaO3.BackgroundImage = Image.FromFile(@"..\..\imagenes\blackjack\parteTrasera.png");
             btnCarta1.Show();
             btnCarta1.Location = new Point(340, 464);
             btnCarta2.Show();
@@ -772,7 +816,6 @@ namespace Proyecto.presentacion
 
             //btnIniciarJuego.Hide();
             jugarMano();
-
             
         }
         private void jugarMano()
@@ -783,6 +826,25 @@ namespace Proyecto.presentacion
         }
         private void terminaRonda(bool ganador) //si es true el ganador es el usuario
         {
+            if (envido && ganadorEnvido == jugador2)
+            {
+                if (c1.FueEnvido && !c1.FueJugada)
+                {
+                    picCartaO1.BackgroundImage = Image.FromFile(@"..\..\imagenes\truco\" + co1.RutaImg + ".png");
+                }
+                if (c2.FueEnvido && !c2.FueJugada)
+                {
+                    picCartaO2.BackgroundImage = Image.FromFile(@"..\..\imagenes\truco\" + co2.RutaImg + ".png");
+                }
+                if (c3.FueEnvido && !c3.FueJugada)
+                {
+                    picCartaO3.BackgroundImage = Image.FromFile(@"..\..\imagenes\truco\" + co3.RutaImg + ".png");
+                }
+                MessageBox.Show("Este es el envido del oponente", "Atención",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+
             if (ganador)
             {
                 MessageBox.Show("Ganaste la ronda, ganas " + puntosEnJuego + " puntos", "Atención",
