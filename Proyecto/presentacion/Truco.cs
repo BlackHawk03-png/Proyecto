@@ -40,7 +40,8 @@ namespace Proyecto.presentacion
             cantoVal4 = false,
             envido = false,
             cantoEnvido = false,
-            flor = false,
+            flor1 = false,
+            flor2 = false,
             gana = false,
             buenasj1 = false,
             buenasj2 = false;
@@ -48,7 +49,8 @@ namespace Proyecto.presentacion
             puntosJugador2 = 0,
             puntosEnJuego = 0,
             ronda = 1,
-            nroMano = 1;
+            nroMano = 1,
+            contMano = 1;
 
         Random azar = new Random();
 
@@ -137,18 +139,32 @@ namespace Proyecto.presentacion
                 MessageBox.Show("Emparde", "Atención",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            
+            int puntosManoJ1 = 0, puntosManoJ2 = 0;
+            if (flor1 && nroMano == 1)
+            {
+                puntosManoJ1 += 3;
+            }
+            if (flor2 && nroMano == 1)
+            {
+                puntosManoJ2 += 3;
+            }
+            //Conexion.InsertarMano(contMano, nroMano, ganadoresManos[nroMano - 1], flor1, flor2, envido, puntosEnJuego);
             if (comparaManos() == 1)
             {
                 terminaRonda(true);
-                return;
+                //return;
             }
             else if (comparaManos() == 2)
             {
                 terminaRonda(false);
-                return;
+                //return;
             }
-            nroMano++;
+            else
+            {
+                nroMano++;
+            }
+            //Conexion a la base de datos para persistir la mano
+            contMano++;
         }
 
         private void btnCarta2_Click(object sender, EventArgs e)
@@ -217,14 +233,19 @@ namespace Proyecto.presentacion
             if (comparaManos() == 1)
             {
                 terminaRonda(true);
-                return;
+                //return;
             }
             else if (comparaManos() == 2)
             {
                 terminaRonda(false);
-                return;
+                //return;
             }
-            nroMano++;
+            else
+            {
+                nroMano++;
+            }
+            
+            contMano++;
         }
 
         private void btnCarta1_Click(object sender, EventArgs e)
@@ -293,14 +314,19 @@ namespace Proyecto.presentacion
             if (comparaManos() == 1)
             {
                 terminaRonda(true);
-                return;
+                //return;
             }
             else if (comparaManos() == 2)
             {
                 terminaRonda(false);
-                return;
+                //return;
             }
-            nroMano++;
+            else 
+            {
+                nroMano++;
+            }
+            //Conexion a la base de datos para persistir la mano
+            contMano++;
         }
 
         private int comparaManos() //Si gana el jugador1, devuelve 1, si gana el jugador2 devuelve 2, sino 3
@@ -510,6 +536,7 @@ namespace Proyecto.presentacion
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
                     puntosJugador2 += 3;
                     labelPuntajeCPU.Text = puntosJugador2.ToString();
+                    flor2 = true;
                 }
             }
             else
@@ -537,7 +564,7 @@ namespace Proyecto.presentacion
         {
             MessageBox.Show("Pierdes por no aceptar retruco", "Atención",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
-            puntosEnJuego = 2;
+            puntosJugador2 += 2;
             terminaRonda(false);
         }
 
@@ -556,7 +583,7 @@ namespace Proyecto.presentacion
             {
                 MessageBox.Show("Tu oponente no quiere vale 4", "Atención",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
-                puntosEnJuego = 3;
+                puntosJugador1 += 3;
                 labelPuntajeUser.Text = puntosJugador1.ToString();
                 terminaRonda(true);
             }
@@ -579,7 +606,7 @@ namespace Proyecto.presentacion
             {
                 MessageBox.Show("Tu oponente no quiere retruco", "Atención",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
-                puntosEnJuego = 2;
+                puntosJugador1 += 2;
                 labelPuntajeUser.Text = puntosJugador1.ToString();
                 terminaRonda(true);
             }
@@ -621,7 +648,7 @@ namespace Proyecto.presentacion
             {
                 MessageBox.Show("Tu oponente  no quiere truco", "Atención",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
-                puntosEnJuego = 1;
+                puntosJugador1 += 1;
                 labelPuntajeUser.Text = puntosJugador1.ToString();
                 terminaRonda(true);
             }
@@ -633,6 +660,16 @@ namespace Proyecto.presentacion
             MessageBox.Show("Tenés flor, ganas 3 puntos", "Felicidades");
             puntosJugador1 += 3;
             labelPuntajeUser.Text = puntosJugador1.ToString();
+            flor1 = true;
+
+            CartaEspañola[] cartas = { co1, co2, co3 };
+            if(tf.verificaFlor(cartas, muestra))
+            {
+                MessageBox.Show("Tu oponente tiene flor, él gana 3 puntos", "Atención");
+                puntosJugador2 += 3;
+                labelPuntajeCPU.Text = puntosJugador2.ToString();
+                flor2 = true;
+            }
             btnFlor.Hide();
         }
 
@@ -750,7 +787,8 @@ namespace Proyecto.presentacion
             cantoVal4 = false;
             envido = false;
             cantoEnvido = false;
-            flor = false;
+            flor1 = false;
+            flor2 = false;
             gana = false;
             buenasj1 = false;
             buenasj2 = false;
@@ -812,7 +850,8 @@ namespace Proyecto.presentacion
             cantoVal4 = false;
             envido = false;
             cantoEnvido = false;
-            flor = false;
+            flor1 = false;
+            flor2 = false;
 
             //btnIniciarJuego.Hide();
             jugarMano();
@@ -820,9 +859,17 @@ namespace Proyecto.presentacion
         }
         private void jugarMano()
         {
+            int puntosManoJ1 = 0, puntosManoJ2 = 0;
+            if (flor1 && nroMano == 1)
+            {
+                puntosManoJ1 += 3;
+            }
+            if (flor2 && nroMano == 1)
+            {
+                puntosManoJ2 += 3;
+            }
+            //Conexion.InsertarMano(contMano, nroMano, ganadoresManos[nroMano - 1], flor1, flor2, envido, puntosEnJuego);
 
-
-            //Conexion a la base de datos, persistir mano
         }
         private void terminaRonda(bool ganador) //si es true el ganador es el usuario
         {
@@ -843,7 +890,23 @@ namespace Proyecto.presentacion
                 MessageBox.Show("Este es el envido del oponente", "Atención",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
+            else if (flor2)
+            {
+                if (!c1.FueJugada)
+                {
+                    picCartaO1.BackgroundImage = Image.FromFile(@"..\..\imagenes\truco\" + co1.RutaImg + ".png");
+                }
+                if (!c2.FueJugada)
+                {
+                    picCartaO2.BackgroundImage = Image.FromFile(@"..\..\imagenes\truco\" + co2.RutaImg + ".png");
+                }
+                if (!c3.FueJugada)
+                {
+                    picCartaO3.BackgroundImage = Image.FromFile(@"..\..\imagenes\truco\" + co3.RutaImg + ".png");
+                }
+                MessageBox.Show("Esta es la flor de tu oponente", "Atención",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
 
             if (ganador)
             {

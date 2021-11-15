@@ -380,6 +380,10 @@ namespace Proyecto.persistencia
             }
             return devuelve;
         }
+        public static void InsertarMano(int contMano, int nroMano, string ganador, bool cantoJ1, bool cantoJ2, bool envido, int puntosJ1, int puntosJ2, string jugador, string jugadorMano, int cartaJ1Numero, string cartaJ1Palo, int cartaJ2Numero, string cartaJ2Palo)
+        {
+
+        }
         public static void CompletarPartidaBlackjack(bool blackjack, int ganancia)
         {
             try
