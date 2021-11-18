@@ -624,7 +624,6 @@ namespace Proyecto.presentacion
                 puntosEnJuego = 2;
                 truco = true;
                 //btnReTruco.Show();
-                
 
                 int b = azar.Next(2);
                 if (b == 0)
@@ -912,7 +911,20 @@ namespace Proyecto.presentacion
             {
                 MessageBox.Show("Ganaste la ronda, ganas " + puntosEnJuego + " puntos", "Atención",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
-                puntosJugador1 += puntosEnJuego;
+                //Meter los if para ver si se canto truco y no se acepto
+                if (truco)
+                {
+                    puntosJugador1 += puntosEnJuego;
+                    if (retruco)
+                    {
+                        puntosJugador1 += puntosEnJuego;
+                        if (vale4)
+                        {
+                            puntosJugador1 += puntosEnJuego;
+                        }
+                    }
+                }
+                
                 labelPuntajeUser.Text = puntosJugador1.ToString();
             }
             if (!ganador)

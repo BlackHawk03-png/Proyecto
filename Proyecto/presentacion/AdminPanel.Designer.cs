@@ -63,7 +63,7 @@ namespace Proyecto.presentacion
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(21, 181);
+            this.btnDelete.Location = new System.Drawing.Point(21, 162);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(143, 50);
             this.btnDelete.TabIndex = 36;
@@ -73,7 +73,7 @@ namespace Proyecto.presentacion
             // 
             // btnExtra
             // 
-            this.btnExtra.Location = new System.Drawing.Point(185, 461);
+            this.btnExtra.Location = new System.Drawing.Point(185, 442);
             this.btnExtra.Name = "btnExtra";
             this.btnExtra.Size = new System.Drawing.Size(91, 27);
             this.btnExtra.TabIndex = 35;
@@ -82,7 +82,7 @@ namespace Proyecto.presentacion
             // 
             // btnReview
             // 
-            this.btnReview.Location = new System.Drawing.Point(21, 125);
+            this.btnReview.Location = new System.Drawing.Point(21, 106);
             this.btnReview.Name = "btnReview";
             this.btnReview.Size = new System.Drawing.Size(143, 50);
             this.btnReview.TabIndex = 34;
@@ -93,14 +93,14 @@ namespace Proyecto.presentacion
             // txtUsername1
             // 
             this.txtUsername1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsername1.Location = new System.Drawing.Point(41, 461);
+            this.txtUsername1.Location = new System.Drawing.Point(41, 442);
             this.txtUsername1.Name = "txtUsername1";
             this.txtUsername1.Size = new System.Drawing.Size(100, 26);
             this.txtUsername1.TabIndex = 39;
             // 
             // btnAdmin
             // 
-            this.btnAdmin.Location = new System.Drawing.Point(21, 293);
+            this.btnAdmin.Location = new System.Drawing.Point(21, 274);
             this.btnAdmin.Name = "btnAdmin";
             this.btnAdmin.Size = new System.Drawing.Size(143, 50);
             this.btnAdmin.TabIndex = 40;
@@ -111,7 +111,7 @@ namespace Proyecto.presentacion
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(21, 349);
+            this.button1.Location = new System.Drawing.Point(21, 330);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(143, 50);
             this.button1.TabIndex = 41;
@@ -124,7 +124,7 @@ namespace Proyecto.presentacion
             this.txtUsuarios.AutoSize = true;
             this.txtUsuarios.BackColor = System.Drawing.Color.Transparent;
             this.txtUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuarios.Location = new System.Drawing.Point(16, 514);
+            this.txtUsuarios.Location = new System.Drawing.Point(16, 495);
             this.txtUsuarios.Name = "txtUsuarios";
             this.txtUsuarios.Size = new System.Drawing.Size(220, 50);
             this.txtUsuarios.TabIndex = 42;
@@ -132,7 +132,7 @@ namespace Proyecto.presentacion
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Location = new System.Drawing.Point(21, 567);
+            this.btnActualizar.Location = new System.Drawing.Point(21, 548);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(91, 27);
             this.btnActualizar.TabIndex = 43;
@@ -142,7 +142,7 @@ namespace Proyecto.presentacion
             // 
             // btnDeleteLogic
             // 
-            this.btnDeleteLogic.Location = new System.Drawing.Point(21, 237);
+            this.btnDeleteLogic.Location = new System.Drawing.Point(21, 218);
             this.btnDeleteLogic.Name = "btnDeleteLogic";
             this.btnDeleteLogic.Size = new System.Drawing.Size(143, 50);
             this.btnDeleteLogic.TabIndex = 44;
@@ -153,7 +153,7 @@ namespace Proyecto.presentacion
             // btnEditProfile
             // 
             this.btnEditProfile.BackColor = System.Drawing.SystemColors.Control;
-            this.btnEditProfile.Location = new System.Drawing.Point(21, 405);
+            this.btnEditProfile.Location = new System.Drawing.Point(21, 386);
             this.btnEditProfile.Name = "btnEditProfile";
             this.btnEditProfile.Size = new System.Drawing.Size(143, 50);
             this.btnEditProfile.TabIndex = 45;
@@ -168,11 +168,11 @@ namespace Proyecto.presentacion
             this.gridUsernames.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridUsernames.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Usuarios});
-            this.gridUsernames.Location = new System.Drawing.Point(1080, 125);
+            this.gridUsernames.Location = new System.Drawing.Point(1074, 125);
             this.gridUsernames.Name = "gridUsernames";
             this.gridUsernames.ReadOnly = true;
             this.gridUsernames.RowHeadersWidth = 51;
-            this.gridUsernames.Size = new System.Drawing.Size(172, 287);
+            this.gridUsernames.Size = new System.Drawing.Size(178, 363);
             this.gridUsernames.TabIndex = 46;
             // 
             // Usuarios
@@ -186,7 +186,7 @@ namespace Proyecto.presentacion
             // 
             // btnAbleUser
             // 
-            this.btnAbleUser.Location = new System.Drawing.Point(170, 237);
+            this.btnAbleUser.Location = new System.Drawing.Point(170, 218);
             this.btnAbleUser.Name = "btnAbleUser";
             this.btnAbleUser.Size = new System.Drawing.Size(143, 50);
             this.btnAbleUser.TabIndex = 48;

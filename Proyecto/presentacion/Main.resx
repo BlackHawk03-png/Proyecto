@@ -210,7 +210,7 @@
         gQ2W2KF69P9K4P87wiE84iE+0vELbDlm5NXSfwC54TL/iN0+xQAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="btnRegister.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnGuest.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAE8AAABPCAYAAACqNJiGAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAABQnSURBVHhe1V0JdFRF1r7VnaSTkHRnIRshCQnZSEg0
@@ -302,7 +302,7 @@
         gQ2W2KF69P9K4P87wiE84iE+0vELbDlm5NXSfwC54TL/iN0+xQAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="btnGuest.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnRegister.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAE8AAABPCAYAAACqNJiGAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAABQnSURBVHhe1V0JdFRF1r7VnaSTkHRnIRshCQnZSEg0

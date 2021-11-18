@@ -124,5 +124,10 @@ namespace Proyecto.presentacion
         {
 
         }
+
+        private void txtApellido_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -98,6 +98,50 @@ namespace Proyecto.presentacion
             }
         }
 
+        private void btnCarta6_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void btnCartaO5_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void btnCartaO4_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void btnCartaO3_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void btnCartaO2_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void btnCartaO1_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void btnCartaO6_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void btnCarta5_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void btnCarta4_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void btnCarta3_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void btnCarta2_Click(object sender, EventArgs e)
+        {
+
+        }
         private void btnIzquierda_Click(object sender, EventArgs e)
         {
             if (posicionFicha >= 0)
@@ -128,7 +172,11 @@ namespace Proyecto.presentacion
                     if (funciones.superaLimite(cartas))
                     {
                         pierde();
-                        return;
+                        //return;
+                    }
+                    else
+                    {
+                        cantCartas++;
                     }
                     break;
                 case 3:
@@ -140,7 +188,11 @@ namespace Proyecto.presentacion
                     if (funciones.superaLimite(cartas))
                     {
                         pierde();
-                        return;
+                        //return;
+                    }
+                    else
+                    {
+                        cantCartas++;
                     }
                     break;
                 case 4:
@@ -152,7 +204,11 @@ namespace Proyecto.presentacion
                     if (funciones.superaLimite(cartas))
                     {
                         pierde();
-                        return;
+                        //return;
+                    }
+                    else
+                    {
+                        cantCartas++;
                     }
                     break;
                 case 5:
@@ -164,10 +220,14 @@ namespace Proyecto.presentacion
                     if (funciones.superaLimite(cartas))
                     {
                         pierde();
-                        return;
+                        //return;
+                    }
+                    else
+                    {
+                        cantCartas++;
                     }
                     break;
-                /*case 6:
+                case 6:
                     c7 = b.robarCartaInglesa();
                     btnCarta7.Show();
                     btnCarta3.BackgroundImage = Image.FromFile(@"..\..\imagenes\blackjack\" + c7.RutaImg + ".png");
@@ -176,16 +236,16 @@ namespace Proyecto.presentacion
                     if (funciones.superaLimite(cartas))
                     {
                         pierde();
-                        return;
+                        //return;
                     }
                     else
                     {
                         cpu();
-                        return;
+                        //return;
                     }
-                    break;*/
+                    break;
             }
-            cantCartas++;
+            //cantCartas++;
         }
         private void button6_Click(object sender, EventArgs e)
         {
@@ -246,11 +306,11 @@ namespace Proyecto.presentacion
                 return;
             }
 
-            if (funciones.superaLimite(cartas))
+            /*if (funciones.superaLimite(cartas))
             {
                 pierde();
                 return;
-            }
+            }*/
 
             btnDoblar.Show();
             btnPedir.Show();
@@ -263,10 +323,10 @@ namespace Proyecto.presentacion
         private void btnNuevaApuesta_Click(object sender, EventArgs e)
         {
         }
+
         private void btnPlantarse_Click(object sender, EventArgs e)
         {
             cpu();
-            return;
         }
         private void btnDoblar_Click(object sender, EventArgs e)
         {
@@ -282,12 +342,12 @@ namespace Proyecto.presentacion
             if (funciones.superaLimite(cartas))
             {
                 pierde();
-                return;
+                //return;
             }
             else
             {
                 cpu();
-                return;
+                //return;
             }
         }
         private void btnDividir_Click(object sender, EventArgs e)
@@ -354,7 +414,7 @@ namespace Proyecto.presentacion
             int valorAGanar = funciones.valorAGanar(cartas);
             cantCartas = 2;
             btnCartaO2.BackgroundImage = Image.FromFile(@"..\..\imagenes\blackjack\" + co2.RutaImg + ".png");
-            while (cantCartas < 7 && (cartasTotal < 17 || cartasTotal < valorAGanar))
+            while (cantCartas <= 7 && (cartasTotal <= 17 || cartasTotal < valorAGanar))
             {
                 switch (cantCartas)
                 {
@@ -367,7 +427,11 @@ namespace Proyecto.presentacion
                         if (funciones.superaLimite(cartasO))
                         {
                             gana();
-                            return;
+                            //return;
+                        }
+                        else
+                        {
+                            cantCartas++;
                         }
                         break;
                     case 3:
@@ -378,7 +442,11 @@ namespace Proyecto.presentacion
                         if (funciones.superaLimite(cartasO))
                         {
                             gana();
-                            return;
+                            //return;
+                        }
+                        else
+                        {
+                            cantCartas++;
                         }
                         break;
                     case 4:
@@ -389,7 +457,11 @@ namespace Proyecto.presentacion
                         if (funciones.superaLimite(cartasO))
                         {
                             gana();
-                            return;
+                            //return;
+                        }
+                        else
+                        {
+                            cantCartas++;
                         }
                         break;
                     case 5:
@@ -400,22 +472,30 @@ namespace Proyecto.presentacion
                         if (funciones.superaLimite(cartasO))
                         {
                             gana();
-                            return;
+                            //return;
+                        }
+                        else
+                        {
+                            cantCartas++;
                         }
                         break;
                     case 6:
                         co7 = b.robarCartaInglesa();
-                        cartasTotal += co3.ValorCarta;
+                        cartasTotal += co7.ValorCarta;
                         cartasO[6] = co7;
                         btnCartaO6.BackgroundImage = Image.FromFile(@"..\..\imagenes\blackjack\" + co7.RutaImg + ".png");
                         if (funciones.superaLimite(cartasO))
                         {
                             gana();
-                            return;
+                            //return;
+                        }
+                        else
+                        {
+                            cantCartas++;
                         }
                         break;
                 }
-                cantCartas++;
+                //cantCartas++;
             }
             if (cartasTotal == valorAGanar)
             {
@@ -425,12 +505,12 @@ namespace Proyecto.presentacion
             else if (cartasTotal < valorAGanar)
             {
                 gana();
-                return;
+                //return;
             }
-            else if (cartasTotal > valorAGanar)
+            else if (cartasTotal > valorAGanar && !funciones.superaLimite(cartasO))
             {
                 pierde();
-                return;
+                //return;
             }
         }
         private void inicio() //Deja todos los objetos para el iniciar el juego

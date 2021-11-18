@@ -75,10 +75,11 @@ namespace Proyecto.presentacion
         private void btnVolver_Click(object sender, EventArgs e)
         {
             DialogResult d;
-            d = MessageBox.Show("Are you sure you want leave? " +
-                "\nYou're gonna lose your profile pic", "Wait", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            d = MessageBox.Show("¿Estás seguro que quieres salir?" +
+                "\nPerderás tu foto de perfil actual", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (d == DialogResult.Yes)
             {
+                Conexion.Conectado(Usuario.usuarioActual.Username, 0);
                 Main f = new Main();
                 f.Show();
                 base.Hide();
@@ -87,7 +88,24 @@ namespace Proyecto.presentacion
 
         private void btnAgregarAmigos_Click(object sender, EventArgs e)
         {
-            Conexion.agregarAmigo(gridUsernames.CurrentCell.Value.ToString());
+            List<string> amigos = Conexion.devuelveAmigos(Usuario.usuarioActual.Username);
+            bool existente = false;
+            foreach (string a in amigos)
+            {
+                if (a == gridUsernames.CurrentCell.Value.ToString())
+                {
+                    MessageBox.Show("Usted ya tiene agregado a este amigo", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    existente = true;
+                }
+            }
+            if (!existente)
+            {
+                Conexion.agregarAmigo(gridUsernames.CurrentCell.Value.ToString());
+                MessageBox.Show("Amigo agregado correctamente", "Atención",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            
         }
     }
 }

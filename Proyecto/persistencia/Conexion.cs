@@ -346,7 +346,7 @@ namespace Proyecto.persistencia
             { 
                 MySqlCommand _comando = new MySqlCommand(String.Format(
                   "SELECT MAX(id_partida) FROM " + juego +
-                  "WHERE jugador = '" + Usuario.usuarioActual.Username + "';"), ObtenerConexion());
+                  " WHERE jugador = '" + Usuario.usuarioActual.Username + "';"), ObtenerConexion());
                 MySqlDataReader _reader = _comando.ExecuteReader();
                 while (_reader.Read())
                 {
@@ -386,13 +386,15 @@ namespace Proyecto.persistencia
         }
         public static void CompletarPartidaBlackjack(bool blackjack, int ganancia)
         {
+            int id_partida = RecibirIdPartida(false);
             try
             {
                 ObtenerConexion();
                 MySqlCommand myCommand = databaseConnection.CreateCommand();
                 myCommand.CommandText = "UPDATE blackjack " +
                     "SET blackjack = " + blackjack +
-                    ", ganancia = " + ganancia + " WHERE username = '" + Usuario.usuarioActual.Username + "';";
+                    ", ganancia = " + ganancia + " WHERE jugador = '" + Usuario.usuarioActual.Username + "' " +
+                    "AND id_partida = " + id_partida + ";";
                 myCommand.ExecuteNonQuery();
                 CerrarConexion();
             }
@@ -493,13 +495,15 @@ namespace Proyecto.persistencia
             }
             return usuarios;
         }
-        public static List<string> devuelveAmigos()
+        public static List<string> devuelveAmigos(string username)
         {
             List<string> amigos = new List<string>();
+
             try
             {
                 MySqlCommand _comando = new MySqlCommand(String.Format(
-              "SELECT username FROM usuario;"), ObtenerConexion());
+              "SELECT amigo FROM amigos " +
+              "WHERE username = '" + username + "';"), ObtenerConexion());
                 MySqlDataReader _reader = _comando.ExecuteReader();
                 while (_reader.Read())
                 {
@@ -527,7 +531,20 @@ namespace Proyecto.persistencia
         }
         public static void agregarAmigo(string username)
         {
-
+            try
+            {
+                ObtenerConexion();
+                MySqlCommand myCommand = databaseConnection.CreateCommand();
+                myCommand.CommandText = "INSERT INTO amigos " +
+                    "(username, amigo) VALUES ('" + Usuario.usuarioActual.Username + "', " +
+                    "'" + username + "');";
+                myCommand.ExecuteNonQuery();
+                CerrarConexion();
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
         public static int[] estadisticasUsuario(string username) //Sin terminar, faltan consultas
         {
@@ -555,6 +572,33 @@ namespace Proyecto.persistencia
                 medallasGanadas.Add(nombreMedalla(2));
             }
             return medallasGanadas;
+        }
+        public static int[] recibeMedallasProfile(string username)
+        {
+            //int[] medallas = { 0, 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 };
+            int[] medallas = new int[20];
+            int c = 0;
+            try
+            {
+                MySqlCommand _comando = new MySqlCommand(String.Format(
+              "SELECT cantidad FROM gano " +
+              "WHERE username = '" + username + "' " +
+              "ORDER BY(id_medalla);"), ObtenerConexion());
+                MySqlDataReader _reader = _comando.ExecuteReader();
+                while (_reader.Read())
+                {
+                    medallas[c] = _reader.GetInt32(0);
+                    c++;
+                }
+                CerrarConexion();
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+
+            return medallas;
         }
 
     }

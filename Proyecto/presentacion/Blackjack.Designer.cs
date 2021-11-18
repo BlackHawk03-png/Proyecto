@@ -54,13 +54,15 @@ namespace Proyecto.presentacion
             this.txtApuesta = new System.Windows.Forms.Label();
             this.txtPresupuesto = new System.Windows.Forms.Label();
             this.btnVolver = new System.Windows.Forms.Button();
+            this.btnCarta7 = new System.Windows.Forms.Button();
+            this.btnCartaO7 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnCarta1
             // 
             this.btnCarta1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCarta1.Enabled = false;
-            this.btnCarta1.Location = new System.Drawing.Point(274, 510);
+            this.btnCarta1.Location = new System.Drawing.Point(237, 508);
             this.btnCarta1.Name = "btnCarta1";
             this.btnCarta1.Size = new System.Drawing.Size(100, 140);
             this.btnCarta1.TabIndex = 0;
@@ -71,11 +73,12 @@ namespace Proyecto.presentacion
             // 
             this.btnCarta2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCarta2.Enabled = false;
-            this.btnCarta2.Location = new System.Drawing.Point(374, 510);
+            this.btnCarta2.Location = new System.Drawing.Point(337, 508);
             this.btnCarta2.Name = "btnCarta2";
             this.btnCarta2.Size = new System.Drawing.Size(100, 140);
             this.btnCarta2.TabIndex = 1;
             this.btnCarta2.UseVisualStyleBackColor = true;
+            this.btnCarta2.Click += new System.EventHandler(this.btnCarta2_Click);
             // 
             // btnPedir
             // 
@@ -131,101 +134,111 @@ namespace Proyecto.presentacion
             // 
             this.btnCarta3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCarta3.Enabled = false;
-            this.btnCarta3.Location = new System.Drawing.Point(474, 510);
+            this.btnCarta3.Location = new System.Drawing.Point(437, 508);
             this.btnCarta3.Name = "btnCarta3";
             this.btnCarta3.Size = new System.Drawing.Size(100, 140);
             this.btnCarta3.TabIndex = 10;
             this.btnCarta3.UseVisualStyleBackColor = true;
+            this.btnCarta3.Click += new System.EventHandler(this.btnCarta3_Click);
             // 
             // btnCarta4
             // 
             this.btnCarta4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCarta4.Enabled = false;
-            this.btnCarta4.Location = new System.Drawing.Point(574, 510);
+            this.btnCarta4.Location = new System.Drawing.Point(537, 508);
             this.btnCarta4.Name = "btnCarta4";
             this.btnCarta4.Size = new System.Drawing.Size(100, 140);
             this.btnCarta4.TabIndex = 11;
             this.btnCarta4.UseVisualStyleBackColor = true;
+            this.btnCarta4.Click += new System.EventHandler(this.btnCarta4_Click);
             // 
             // btnCarta5
             // 
             this.btnCarta5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCarta5.Enabled = false;
-            this.btnCarta5.Location = new System.Drawing.Point(674, 510);
+            this.btnCarta5.Location = new System.Drawing.Point(637, 508);
             this.btnCarta5.Name = "btnCarta5";
             this.btnCarta5.Size = new System.Drawing.Size(100, 140);
             this.btnCarta5.TabIndex = 12;
             this.btnCarta5.UseVisualStyleBackColor = true;
+            this.btnCarta5.Click += new System.EventHandler(this.btnCarta5_Click);
             // 
             // btnCarta6
             // 
             this.btnCarta6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCarta6.Enabled = false;
-            this.btnCarta6.Location = new System.Drawing.Point(774, 510);
+            this.btnCarta6.Location = new System.Drawing.Point(737, 508);
             this.btnCarta6.Name = "btnCarta6";
             this.btnCarta6.Size = new System.Drawing.Size(100, 140);
             this.btnCarta6.TabIndex = 14;
             this.btnCarta6.UseVisualStyleBackColor = true;
+            this.btnCarta6.Click += new System.EventHandler(this.btnCarta6_Click);
             // 
             // btnCartaO6
             // 
             this.btnCartaO6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCartaO6.Enabled = false;
-            this.btnCartaO6.Location = new System.Drawing.Point(774, 59);
+            this.btnCartaO6.Location = new System.Drawing.Point(737, 12);
             this.btnCartaO6.Name = "btnCartaO6";
             this.btnCartaO6.Size = new System.Drawing.Size(100, 140);
             this.btnCartaO6.TabIndex = 21;
             this.btnCartaO6.UseVisualStyleBackColor = true;
+            this.btnCartaO6.Click += new System.EventHandler(this.btnCartaO6_Click);
             // 
             // btnCartaO5
             // 
             this.btnCartaO5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCartaO5.Enabled = false;
-            this.btnCartaO5.Location = new System.Drawing.Point(674, 59);
+            this.btnCartaO5.Location = new System.Drawing.Point(637, 12);
             this.btnCartaO5.Name = "btnCartaO5";
             this.btnCartaO5.Size = new System.Drawing.Size(100, 140);
             this.btnCartaO5.TabIndex = 19;
             this.btnCartaO5.UseVisualStyleBackColor = true;
+            this.btnCartaO5.Click += new System.EventHandler(this.btnCartaO5_Click);
             // 
             // btnCartaO4
             // 
             this.btnCartaO4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCartaO4.Enabled = false;
-            this.btnCartaO4.Location = new System.Drawing.Point(574, 59);
+            this.btnCartaO4.Location = new System.Drawing.Point(537, 12);
             this.btnCartaO4.Name = "btnCartaO4";
             this.btnCartaO4.Size = new System.Drawing.Size(100, 140);
             this.btnCartaO4.TabIndex = 18;
             this.btnCartaO4.UseVisualStyleBackColor = true;
+            this.btnCartaO4.Click += new System.EventHandler(this.btnCartaO4_Click);
             // 
             // btnCartaO3
             // 
             this.btnCartaO3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCartaO3.Enabled = false;
-            this.btnCartaO3.Location = new System.Drawing.Point(474, 59);
+            this.btnCartaO3.Location = new System.Drawing.Point(437, 12);
             this.btnCartaO3.Name = "btnCartaO3";
             this.btnCartaO3.Size = new System.Drawing.Size(100, 140);
             this.btnCartaO3.TabIndex = 17;
             this.btnCartaO3.UseVisualStyleBackColor = true;
+            this.btnCartaO3.Click += new System.EventHandler(this.btnCartaO3_Click);
             // 
             // btnCartaO2
             // 
             this.btnCartaO2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCartaO2.Enabled = false;
-            this.btnCartaO2.Location = new System.Drawing.Point(374, 59);
+            this.btnCartaO2.Location = new System.Drawing.Point(337, 12);
             this.btnCartaO2.Name = "btnCartaO2";
             this.btnCartaO2.Size = new System.Drawing.Size(100, 140);
             this.btnCartaO2.TabIndex = 16;
             this.btnCartaO2.UseVisualStyleBackColor = true;
+            this.btnCartaO2.Click += new System.EventHandler(this.btnCartaO2_Click);
             // 
             // btnCartaO1
             // 
             this.btnCartaO1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCartaO1.Enabled = false;
-            this.btnCartaO1.Location = new System.Drawing.Point(274, 59);
+            this.btnCartaO1.Location = new System.Drawing.Point(237, 12);
             this.btnCartaO1.Name = "btnCartaO1";
             this.btnCartaO1.Size = new System.Drawing.Size(100, 140);
             this.btnCartaO1.TabIndex = 15;
             this.btnCartaO1.UseVisualStyleBackColor = true;
+            this.btnCartaO1.Click += new System.EventHandler(this.btnCartaO1_Click);
             // 
             // btnIzquierda
             // 
@@ -300,6 +313,26 @@ namespace Proyecto.presentacion
             this.btnVolver.UseVisualStyleBackColor = false;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
+            // btnCarta7
+            // 
+            this.btnCarta7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCarta7.Enabled = false;
+            this.btnCarta7.Location = new System.Drawing.Point(837, 508);
+            this.btnCarta7.Name = "btnCarta7";
+            this.btnCarta7.Size = new System.Drawing.Size(100, 140);
+            this.btnCarta7.TabIndex = 40;
+            this.btnCarta7.UseVisualStyleBackColor = true;
+            // 
+            // btnCartaO7
+            // 
+            this.btnCartaO7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCartaO7.Enabled = false;
+            this.btnCartaO7.Location = new System.Drawing.Point(837, 12);
+            this.btnCartaO7.Name = "btnCartaO7";
+            this.btnCartaO7.Size = new System.Drawing.Size(100, 140);
+            this.btnCartaO7.TabIndex = 41;
+            this.btnCartaO7.UseVisualStyleBackColor = true;
+            // 
             // Blackjack
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -307,6 +340,8 @@ namespace Proyecto.presentacion
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.btnCartaO7);
+            this.Controls.Add(this.btnCarta7);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.txtPresupuesto);
             this.Controls.Add(this.txtApuesta);
@@ -368,5 +403,7 @@ namespace Proyecto.presentacion
         private System.Windows.Forms.Label txtApuesta;
         private System.Windows.Forms.Label txtPresupuesto;
         private System.Windows.Forms.Button btnVolver;
+        private System.Windows.Forms.Button btnCarta7;
+        private System.Windows.Forms.Button btnCartaO7;
     }
 }
