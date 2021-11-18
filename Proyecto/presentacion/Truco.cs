@@ -466,10 +466,26 @@ namespace Proyecto.presentacion
         {
             if (Usuario.usuarioActual.Username != "")
             {
+                int[] medallasAntiguas = Conexion.recibeMedallasProfile(Usuario.usuarioActual.Username);
+                //Conexion con la base de datos para actualizar la partida
+                int[] medallasNuevas = Conexion.recibeMedallasProfile(Usuario.usuarioActual.Username);
+                bool variaron = false;
+                for (int x = 0; x < medallasAntiguas.Length; x++)
+                {
+                    if (medallasAntiguas[x] != medallasNuevas[x])
+                    {
+                        variaron = true;
+                    }
+                }
+                if (variaron)
+                {
+                    MessageBox.Show("La cantidad de medallas que tenías aumentó" +
+                        "\nVe a su perfil a ver tus nuevas medallas", "Atención",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
                 Main2 m = new Main2();
                 m.Show();
                 base.Hide();
-                //Conexion con la base de datos para actualizar la partida
             }
             else
             {

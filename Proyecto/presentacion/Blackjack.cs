@@ -457,7 +457,7 @@ namespace Proyecto.presentacion
                 if (variaron)
                 {
                     MessageBox.Show("La cantidad de medallas que tenías aumentó" +
-                        "\nVe a su perfil a ver sus nuevas medallas", "Atención",
+                        "\nVe a su perfil a ver tus nuevas medallas", "Atención",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
