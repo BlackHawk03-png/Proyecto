@@ -151,12 +151,12 @@ namespace Proyecto.presentacion
             //Conexion.InsertarMano(contMano, nroMano, ganadoresManos[nroMano - 1], flor1, flor2, envido, puntosEnJuego);
             if (comparaManos() == 1)
             {
-                terminaRonda(true);
+                terminaRonda(true, false);
                 //return;
             }
             else if (comparaManos() == 2)
             {
-                terminaRonda(false);
+                terminaRonda(false, false);
                 //return;
             }
             else
@@ -232,12 +232,12 @@ namespace Proyecto.presentacion
             
             if (comparaManos() == 1)
             {
-                terminaRonda(true);
+                terminaRonda(true, false);
                 //return;
             }
             else if (comparaManos() == 2)
             {
-                terminaRonda(false);
+                terminaRonda(false, false);
                 //return;
             }
             else
@@ -313,12 +313,12 @@ namespace Proyecto.presentacion
             
             if (comparaManos() == 1)
             {
-                terminaRonda(true);
+                terminaRonda(true, false);
                 //return;
             }
             else if (comparaManos() == 2)
             {
-                terminaRonda(false);
+                terminaRonda(false, false);
                 //return;
             }
             else 
@@ -565,7 +565,7 @@ namespace Proyecto.presentacion
             MessageBox.Show("Pierdes por no aceptar retruco", "Atención",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
             puntosJugador2 += 2;
-            terminaRonda(false);
+            terminaRonda(false, true);
         }
 
         private void btnVale4_Click(object sender, EventArgs e)
@@ -585,7 +585,7 @@ namespace Proyecto.presentacion
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
                 puntosJugador1 += 3;
                 labelPuntajeUser.Text = puntosJugador1.ToString();
-                terminaRonda(true);
+                terminaRonda(true, true);
             }
         }
 
@@ -608,7 +608,7 @@ namespace Proyecto.presentacion
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
                 puntosJugador1 += 2;
                 labelPuntajeUser.Text = puntosJugador1.ToString();
-                terminaRonda(true);
+                terminaRonda(true, true);
             }
                 
         }
@@ -649,7 +649,7 @@ namespace Proyecto.presentacion
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
                 puntosJugador1 += 1;
                 labelPuntajeUser.Text = puntosJugador1.ToString();
-                terminaRonda(true);
+                terminaRonda(true, true);
             }
 
         }
@@ -870,7 +870,7 @@ namespace Proyecto.presentacion
             //Conexion.InsertarMano(contMano, nroMano, ganadoresManos[nroMano - 1], flor1, flor2, envido, puntosEnJuego);
 
         }
-        private void terminaRonda(bool ganador) //si es true el ganador es el usuario
+        private void terminaRonda(bool ganador, bool rendicion) //si es true el ganador es el usuario
         {
             if (envido && ganadorEnvido == jugador2)
             {
@@ -912,19 +912,15 @@ namespace Proyecto.presentacion
                 MessageBox.Show("Ganaste la ronda, ganas " + puntosEnJuego + " puntos", "Atención",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //Meter los if para ver si se canto truco y no se acepto
-                if (truco)
+                if (!rendicion)
                 {
                     puntosJugador1 += puntosEnJuego;
-                    if (retruco)
-                    {
-                        puntosJugador1 += puntosEnJuego;
-                        if (vale4)
-                        {
-                            puntosJugador1 += puntosEnJuego;
-                        }
-                    }
                 }
-                
+
+                if (rendicion)
+                {
+
+                }
                 labelPuntajeUser.Text = puntosJugador1.ToString();
             }
             if (!ganador)

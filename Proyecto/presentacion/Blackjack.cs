@@ -55,6 +55,28 @@ namespace Proyecto.presentacion
                 Conexion.Conectado(Usuario.usuarioActual.Username, 0);
                 Application.Exit();
             }
+            /*if(Usuario.usuarioActual.Username != "")
+            {
+                presupuesto = Usuario.usuarioActual.Presupuesto;
+            }*/
+            imagenJugador();
+        }
+        private void imagenJugador()
+        {
+            if (Usuario.usuarioActual.FotoPerfil.Equals("") == false)
+            {
+                picPerfil.BackgroundImage = null;
+                picPerfil.Load(Usuario.usuarioActual.FotoPerfil);
+                if (!Usuario.usuarioActual.Suscrito)
+                {
+                    panelMarcoDiferencial.Hide();
+                }
+            }
+            else
+            {
+                panelMarcoDiferencial.Hide();
+                picPerfil.Hide();
+            }
         }
         private void Blackjack_Load(object sender, EventArgs e)
         {
@@ -93,8 +115,18 @@ namespace Proyecto.presentacion
                 "\nlo que apostaste", "¡Alerta!", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (d == DialogResult.Yes)
             {
-                f.Show();
-                base.Hide();
+                if(Usuario.usuarioActual.Username != "")
+                {
+                    Main2 m = new Main2();
+                    m.Show();
+                    base.Hide();
+                }
+                else
+                {
+                    f.Show();
+                    base.Hide();
+                }
+                
             }
         }
 
@@ -264,13 +296,17 @@ namespace Proyecto.presentacion
 
             c1 = b.robarCartaInglesa();
             cartas[0] = c1;
+            btnCarta1.Show();
             btnCarta1.BackgroundImage = Image.FromFile(@"..\..\imagenes\blackjack\" + c1.RutaImg + ".png");
             co1 = b.robarCartaInglesa();
+            btnCartaO1.Show();
             btnCartaO1.BackgroundImage = Image.FromFile(@"..\..\imagenes\blackjack\" + co1.RutaImg + ".png");
             c2 = b.robarCartaInglesa();
             cartas[1] = c2;
+            btnCarta2.Show();
             btnCarta2.BackgroundImage = Image.FromFile(@"..\..\imagenes\blackjack\" + c2.RutaImg + ".png");
             co2 = b.robarCartaInglesa();
+            btnCartaO2.Show();
             btnCartaO2.BackgroundImage = Image.FromFile(@"..\..\imagenes\blackjack\parteTrasera.png");
             txtValores.Text = funciones.actualizaValores(cartas);
             cantCartas = 2;
@@ -335,6 +371,7 @@ namespace Proyecto.presentacion
             apuesta *= 2;
             txtApuesta.Text = "Apuesta: " + apuesta;
             c3 = b.robarCartaInglesa();
+            btnCarta3.Show();
             btnCarta3.BackgroundImage = Image.FromFile(@"..\..\imagenes\blackjack\" + c3.RutaImg + ".png");
             Thread.Sleep(1);
             cartas[2] = c3;
@@ -438,6 +475,7 @@ namespace Proyecto.presentacion
                         co4 = b.robarCartaInglesa();
                         cartasTotal += co4.ValorCarta;
                         cartasO[3] = co4;
+                        btnCartaO4.Show();
                         btnCartaO4.BackgroundImage = Image.FromFile(@"..\..\imagenes\blackjack\" + co4.RutaImg + ".png");
                         if (funciones.superaLimite(cartasO))
                         {
@@ -453,6 +491,7 @@ namespace Proyecto.presentacion
                         co5 = b.robarCartaInglesa();
                         cartasTotal += co5.ValorCarta;
                         cartasO[4] = co5;
+                        btnCartaO5.Show();
                         btnCartaO5.BackgroundImage = Image.FromFile(@"..\..\imagenes\blackjack\" + co5.RutaImg + ".png");
                         if (funciones.superaLimite(cartasO))
                         {
@@ -468,6 +507,7 @@ namespace Proyecto.presentacion
                         co6 = b.robarCartaInglesa();
                         cartasTotal += co6.ValorCarta;
                         cartasO[5] = co6;
+                        btnCartaO6.Show();
                         btnCartaO6.BackgroundImage = Image.FromFile(@"..\..\imagenes\blackjack\" + co6.RutaImg + ".png");
                         if (funciones.superaLimite(cartasO))
                         {
@@ -483,6 +523,7 @@ namespace Proyecto.presentacion
                         co7 = b.robarCartaInglesa();
                         cartasTotal += co7.ValorCarta;
                         cartasO[6] = co7;
+                        btnCartaO7.Show();
                         btnCartaO6.BackgroundImage = Image.FromFile(@"..\..\imagenes\blackjack\" + co7.RutaImg + ".png");
                         if (funciones.superaLimite(cartasO))
                         {
@@ -553,17 +594,20 @@ namespace Proyecto.presentacion
             {
                 cartas[x] = null;
             }
-
-            /*btnCarta3.Hide();
+            btnCarta1.Hide();
+            btnCarta2.Hide();
+            btnCarta3.Hide();
             btnCarta4.Hide();
             btnCarta5.Hide();
             btnCarta6.Hide();
             btnCarta7.Hide();
+            btnCartaO1.Hide();
+            btnCartaO2.Hide();
             btnCartaO3.Hide();
             btnCartaO4.Hide();
             btnCartaO5.Hide();
             btnCartaO6.Hide();
-            btnCartaO7.Hide();*/
+            btnCartaO7.Hide();
 
             btnIzquierda.Show();
             btnDerecha.Show();

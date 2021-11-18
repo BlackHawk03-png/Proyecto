@@ -56,6 +56,9 @@ namespace Proyecto.presentacion
             this.btnVolver = new System.Windows.Forms.Button();
             this.btnCarta7 = new System.Windows.Forms.Button();
             this.btnCartaO7 = new System.Windows.Forms.Button();
+            this.picPerfil = new System.Windows.Forms.PictureBox();
+            this.panelMarcoDiferencial = new System.Windows.Forms.Panel();
+            ((System.ComponentModel.ISupportInitialize)(this.picPerfil)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCarta1
@@ -306,7 +309,7 @@ namespace Proyecto.presentacion
             this.btnVolver.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnVolver.FlatAppearance.BorderSize = 0;
             this.btnVolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVolver.Location = new System.Drawing.Point(0, 617);
+            this.btnVolver.Location = new System.Drawing.Point(0, 613);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(151, 64);
             this.btnVolver.TabIndex = 39;
@@ -333,13 +336,38 @@ namespace Proyecto.presentacion
             this.btnCartaO7.TabIndex = 41;
             this.btnCartaO7.UseVisualStyleBackColor = true;
             // 
+            // picPerfil
+            // 
+            this.picPerfil.BackColor = System.Drawing.Color.Transparent;
+            this.picPerfil.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picPerfil.BackgroundImage")));
+            this.picPerfil.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picPerfil.ErrorImage = ((System.Drawing.Image)(resources.GetObject("picPerfil.ErrorImage")));
+            this.picPerfil.InitialImage = ((System.Drawing.Image)(resources.GetObject("picPerfil.InitialImage")));
+            this.picPerfil.Location = new System.Drawing.Point(33, 76);
+            this.picPerfil.Name = "picPerfil";
+            this.picPerfil.Size = new System.Drawing.Size(167, 167);
+            this.picPerfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picPerfil.TabIndex = 44;
+            this.picPerfil.TabStop = false;
+            // 
+            // panelMarcoDiferencial
+            // 
+            this.panelMarcoDiferencial.BackColor = System.Drawing.Color.Transparent;
+            this.panelMarcoDiferencial.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelMarcoDiferencial.BackgroundImage")));
+            this.panelMarcoDiferencial.Location = new System.Drawing.Point(29, 72);
+            this.panelMarcoDiferencial.Name = "panelMarcoDiferencial";
+            this.panelMarcoDiferencial.Size = new System.Drawing.Size(175, 175);
+            this.panelMarcoDiferencial.TabIndex = 45;
+            // 
             // Blackjack
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.ClientSize = new System.Drawing.Size(1260, 677);
+            this.Controls.Add(this.picPerfil);
+            this.Controls.Add(this.panelMarcoDiferencial);
             this.Controls.Add(this.btnCartaO7);
             this.Controls.Add(this.btnCarta7);
             this.Controls.Add(this.btnVolver);
@@ -366,12 +394,15 @@ namespace Proyecto.presentacion
             this.Controls.Add(this.btnPedir);
             this.Controls.Add(this.btnCarta2);
             this.Controls.Add(this.btnCarta1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(1280, 720);
             this.Name = "Blackjack";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Blackjack";
             this.Load += new System.EventHandler(this.Blackjack_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.picPerfil)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -405,5 +436,7 @@ namespace Proyecto.presentacion
         private System.Windows.Forms.Button btnVolver;
         private System.Windows.Forms.Button btnCarta7;
         private System.Windows.Forms.Button btnCartaO7;
+        private System.Windows.Forms.PictureBox picPerfil;
+        private System.Windows.Forms.Panel panelMarcoDiferencial;
     }
 }
