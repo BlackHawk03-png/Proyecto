@@ -61,7 +61,7 @@ namespace Proyecto.presentacion
             this.btnVolver.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnVolver.FlatAppearance.BorderSize = 0;
             this.btnVolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVolver.Location = new System.Drawing.Point(0, 616);
+            this.btnVolver.Location = new System.Drawing.Point(0, 613);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(151, 64);
             this.btnVolver.TabIndex = 5;
@@ -149,7 +149,7 @@ namespace Proyecto.presentacion
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1262, 679);
+            this.ClientSize = new System.Drawing.Size(1260, 677);
             this.Controls.Add(this.btnAgregarAmigos);
             this.Controls.Add(this.gridUsernames);
             this.Controls.Add(this.btnTruco);
@@ -158,9 +158,11 @@ namespace Proyecto.presentacion
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnAdmin);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(1280, 718);
-            this.MinimumSize = new System.Drawing.Size(1278, 718);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1280, 720);
+            this.MinimumSize = new System.Drawing.Size(1280, 720);
             this.Name = "Main2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main2";

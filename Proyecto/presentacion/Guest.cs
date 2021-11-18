@@ -31,7 +31,7 @@ namespace Proyecto.presentacion
 
         private void btnBlackjack_Click(object sender, EventArgs e)
         {
-            Blackjack b = new Blackjack(true);
+            Blackjack b = new Blackjack();
             b.Show();
             base.Hide();
         }

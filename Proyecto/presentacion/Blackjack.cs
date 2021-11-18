@@ -41,11 +41,9 @@ namespace Proyecto.presentacion
         int presupuesto = 1000;
         string[] fichas = { "fichaAmarilla", "fichaCeleste", "fichaNaranja", "fichaNegra", "fichaRoja", "fichaVerde" };
         int posicionFicha = 0;
-        bool Guest;
-        public Blackjack(bool guest) //true es guest, false es usuario
+        public Blackjack() //true es guest, false es usuario
         {
             InitializeComponent();
-            Guest = guest;
             inicio();
             b.barajaInglesa();
 
@@ -284,77 +282,95 @@ namespace Proyecto.presentacion
         }
         private void btnApostar_Click(object sender, EventArgs e)
         {
-            btnApostar.Hide();
-            btnFicha.Hide();
-            btnIzquierda.Hide();
-            btnDerecha.Hide();
-            txtApuesta.Text = "Apuesta: " + apuesta;
-            presupuesto -= apuesta;
-            txtPresupuesto.Text = "Presupuesto: " + presupuesto;
-            
-            if(!Guest) { Conexion.CrearPartidaBlackjack(apuesta); }
-
-            c1 = b.robarCartaInglesa();
-            cartas[0] = c1;
-            btnCarta1.Show();
-            btnCarta1.BackgroundImage = Image.FromFile(@"..\..\imagenes\blackjack\" + c1.RutaImg + ".png");
-            co1 = b.robarCartaInglesa();
-            btnCartaO1.Show();
-            btnCartaO1.BackgroundImage = Image.FromFile(@"..\..\imagenes\blackjack\" + co1.RutaImg + ".png");
-            c2 = b.robarCartaInglesa();
-            cartas[1] = c2;
-            btnCarta2.Show();
-            btnCarta2.BackgroundImage = Image.FromFile(@"..\..\imagenes\blackjack\" + c2.RutaImg + ".png");
-            co2 = b.robarCartaInglesa();
-            btnCartaO2.Show();
-            btnCartaO2.BackgroundImage = Image.FromFile(@"..\..\imagenes\blackjack\parteTrasera.png");
-            txtValores.Text = funciones.actualizaValores(cartas);
-            cantCartas = 2;
-
-            if (funciones.blackJack(c1, c2) && funciones.blackJack(co1, co2))
+            if (presupuesto - apuesta <= 0)
             {
-                MessageBox.Show("Ninguno gana, ninguno pierde", "¡Doble Blackjack!");
-                inicio();
-            }
-            else if (co1.Numero == "A")
-            {
-                DialogResult d;
-                d = MessageBox.Show("La casa tiene un as, ¿quieres comprar un seguro?", "¡Alerta!",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-
-                if (d == DialogResult.Yes)
+                MessageBox.Show("No cuentas con suficientes fichas para seguir jugando", "Atención",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if(Usuario.usuarioActual.Username != "")
                 {
-                    presupuesto -= apuesta / 2;
-                    if (funciones.blackJack(co1, co2))
-                    {
-                        MessageBox.Show("La casa hizo blackjack, por suerte tienes seguro", "Atencion",
-                            MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        presupuesto += apuesta;
-                        pierde();
-                        return;
-                    }
+                    Main2 m = new Main2();
+                    m.Show();
+                    base.Hide();
+                }
+                else
+                {
+                    Guest g = new Guest();
+                    g.Show();
+                    base.Hide();
                 }
             }
-            else if (funciones.blackJack(c1, c2))
+            else
             {
-                MessageBox.Show("¡Blackjack!", "¡Felicidades!");
-                gana();
-                return;
-            }
+                btnApostar.Hide();
+                btnFicha.Hide();
+                btnIzquierda.Hide();
+                btnDerecha.Hide();
+                txtApuesta.Text = "Apuesta: " + apuesta;
+                presupuesto -= apuesta;
+                txtPresupuesto.Text = "Presupuesto: " + presupuesto;
 
-            /*if (funciones.superaLimite(cartas))
-            {
-                pierde();
-                return;
-            }*/
+                if (Usuario.usuarioActual.Username != "")
+                {
+                    Conexion.CrearPartidaBlackjack(apuesta);
+                }
 
-            btnDoblar.Show();
-            btnPedir.Show();
-            btnPlantarse.Show();
-            if (funciones.divide(c1, c2))
-            {
-                btnDividir.Show();
+                c1 = b.robarCartaInglesa();
+                cartas[0] = c1;
+                btnCarta1.Show();
+                btnCarta1.BackgroundImage = Image.FromFile(@"..\..\imagenes\blackjack\" + c1.RutaImg + ".png");
+                co1 = b.robarCartaInglesa();
+                btnCartaO1.Show();
+                btnCartaO1.BackgroundImage = Image.FromFile(@"..\..\imagenes\blackjack\" + co1.RutaImg + ".png");
+                c2 = b.robarCartaInglesa();
+                cartas[1] = c2;
+                btnCarta2.Show();
+                btnCarta2.BackgroundImage = Image.FromFile(@"..\..\imagenes\blackjack\" + c2.RutaImg + ".png");
+                co2 = b.robarCartaInglesa();
+                btnCartaO2.Show();
+                btnCartaO2.BackgroundImage = Image.FromFile(@"..\..\imagenes\blackjack\parteTrasera.png");
+                txtValores.Text = funciones.actualizaValores(cartas);
+                cantCartas = 2;
+
+                if (funciones.blackJack(c1, c2) && funciones.blackJack(co1, co2))
+                {
+                    MessageBox.Show("Ninguno gana, ninguno pierde", "¡Doble Blackjack!");
+                    inicio();
+                }
+                else if (co1.Numero == "A")
+                {
+                    DialogResult d;
+                    d = MessageBox.Show("La casa tiene un as, ¿quieres comprar un seguro?", "¡Alerta!",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                    if (d == DialogResult.Yes)
+                    {
+                        presupuesto -= apuesta / 2;
+                        if (funciones.blackJack(co1, co2))
+                        {
+                            MessageBox.Show("La casa hizo blackjack, por suerte tienes seguro", "Atencion",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            presupuesto += apuesta;
+                            pierde();
+                            return;
+                        }
+                    }
+                }
+                else if (funciones.blackJack(c1, c2))
+                {
+                    MessageBox.Show("¡Blackjack!", "¡Felicidades!");
+                    gana();
+                    return;
+                }
+
+                btnDoblar.Show();
+                btnPedir.Show();
+                btnPlantarse.Show();
+                if (funciones.divide(c1, c2))
+                {
+                    btnDividir.Show();
+                }
             }
+            
         }
         private void btnNuevaApuesta_Click(object sender, EventArgs e)
         {

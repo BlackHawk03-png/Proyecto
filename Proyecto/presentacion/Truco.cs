@@ -570,6 +570,8 @@ namespace Proyecto.presentacion
             retruco = true;
             btnVale4.Show();
             btnReTruco.Hide();
+            btnNoQuiero.Hide();
+            btnQuiero.Hide();
             btnCarta1.Enabled = true;
             btnCarta2.Enabled = true;
             btnCarta3.Enabled = true;
@@ -642,6 +644,7 @@ namespace Proyecto.presentacion
                 //btnReTruco.Show();
 
                 int b = azar.Next(2);
+                b = 0;
                 if (b == 0)
                 {
                     MessageBox.Show("Tu oponente quiere retruco," +
@@ -657,7 +660,7 @@ namespace Proyecto.presentacion
                     btnEnvido.Enabled = false;
                     btnTruco.Hide();
                 }
-                
+                btnTruco.Hide();
             }
             else
             {
@@ -886,7 +889,7 @@ namespace Proyecto.presentacion
             //Conexion.InsertarMano(contMano, nroMano, ganadoresManos[nroMano - 1], flor1, flor2, envido, puntosEnJuego);
 
         }
-        private void terminaRonda(bool ganador, bool rendicion) //si es true el ganador es el usuario
+        private void terminaRonda(bool ganador, bool rendido) //si es true el ganador es el usuario
         {
             if (envido && ganadorEnvido == jugador2)
             {
@@ -928,14 +931,9 @@ namespace Proyecto.presentacion
                 MessageBox.Show("Ganaste la ronda, ganas " + puntosEnJuego + " puntos", "Atención",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //Meter los if para ver si se canto truco y no se acepto
-                if (!rendicion)
+                if (!rendido)
                 {
                     puntosJugador1 += puntosEnJuego;
-                }
-
-                if (rendicion)
-                {
-
                 }
                 labelPuntajeUser.Text = puntosJugador1.ToString();
             }
@@ -943,7 +941,10 @@ namespace Proyecto.presentacion
             {
                 MessageBox.Show("Perdiste la ronda, tu oponente gana " + puntosEnJuego + " puntos", "Atención",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
-                puntosJugador2 += puntosEnJuego;
+                if (!rendido)
+                {
+                    puntosJugador2 += puntosEnJuego;
+                }
                 labelPuntajeCPU.Text = puntosJugador2.ToString();
             }
             inicioRonda();

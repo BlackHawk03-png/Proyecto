@@ -151,7 +151,7 @@ namespace Proyecto.presentacion
             this.btnVolver.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnVolver.FlatAppearance.BorderSize = 0;
             this.btnVolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVolver.Location = new System.Drawing.Point(0, 616);
+            this.btnVolver.Location = new System.Drawing.Point(0, 613);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(151, 64);
             this.btnVolver.TabIndex = 45;
@@ -164,7 +164,7 @@ namespace Proyecto.presentacion
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.ClientSize = new System.Drawing.Size(1260, 677);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnEditProfile);
             this.Controls.Add(this.checkBoxFemale);
@@ -177,7 +177,9 @@ namespace Proyecto.presentacion
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtPassword);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1280, 720);
             this.MinimumSize = new System.Drawing.Size(1280, 720);
             this.Name = "EditProfile";

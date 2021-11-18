@@ -54,7 +54,7 @@ namespace Proyecto.presentacion
             this.btnVolver.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnVolver.FlatAppearance.BorderSize = 0;
             this.btnVolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVolver.Location = new System.Drawing.Point(0, 617);
+            this.btnVolver.Location = new System.Drawing.Point(0, 613);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(151, 64);
             this.btnVolver.TabIndex = 38;
@@ -215,7 +215,9 @@ namespace Proyecto.presentacion
             this.Controls.Add(this.btnExtra);
             this.Controls.Add(this.btnReview);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1280, 720);
             this.MinimumSize = new System.Drawing.Size(1280, 720);
             this.Name = "AdminPanel";

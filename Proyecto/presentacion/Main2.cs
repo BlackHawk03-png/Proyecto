@@ -60,7 +60,7 @@ namespace Proyecto.presentacion
 
         private void btnBlackjack_Click(object sender, EventArgs e)
         {
-            Blackjack b = new Blackjack(false);
+            Blackjack b = new Blackjack();
             b.Show();
             base.Hide();
         }
