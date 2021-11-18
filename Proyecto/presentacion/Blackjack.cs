@@ -394,9 +394,25 @@ namespace Proyecto.presentacion
 
         private void pierde() //Pregunta si quiere volver a jugar
         {
-            if (!Guest)
+            if (Usuario.usuarioActual.Username != "")
             {
+                int[] medallasAntiguas = Conexion.recibeMedallasProfile(Usuario.usuarioActual.Username);
                 Conexion.CompletarPartidaBlackjack(false, 0);
+                int[] medallasNuevas = Conexion.recibeMedallasProfile(Usuario.usuarioActual.Username);
+                bool variaron = false;
+                for(int x = 0; x < medallasAntiguas.Length; x++)
+                {
+                    if(medallasAntiguas[x] != medallasNuevas[x])
+                    {
+                        variaron = true;
+                    }
+                }
+                if (variaron)
+                {
+                    MessageBox.Show("La cantidad de medallas que tenía aumentó" +
+                        "\nVaya a su perfil a ver sus nuevas medallas", "Atención", 
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             DialogResult d;
             d = MessageBox.Show("Quieres volver a jugar?", "¡Perdiste!", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
@@ -425,11 +441,26 @@ namespace Proyecto.presentacion
                 presupuesto += ganancia;
             }
             txtPresupuesto.Text = "Presupusto: " + presupuesto;
-            if (!Guest)
+            if (Usuario.usuarioActual.Username != "")
             {
+                int[] medallasAntiguas = Conexion.recibeMedallasProfile(Usuario.usuarioActual.Username);
                 Conexion.CompletarPartidaBlackjack(hizoBlackjack, ganancia);
+                int[] medallasNuevas = Conexion.recibeMedallasProfile(Usuario.usuarioActual.Username);
+                bool variaron = false;
+                for (int x = 0; x < medallasAntiguas.Length; x++)
+                {
+                    if (medallasAntiguas[x] != medallasNuevas[x])
+                    {
+                        variaron = true;
+                    }
+                }
+                if (variaron)
+                {
+                    MessageBox.Show("La cantidad de medallas que tenías aumentó" +
+                        "\nVe a su perfil a ver sus nuevas medallas", "Atención",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
-            
             DialogResult d;
             d = MessageBox.Show("Quieres volver a jugar?", "¡Ganaste!", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (d == DialogResult.Yes)
