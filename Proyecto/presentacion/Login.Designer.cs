@@ -109,7 +109,7 @@ namespace Proyecto.presentacion
             this.btnPassword.Name = "btnPassword";
             this.btnPassword.Size = new System.Drawing.Size(165, 49);
             this.btnPassword.TabIndex = 4;
-            this.btnPassword.Text = "Forgot your password?";
+            this.btnPassword.Text = "Olvidé mi contraseña";
             this.btnPassword.UseVisualStyleBackColor = true;
             this.btnPassword.Click += new System.EventHandler(this.btnPassword_Click_1);
             // 

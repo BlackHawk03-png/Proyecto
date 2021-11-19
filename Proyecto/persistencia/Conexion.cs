@@ -55,7 +55,8 @@ namespace Proyecto.persistencia
                 ObtenerConexion();
                 MySqlCommand myCommand = databaseConnection.CreateCommand();
                 myCommand.CommandText = "INSERT INTO usuario " +
-                    "(username, passwd, nombre, apellido, sexo, mail, fecha_nac, fecha_ingreso, suscrito, administrador, foto_perfil) " +
+                    "(username, passwd, nombre, apellido, sexo, mail, fecha_nac, fecha_registro, " +
+                    "foto_perfil, conectado, activo, rol, presupuesto) " +
                     "VALUES (" +
                     "'" + username +
                     "', '" + password +
@@ -64,7 +65,7 @@ namespace Proyecto.persistencia
                     "', '" + sexo +
                     "', '" + mail +
                     "', '" + fechaNac +
-                    "', CURDATE(), FALSE, FALSE, 'default');";
+                    "', CURDATE(), 'default', 0, 1, 'sin rol', 1000);";
                 myCommand.ExecuteNonQuery();
                 CerrarConexion();
             }
@@ -188,11 +189,17 @@ namespace Proyecto.persistencia
         }
         public static void hacerAdmin(string username)
         {
+            Usuario u = Conexion.recibeDatos(username);
+            string rol = "administrador";
+            if(u.Rol == "suscrito")
+            {
+                rol = "ambos";
+            }
             try
             {
                 ObtenerConexion();
                 MySqlCommand myCommand = databaseConnection.CreateCommand();
-                myCommand.CommandText = "UPDATE usuario SET administrador = TRUE WHERE username = '" + username + "';";
+                myCommand.CommandText = "UPDATE usuario SET " + rol + "=  WHERE username = '" + username + "';";
                 myCommand.ExecuteNonQuery();
                 CerrarConexion();
             }
@@ -216,34 +223,6 @@ namespace Proyecto.persistencia
                 throw e;
             }
         }
-        public static string infoUsuario(string username)
-        {
-            string devuelve = "";
-            try
-            {
-                MySqlCommand _comando = new MySqlCommand(String.Format(
-              "SELECT * FROM usuario WHERE username = '{0}';", username), ObtenerConexion());
-                MySqlDataReader _reader = _comando.ExecuteReader();
-                while (_reader.Read())
-                {
-                    devuelve = "Username: " + _reader.GetString(0) +
-                        "\nPassword: " + _reader.GetString(1) +
-                        "\nNombre: " + _reader.GetString(2) +
-                        "\nSexo: " + _reader.GetString(3) +
-                        "\nMail: " + _reader.GetString(4) +
-                        "\nFecha de nacimiento: " + _reader.GetString(5) +
-                        "\nFecha de ingreso: " + _reader.GetString(6) +
-                        "\nSuscrito: " + _reader.GetString(7) +
-                        "\nAdministrador: " + _reader.GetString(8);
-                }
-                CerrarConexion();
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-            return devuelve;
-        }
         public static int[] cantUsuarios()
         {
             int[] devuelve = { 0, 0 };
@@ -260,7 +239,7 @@ namespace Proyecto.persistencia
                 }
                 CerrarConexion();
                 _comando = new MySqlCommand(String.Format(
-                      "SELECT COUNT(username) FROM conectado WHERE conectado = TRUE;"), ObtenerConexion());
+                      "SELECT COUNT(username) FROM usuario WHERE conectado = TRUE;"), ObtenerConexion());
                 _reader = _comando.ExecuteReader();
                 while (_reader.Read())
                 {
@@ -298,7 +277,7 @@ namespace Proyecto.persistencia
                 ObtenerConexion();
                 MySqlCommand myCommand = databaseConnection.CreateCommand();
                 myCommand.CommandText = "INSERT INTO blackjack " +
-                    "(fecha, jugador, apuesta) VALUES (CURDATE(), '" +
+                    "(fecha, username, apuesta) VALUES (CURDATE(), '" +
                     Usuario.usuarioActual.Username + "', " + apuesta + ");";
                 myCommand.ExecuteNonQuery();
                 CerrarConexion();
@@ -314,14 +293,10 @@ namespace Proyecto.persistencia
             {
                 ObtenerConexion();
                 MySqlCommand myCommand = databaseConnection.CreateCommand();
-                myCommand.CommandText = "INSERT INTO truco " +
-                    "(tipo, jugador1, jugador2, fecha, puntos_j1, puntos_j2, ganador) VALUES (" +
-                    "'" + tipo + "', " +
+                myCommand.CommandText = "INSERT INTO juega_truco " +
+                    "(jugador1, jugador2) VALUES (" +
                     "'" + jugador1 + "', " +
-                    "'" + jugador2 + "', " + 
-                    "CURDATE()," + 
-                    "0, 0, ''"
-                    + ");";
+                    "'" + jugador2 + "');";
                 myCommand.ExecuteNonQuery();
                 CerrarConexion();
             }
@@ -366,7 +341,7 @@ namespace Proyecto.persistencia
             try
             {
                 MySqlCommand _comando = new MySqlCommand(String.Format(
-                  "SELECT MAX(id_partida) FROM truco;"), ObtenerConexion());
+                  "SELECT MAX(id_partida) FROM partida_truco;"), ObtenerConexion());
                 MySqlDataReader _reader = _comando.ExecuteReader();
                 while (_reader.Read())
                 {
@@ -380,7 +355,7 @@ namespace Proyecto.persistencia
             }
             return devuelve;
         }
-        public static void InsertarMano(int contMano, int nroMano, string ganador, bool cantoJ1, bool cantoJ2, bool envido, int puntosJ1, int puntosJ2, string jugador, string jugadorMano, int cartaJ1Numero, string cartaJ1Palo, int cartaJ2Numero, string cartaJ2Palo)
+        public static void InsertarRonda(int contMano, int nroMano, string ganador, bool cantoJ1, bool cantoJ2, bool envido, int puntosJ1, int puntosJ2, string jugador, string jugadorMano, int cartaJ1Numero, string cartaJ1Palo, int cartaJ2Numero, string cartaJ2Palo)
         {
 
         }

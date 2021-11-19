@@ -74,6 +74,7 @@ namespace Proyecto.presentacion
 
         private void btnIniciarJuego_Click(object sender, EventArgs e)
         {
+            btnIniciarJuego.Hide();
             iniciarJuego();
         }
 

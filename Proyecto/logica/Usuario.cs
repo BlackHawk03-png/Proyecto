@@ -40,7 +40,6 @@ namespace Proyecto.logica
         private int consecutivasBlackjack;
         private int consecutivasTruco;
         public static Usuario usuarioActual = new Usuario("", "", "", "", "", "", "", "", false, false, "", "", 0);
-        public static ArrayList usuarios = new ArrayList();
         
         //Getters y Setters de los atributos
         public string Username
@@ -112,35 +111,6 @@ namespace Proyecto.logica
         {
             get { return usuarioActual; }
             set { usuarioActual = value; }
-        }
-        public bool valida(string txtUsername, string txtPassword)
-        {
-            bool verifica = false;
-            foreach (Usuario u in usuarios)
-            {
-                if (u.username == txtUsername)
-                {
-                    if (u.password == txtPassword)
-                    {
-                        verifica = true;
-                        usuarioActual = u;
-                    }
-                }
-            }
-            return verifica;
-        }
-        public bool existeUsuario(string txtUsername, string txtMail)
-        {
-            bool existe = false;
-            foreach(Usuario u in usuarios)
-            {
-                if (u.username == txtUsername || u.mail == txtMail)
-                {
-                    existe = true;
-                }
-            }
-            
-            return existe;
         }
         public static bool mailValido(string email)
         {

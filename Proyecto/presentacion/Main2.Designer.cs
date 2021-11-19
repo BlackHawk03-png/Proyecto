@@ -89,7 +89,7 @@ namespace Proyecto.presentacion
             this.btnTruco.FlatAppearance.BorderSize = 2;
             this.btnTruco.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTruco.Font = new System.Drawing.Font("White Storm", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTruco.Location = new System.Drawing.Point(326, 388);
+            this.btnTruco.Location = new System.Drawing.Point(326, 354);
             this.btnTruco.Name = "btnTruco";
             this.btnTruco.Size = new System.Drawing.Size(615, 136);
             this.btnTruco.TabIndex = 2;

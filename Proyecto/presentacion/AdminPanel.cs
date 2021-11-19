@@ -104,7 +104,19 @@ namespace Proyecto.presentacion
             int a = Conexion.Existe(txtUsername1.Text);
             if (a == 1)
             {
-                MessageBox.Show(Conexion.infoUsuario(txtUsername1.Text), "Information of this user", MessageBoxButtons.OK);
+                Usuario u = Conexion.recibeDatos(txtUsername1.Text);
+                string datos = "Username: " + u.Username +
+                        "\nPassword: " + u.Password +
+                        "\nNombre: " + u.Nombre +
+                        "\nSexo: " + u.Sexo +
+                        "\nMail: " + u.Mail +
+                        "\nFecha de nacimiento: " + u.FechaNac +
+                        "\nFecha de ingreso: " + u.FechaIngreso +
+                        "\nRol: " + u.Rol +
+                        "\nPresupuesto: " + u.Presupuesto + 
+                        "\nConsecutivas Truco: " + u.ConsecutivasTruco + 
+                        "\nConescutivas Blackjack: " + u.ConsecutivasBlackjack;
+                MessageBox.Show(datos, "Information of this user", MessageBoxButtons.OK);
             }
             else
             {
