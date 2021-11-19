@@ -24,19 +24,6 @@ namespace Proyecto
             {
                 Application.Exit();
             }
-            dataGridView1.Hide();
-            dataGridView2.Hide();
-            /*List<string>[] usuarios = Conexion.estadistica1Username();
-            foreach (string user in usuarios[0])
-            {
-                int n = dataGridView1.Rows.Add();
-                dataGridView1.Rows[n].Cells[0].Value = user;
-            }
-            foreach (string user in usuarios[1])
-            {
-                int n = dataGridView1.Rows.Add();
-                dataGridView1.Rows[n].Cells[1].Value = user;
-            }*/
         }
 
         private void Form1_Load(object sender, EventArgs e)

@@ -54,8 +54,6 @@ namespace Proyecto.presentacion
 
         Random azar = new Random();
 
-        
-
         private void btnVolver_Click(object sender, EventArgs e)
         {
             if(Usuario.usuarioActual.Username != "")
@@ -101,24 +99,15 @@ namespace Proyecto.presentacion
                 case 0:
                     picCartaO1.BackgroundImage = Image.FromFile(@"..\..\imagenes\truco\" + co1.RutaImg + ".png");
                     c1.FueJugada = true;
-                    //    y = picCartaO1.Location;
-                    //    y.Y += 40;
-                    //    picCartaO1.Location = x;
 
                     break;
                 case 1:
                     picCartaO2.BackgroundImage = Image.FromFile(@"..\..\imagenes\truco\" + co2.RutaImg + ".png");
                     c2.FueJugada = true;
-                    //    y = picCartaO2.Location;
-                    //  y.Y += 40;
-                    //    picCartaO2.Location = x;
                     break;
                 case 2:
                     picCartaO3.BackgroundImage = Image.FromFile(@"..\..\imagenes\truco\" + co3.RutaImg + ".png");
                     c3.FueJugada = true;
-                    //   y = picCartaO3.Location;
-                    //   y.Y += 40;
-                    //   picCartaO3.Location = x;
                     break;
             }
             if (tf.cartaGanadora(c3, cartasO[numCartaO], muestra) == 1)
@@ -149,7 +138,7 @@ namespace Proyecto.presentacion
             {
                 puntosManoJ2 += 3;
             }
-            //Conexion.InsertarMano(contMano, nroMano, ganadoresManos[nroMano - 1], flor1, flor2, envido, puntosEnJuego);
+            
             if (comparaManos() == 1)
             {
                 terminaRonda(true, false);
@@ -164,7 +153,7 @@ namespace Proyecto.presentacion
             {
                 nroMano++;
             }
-            //Conexion a la base de datos para persistir la mano
+            
             contMano++;
         }
 
@@ -191,24 +180,14 @@ namespace Proyecto.presentacion
                 case 0:
                     picCartaO1.BackgroundImage = Image.FromFile(@"..\..\imagenes\truco\" + co1.RutaImg + ".png");
                     c1.FueJugada = true;
-                    //    y = picCartaO1.Location;
-                    //    y.Y += 40;
-                    //    picCartaO1.Location = x;
-
                     break;
                 case 1:
                     picCartaO2.BackgroundImage = Image.FromFile(@"..\..\imagenes\truco\" + co2.RutaImg + ".png");
                     c2.FueJugada = true;
-                    //    y = picCartaO2.Location;
-                    //  y.Y += 40;
-                    //    picCartaO2.Location = x;
                     break;
                 case 2:
                     picCartaO3.BackgroundImage = Image.FromFile(@"..\..\imagenes\truco\" + co3.RutaImg + ".png");
                     c3.FueJugada = true;
-                    //   y = picCartaO3.Location;
-                    //   y.Y += 40;
-                    //   picCartaO3.Location = x;
                     break;
             }
             if (tf.cartaGanadora(c2, cartasO[numCartaO], muestra) == 1)
@@ -272,24 +251,14 @@ namespace Proyecto.presentacion
                 case 0:
                     picCartaO1.BackgroundImage = Image.FromFile(@"..\..\imagenes\truco\" + co1.RutaImg + ".png");
                     c1.FueJugada = true;
-                //    y = picCartaO1.Location;
-                //    y.Y += 40;
-                //    picCartaO1.Location = x;
-
                     break;
                 case 1:
                     picCartaO2.BackgroundImage = Image.FromFile(@"..\..\imagenes\truco\" + co2.RutaImg + ".png");
                     c2.FueJugada = true;
-                //    y = picCartaO2.Location;
-                  //  y.Y += 40;
-                //    picCartaO2.Location = x;
                     break;
                 case 2:
                     picCartaO3.BackgroundImage = Image.FromFile(@"..\..\imagenes\truco\" + co3.RutaImg + ".png");
                     c3.FueJugada = true;
-                 //   y = picCartaO3.Location;
-                 //   y.Y += 40;
-                 //   picCartaO3.Location = x;
                     break;
             }
             if (tf.cartaGanadora(c1, cartasO[numCartaO], muestra) == 1)
@@ -315,18 +284,15 @@ namespace Proyecto.presentacion
             if (comparaManos() == 1)
             {
                 terminaRonda(true, false);
-                //return;
             }
             else if (comparaManos() == 2)
             {
                 terminaRonda(false, false);
-                //return;
             }
             else 
             {
                 nroMano++;
             }
-            //Conexion a la base de datos para persistir la mano
             contMano++;
         }
 
@@ -456,19 +422,14 @@ namespace Proyecto.presentacion
                 Conexion.CrearPartidaTruco(jugador1, jugador2, tipo);
                 id = Conexion.RecibirIdPartida(true);
             }
-            PartidaTruco p = new PartidaTruco(id, jugador1, jugador2, tipo);
-
             inicioRonda();
-            
-            //Conexion con la base de datos, persistir la partida
-            //Mensaje al ganador
         }
-        private void finalizaPartida()
+        private void finalizaPartida(string ganador)
         {
             if (Usuario.usuarioActual.Username != "")
             {
                 int[] medallasAntiguas = Conexion.recibeMedallasProfile(Usuario.usuarioActual.Username);
-                //Conexion con la base de datos para actualizar la partida
+                Conexion.CompletarPartidaTruco(ganador);
                 int[] medallasNuevas = Conexion.recibeMedallasProfile(Usuario.usuarioActual.Username);
                 bool variaron = false;
                 for (int x = 0; x < medallasAntiguas.Length; x++)
@@ -477,6 +438,18 @@ namespace Proyecto.presentacion
                     {
                         variaron = true;
                     }
+                }
+                if(Usuario.usuarioActual.ConsecutivasTruco == 2)
+                {
+                    Conexion.darMedalla(18);
+                }
+                if (Usuario.usuarioActual.ConsecutivasTruco == 4)
+                {
+                    Conexion.darMedalla(19);
+                }
+                if (Usuario.usuarioActual.ConsecutivasTruco == 5)
+                {
+                    Conexion.darMedalla(20);
                 }
                 if (variaron)
                 {
@@ -498,8 +471,7 @@ namespace Proyecto.presentacion
         private void btnEnvido_Click(object sender, EventArgs e)
         {
             cantoEnvido = true;
-            int a = 0;
-            //int a = azar.Next(2);
+            int a = azar.Next(2);
             if (a == 0)
             {
                 CartaEspañola[] cartas = { c1, c2, c3 };
@@ -841,14 +813,17 @@ namespace Proyecto.presentacion
             {
                 MessageBox.Show("Felicidades, ganaste la partida", "Atención",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
-                finalizaPartida();
+                Usuario.usuarioActual.ConsecutivasTruco++;
+                finalizaPartida(jugador1);
             }
             else if (puntosJugador2 >= 40)
             {
                 MessageBox.Show("Perdiste la partida", "Atención",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
-                finalizaPartida();
+                Usuario.usuarioActual.ConsecutivasTruco = 0;
+                finalizaPartida(jugador2);
             }
+
 
 
             if (mano) 
@@ -872,7 +847,7 @@ namespace Proyecto.presentacion
             flor1 = false;
             flor2 = false;
 
-            //btnIniciarJuego.Hide();
+            btnIniciarJuego.Hide();
             jugarMano();
             
         }
@@ -887,7 +862,6 @@ namespace Proyecto.presentacion
             {
                 puntosManoJ2 += 3;
             }
-            //Conexion.InsertarMano(contMano, nroMano, ganadoresManos[nroMano - 1], flor1, flor2, envido, puntosEnJuego);
 
         }
         private void terminaRonda(bool ganador, bool rendido) //si es true el ganador es el usuario
@@ -926,17 +900,20 @@ namespace Proyecto.presentacion
                 MessageBox.Show("Esta es la flor de tu oponente", "Atención",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
+            string ganadorRonda = "";
+            int puntosJ1 = 0;
+            int puntosJ2 = 0;
             if (ganador)
             {
                 MessageBox.Show("Ganaste la ronda, ganas " + puntosEnJuego + " puntos", "Atención",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //Meter los if para ver si se canto truco y no se acepto
                 if (!rendido)
                 {
                     puntosJugador1 += puntosEnJuego;
+                    puntosJ1 = puntosEnJuego;
                 }
                 labelPuntajeUser.Text = puntosJugador1.ToString();
+                ganadorRonda = jugador1;
             }
             if (!ganador)
             {
@@ -945,9 +922,13 @@ namespace Proyecto.presentacion
                 if (!rendido)
                 {
                     puntosJugador2 += puntosEnJuego;
+                    puntosJ2 = puntosEnJuego;
                 }
                 labelPuntajeCPU.Text = puntosJugador2.ToString();
+                ganadorRonda = jugador2;
             }
+            Conexion.insertarRonda(ronda, id, ganadorRonda, flor1, flor2, truco, puntosJ1, puntosJ2, "CPU", Usuario.usuarioActual.Username, c1.Numero, c1.Palo, co1.Numero, co1.Palo, c2.Numero, c2.Palo, co2.Numero, co2.Palo, c3.Numero, c3.Palo, co3.Numero, co3.Palo, muestra.Numero, muestra.Palo);
+            ronda++;
             inicioRonda();
         }
     }

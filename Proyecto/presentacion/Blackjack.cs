@@ -429,6 +429,8 @@ namespace Proyecto.presentacion
                         "\nVaya a su perfil a ver sus nuevas medallas", "Atención", 
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+                Usuario.usuarioActual.ConsecutivasBlackjack = 0;
+                
             }
             DialogResult d;
             d = MessageBox.Show("Quieres volver a jugar?", "¡Perdiste!", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
@@ -475,6 +477,19 @@ namespace Proyecto.presentacion
                     MessageBox.Show("La cantidad de medallas que tenías aumentó" +
                         "\nVe a su perfil a ver tus nuevas medallas", "Atención",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                Usuario.usuarioActual.ConsecutivasBlackjack++;
+                if(Usuario.usuarioActual.ConsecutivasBlackjack == 2)
+                {
+                    Conexion.darMedalla(8);
+                }
+                if (Usuario.usuarioActual.ConsecutivasBlackjack == 5)
+                {
+                    Conexion.darMedalla(9);
+                }
+                if (Usuario.usuarioActual.ConsecutivasBlackjack == 8)
+                {
+                    Conexion.darMedalla(10);
                 }
             }
             DialogResult d;
@@ -588,6 +603,7 @@ namespace Proyecto.presentacion
             if (cartasTotal == valorAGanar)
             {
                 MessageBox.Show("Ninguno gana, ninguno pierde", "¡Empate!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Usuario.usuarioActual.ConsecutivasBlackjack = 0;
                 inicio();
             }
             else if (cartasTotal < valorAGanar)

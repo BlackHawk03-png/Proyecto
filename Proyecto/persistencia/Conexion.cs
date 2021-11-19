@@ -23,7 +23,7 @@ namespace Proyecto.persistencia
         private static Account account = new Account("cloud-tech00", "181871794848263", "E-CFF2yrPqOuUDhcPxVHrd2oe9I");
         private static Cloudinary cloudinary = new Cloudinary(account);
         
-        public static MySqlConnection ObtenerConexion()
+        public static MySqlConnection ObtenerConexion() //Abre la conexion con la base de datos
         {
             try
             {
@@ -35,7 +35,7 @@ namespace Proyecto.persistencia
             }
             return databaseConnection;
         }
-        public static MySqlConnection CerrarConexion()
+        public static MySqlConnection CerrarConexion() //Cierra la conexion con la base de datos
         {
             try
             {
@@ -48,7 +48,7 @@ namespace Proyecto.persistencia
             return databaseConnection;
         }
 
-        public static void insertarUsuario(string username, string password, string nombre, string apellido, string sexo, string mail, string fechaNac)
+        public static void insertarUsuario(string username, string password, string nombre, string apellido, string sexo, string mail, string fechaNac) //Inserta un usuario en la base de datos
         {
             try
             {
@@ -74,7 +74,7 @@ namespace Proyecto.persistencia
                 throw e;
             }
         }
-        public static Usuario recibeDatos(string username)
+        public static Usuario recibeDatos(string username) //Devuelve toda la informacion de un usuario especifico
         {
             Usuario devuelve = new Usuario("", "", "", "", "", "", "", "", false, false, "", "", 0);
             try
@@ -104,7 +104,7 @@ namespace Proyecto.persistencia
             }
             return devuelve;
         }
-        public static string login(string username)
+        public static string login(string username) //Recibe la informacion necesaria para el logueo de un usuario
         {
             string devuelve = "";
             try
@@ -124,7 +124,7 @@ namespace Proyecto.persistencia
             }
             return devuelve;
         }
-        public static void Actual(string username)
+        public static void Actual(string username) //Guarda los datos del usuario logueado en un usuario estatico
         {
             try
             {
@@ -297,6 +297,38 @@ namespace Proyecto.persistencia
                     "(jugador1, jugador2) VALUES (" +
                     "'" + jugador1 + "', " +
                     "'" + jugador2 + "');";
+                myCommand.ExecuteNonQuery();
+                CerrarConexion();
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+        public static void CompletarPartidaTruco(string ganador)
+        {
+            try
+            {
+                ObtenerConexion();
+                MySqlCommand myCommand = databaseConnection.CreateCommand();
+                myCommand.CommandText = "UPDATE partida_truco SET " +
+                    "ganador = '" + ganador + "' WHERE id_partida = " + RecibirIdPartida(true) + "; ";
+                myCommand.ExecuteNonQuery();
+                CerrarConexion();
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+        public static void insertarRonda(int contRonda, int id_partida, string ganador, bool cantoJ1, bool cantoJ2, bool tocaron, int puntosJ1, int puntosJ2, string jugador, string jugadorMano, int cartaJ1N1Numero, string cartaJ1N1Palo, int cartaJ2N1Numero, string cartaJ2N1Palo, int cartaJ1N2Numero, string cartaJ1N2Palo, int cartaJ2N2Numero, string cartaJ2N2Palo, int cartaJ1N3Numero, string cartaJ1N3Palo, int cartaJ2N3Numero, string cartaJ2N3Palo, int muestraNumero, string muestraPalo)
+        {
+            try
+            {
+                ObtenerConexion();
+                MySqlCommand myCommand = databaseConnection.CreateCommand();
+                myCommand.CommandText = "INSERT INTO ronda_truco(cont_ronda, id_partida, ganador, canto_j1, canto_j2, tocaron, puntos_j1, puntos_j2, jugador, jugador_mano, carta_j1_1numero, carta_j1_1palo, carta_j1_2numero, carta_j1_2palo, carta_j1_3numero, carta_j1_3palo, carta_j2_1numero, carta_j2_1palo, carta_j2_2numero, carta_j2_2palo, carta_j2_3numero, carta_j2_3palo, carta_muestra_numero,  carta_muestra_palo) VALUES " +
+                    "("+ contRonda + ", " + id_partida + ", '" + ganador + "', " + cantoJ1 + ", " + cantoJ2 + ", " + tocaron + ", " + puntosJ1 + ", " + puntosJ2 + ", '" + jugador + "', '" + jugadorMano + "', " + cartaJ1N1Numero + ", '" + cartaJ1N1Palo +"', " + cartaJ2N1Numero + ", '" + cartaJ2N1Palo + "', " + cartaJ1N2Numero + ", '" + cartaJ1N2Palo + "', " + cartaJ2N2Numero + ", '" + cartaJ2N2Palo + "', " + cartaJ1N3Numero + ", '" + cartaJ1N3Palo + "', " + cartaJ2N3Numero + ", '" + cartaJ2N3Palo + "', " +muestraNumero + ", '" + muestraPalo + "',); ";
                 myCommand.ExecuteNonQuery();
                 CerrarConexion();
             }
@@ -521,36 +553,8 @@ namespace Proyecto.persistencia
                 throw e;
             }
         }
-        public static int[] estadisticasUsuario(string username) //Sin terminar, faltan consultas
-        {
-            int[] estadisticas = { 0, 0, 0, 0 }; // [0] = jugadasBlackjack / [1] = ganadasBlackjack / [2] = jugadasTruco / [3] = ganadasTruco
-            //Consultas SQL para recibir partidas jugadas y ganadas de ambos juegos para un jugador
-            return estadisticas;
-        }
-        public static string nombreMedalla(int idMedalla) //Sin terminar, faltan consultas
-        {
-            string nombreMedalla = "";
-            //Consulta SQL para recibir el nombre de una medalla segun un id
-            return nombreMedalla;
-        }
-        public static ArrayList actualizarMedallas(string username) //Sin terminar
-        {
-            ArrayList medallasGanadas = new ArrayList();
-            int[] estadisticas = estadisticasUsuario(username);
-
-            if(estadisticas[0] == 1)
-            {
-                medallasGanadas.Add(nombreMedalla(1));
-            }
-            if (estadisticas[0] == 5)
-            {
-                medallasGanadas.Add(nombreMedalla(2));
-            }
-            return medallasGanadas;
-        }
         public static int[] recibeMedallasProfile(string username)
         {
-            //int[] medallas = { 0, 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 };
             int[] medallas = new int[20];
             int c = 0;
             try
@@ -611,5 +615,23 @@ namespace Proyecto.persistencia
             }
             return estadisticas;
         } 
+        public static void darMedalla(int id_medalla)
+        {
+            int[] a = Conexion.recibeMedallasProfile(Usuario.usuarioActual.Username);
+            try
+            {
+                ObtenerConexion();
+                MySqlCommand myCommand = databaseConnection.CreateCommand();
+                myCommand.CommandText = "UPDATE usuario " +
+                    "SET cantidad = " + (a[id_medalla-1] + 1) +
+                    "WHERE username = '" + Usuario.usuarioActual.Username + "' AND id_medalla = " + id_medalla + ";";
+                myCommand.ExecuteNonQuery();
+                CerrarConexion();
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }

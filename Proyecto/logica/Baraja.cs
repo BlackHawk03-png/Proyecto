@@ -20,11 +20,11 @@ namespace Proyecto.logica
         private ArrayList usadasEspañolas = new ArrayList();
         private ArrayList usadasInglesas = new ArrayList();
 
-        public void limpiarEspañolas()
+        public void limpiarEspañolas() //Limpia el ArrayList de las cartas españolas usadas
         {
             usadasEspañolas.Clear();
         }
-        public void limpiarInglesas()
+        public void limpiarInglesas() //Limpia el ArrayList de las cartas inglesas usadas
         {
             usadasInglesas.Clear();
         }

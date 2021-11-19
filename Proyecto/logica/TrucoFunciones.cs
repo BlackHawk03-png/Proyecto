@@ -207,7 +207,7 @@ namespace Proyecto.logica
             }
             return c.Valor;
         }
-        public bool esMata(CartaEspañola c)
+        public bool esMata(CartaEspañola c) //Devuelve true si la carta es una mata
         {
             bool devuelve = false;
             switch (c.Palo)
@@ -225,7 +225,7 @@ namespace Proyecto.logica
             }
             return devuelve;
         }
-        public bool esPieza(CartaEspañola c, CartaEspañola muestra)
+        public bool esPieza(CartaEspañola c, CartaEspañola muestra) //Devuelve true si la carta es una pieza
         {
             bool devuelve = false;
             if (c.Palo == muestra.Palo && (c.Numero == 2 || c.Numero == 4 || c.Numero == 5 || c.Numero == 10 || c.Numero == 11))
@@ -241,7 +241,7 @@ namespace Proyecto.logica
             }
             return devuelve;
         }
-        public int cartaGanadora(CartaEspañola c1, CartaEspañola c2, CartaEspañola muestra)
+        public int cartaGanadora(CartaEspañola c1, CartaEspañola c2, CartaEspañola muestra) //Recibe dos cartas mas la muestra, y determina la carta ganadora
         {
             int ganador = 0; //Emparda
             
