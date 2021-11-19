@@ -31,7 +31,6 @@ namespace Proyecto.presentacion
         }
         private void btnPassword_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Coming soon...", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         private void btnLogin_Click_1(object sender, EventArgs e)
         {
@@ -56,16 +55,12 @@ namespace Proyecto.presentacion
         }
         private void btnImprime_Click(object sender, EventArgs e)
         {
-            
         }
         private void button3_Click(object sender, EventArgs e)
         {
-            
         }
         private void button4_Click(object sender, EventArgs e)
         {
-            //Conexion.insertarDatos();
-            MessageBox.Show("Listo");
         }
     }
 }
