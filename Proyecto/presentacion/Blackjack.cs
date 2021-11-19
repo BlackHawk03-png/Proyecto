@@ -65,7 +65,7 @@ namespace Proyecto.presentacion
             {
                 picPerfil.BackgroundImage = null;
                 picPerfil.Load(Usuario.usuarioActual.FotoPerfil);
-                if (!Usuario.usuarioActual.Suscrito)
+                if (Usuario.usuarioActual.Rol == "sin rol" || Usuario.usuarioActual.Rol == "administrador")
                 {
                     panelMarcoDiferencial.Hide();
                 }

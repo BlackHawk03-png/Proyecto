@@ -33,19 +33,11 @@ namespace Proyecto.presentacion
                 {
                     string sexo = "";
                     string fecha = "";
-                    fecha = btnFechaNac.Value.ToString("yyyy-MM-dd"); //Year.SelectedItem.ToString() + "-" + Month.SelectedItem.ToString() + "-" + Day.SelectedItem.ToString();
-                    if (checkBoxMale.Checked)
-                    {
-                        sexo = "M";
-                    }
-                    if (checkBoxFemale.Checked)
-                    {
-                        sexo = "F";
-                    }
+                    fecha = btnFechaNac.Value.ToString("yyyy-MM-dd");
 
-                    /*if (checkBoxFemale.Checked)
+                    if (checkBoxFemale.Checked)
                         sexo = "F";
-                    else sexo = "M";*/
+                    else sexo = "M";
 
                     if (txtUsername.Text.Equals("") == false && txtPassword.Text.Equals("") == false && txtNombre.Text.Equals("") == false && txtApellido.Text.Equals("") == false)
                     {

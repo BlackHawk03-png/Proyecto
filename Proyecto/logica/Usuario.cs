@@ -9,7 +9,7 @@ namespace Proyecto.logica
 {
     public class Usuario
     {
-        public Usuario(string u, string p, string n, string a, string s, string m, string f, string f1, bool s1, bool a1, string f2) //Constructor por defecto con todos los valores
+        public Usuario(string u, string p, string n, string a, string s, string m, string f, string f1, bool s1, bool a1, string f2, string r, int p1) //Constructor por defecto con todos los valores
         {
             username = u;
             password = p;
@@ -19,12 +19,14 @@ namespace Proyecto.logica
             mail = m;
             fechaNac = f;
             fechaIngreso = f1;
-            suscrito = s1;
-            administrador = a1;
             fotoPerfil = f2;
+            rol = r;
+            presuesto = p1;
+            consecutivasBlackjack = 0;
+            consecutivasTruco = 0;
         }
         //Atributos
-        private string username; 
+        private string username;
         private string password;
         private string nombre;
         private string apellido;
@@ -32,10 +34,12 @@ namespace Proyecto.logica
         private string mail;
         private string fechaNac;
         private string fechaIngreso;
-        private bool suscrito;
-        private bool administrador;
         private string fotoPerfil;
-        public static Usuario usuarioActual = new Usuario("", "", "", "", "", "", "", "", false, false, "");
+        private string rol;
+        private int presuesto;
+        private int consecutivasBlackjack;
+        private int consecutivasTruco;
+        public static Usuario usuarioActual = new Usuario("", "", "", "", "", "", "", "", false, false, "", "", 0);
         public static ArrayList usuarios = new ArrayList();
         
         //Getters y Setters de los atributos
@@ -79,40 +83,35 @@ namespace Proyecto.logica
             get { return fechaIngreso; }
             set { fechaIngreso = value; }
         }
-        public bool Suscrito
-        {
-            get { return suscrito; }
-            set { suscrito = value; }
-        }
-        public bool Administrador
-        {
-            get { return administrador; }
-            set { administrador = value; }
-        }
         public string FotoPerfil
         {
             get { return fotoPerfil; }
             set { fotoPerfil = value; }
         }
+        public string Rol
+        {
+            get { return rol; }
+            set { rol = value; }
+        }
+        public int Presupuesto
+        {
+            get { return presuesto; }
+            set { presuesto = value; }
+        }
+        public int ConsecutivasBlackjack
+        {
+            get { return consecutivasBlackjack; }
+            set { consecutivasBlackjack = value; }
+        }
+        public int ConsecutivasTruco
+        {
+            get { return consecutivasTruco; }
+            set { consecutivasTruco = value; }
+        }
         public Usuario UsuarioActual
         {
             get { return usuarioActual; }
             set { usuarioActual = value; }
-        }
-
-        public void insertarUsuario(Usuario u)
-        {
-            usuarios.Add(u);
-        }
-        public void removerUsuario(Usuario user)
-        {
-            foreach (Usuario u in usuarios)
-            {
-                if (user.username == u.username)
-                {
-                    usuarios.Remove(u);
-                }
-            }
         }
         public bool valida(string txtUsername, string txtPassword)
         {

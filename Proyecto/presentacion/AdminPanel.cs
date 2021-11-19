@@ -24,7 +24,6 @@ namespace Proyecto.presentacion
                 Conexion.Conectado(Usuario.usuarioActual.Username, 0);
                 Application.Exit();
             }
-            btnExtra.Hide();
             usuariosConectados = Conexion.cantUsuarios();
             txtUsuarios.Text = usuariosConectados[0].ToString();
             txtUsuarios.Text = "Usuarios totales: " + usuariosConectados[0].ToString() +

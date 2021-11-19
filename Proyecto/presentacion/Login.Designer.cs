@@ -68,11 +68,11 @@ namespace Proyecto.presentacion
             // 
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 39.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(360, 269);
+            this.label1.Location = new System.Drawing.Point(156, 269);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(270, 71);
+            this.label1.Size = new System.Drawing.Size(474, 71);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Username";
+            this.label1.Text = "Nombre de usuario";
             // 
             // txtPassword
             // 
@@ -96,11 +96,11 @@ namespace Proyecto.presentacion
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 39.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(371, 340);
+            this.label2.Location = new System.Drawing.Point(331, 340);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(259, 61);
+            this.label2.Size = new System.Drawing.Size(299, 61);
             this.label2.TabIndex = 7;
-            this.label2.Text = "Password";
+            this.label2.Text = "Contraseña";
             // 
             // btnPassword
             // 

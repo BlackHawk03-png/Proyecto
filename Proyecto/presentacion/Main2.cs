@@ -39,7 +39,7 @@ namespace Proyecto.presentacion
 
         private void btnAdmin_Click(object sender, EventArgs e)
         {
-            if (Usuario.usuarioActual.Administrador)
+            if (Usuario.usuarioActual.Rol == "administrador" || Usuario.usuarioActual.Rol == "ambos")
             {
                 AdminPanel a = new AdminPanel();
                 a.Show();
@@ -53,7 +53,7 @@ namespace Proyecto.presentacion
 
         private void button1_Click(object sender, EventArgs e)
         {   
-            PruebaPersistencia p = new PruebaPersistencia();
+            PruebaPersistencia p = new PruebaPersistencia(true, "");
             p.Show();
             base.Hide();
         }
@@ -106,6 +106,26 @@ namespace Proyecto.presentacion
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             
+        }
+
+        private void btnVisitarPerfil_Click(object sender, EventArgs e)
+        {
+            if(txtVistaUsuario.Text != "" && Conexion.Existe(txtVistaUsuario.Text) == 1)
+            {
+                PruebaPersistencia p = new PruebaPersistencia(false, txtVistaUsuario.Text);
+                p.Show();
+                base.Hide();
+            }
+            else if(txtVistaUsuario.Text == "")
+            {
+                MessageBox.Show("Debe ingresar un nombre de usuario", "Error", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if(Conexion.Existe(txtVistaUsuario.Text) == 0)
+            {
+                MessageBox.Show("Este usuario no existe", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

@@ -15,7 +15,7 @@ namespace Proyecto.presentacion
 {
     public partial class PruebaPersistencia : Form
     {
-        public PruebaPersistencia()
+        public PruebaPersistencia(bool perfilPropio, string username)
         {
             InitializeComponent();
             this.Closing += new CancelEventHandler(Register_Closing);
@@ -24,28 +24,56 @@ namespace Proyecto.presentacion
                 Conexion.Conectado(Usuario.usuarioActual.Username, 0);
                 Application.Exit();
             }
-            txtUsername.Text = Usuario.usuarioActual.Username;
-            List<string> amigos = Conexion.devuelveAmigos(Usuario.usuarioActual.Username);
-            foreach(string a in amigos)
+            
+            if (perfilPropio)
             {
-                gridUsernames.Rows.Add(a);
+                txtUsername.Text = Usuario.usuarioActual.Username;
+                List<string> amigos = Conexion.devuelveAmigos(Usuario.usuarioActual.Username);
+                foreach (string a in amigos)
+                {
+                    gridUsernames.Rows.Add(a);
+                }
+                if (Usuario.usuarioActual.Rol == "sin rol" || Usuario.usuarioActual.Rol == "administrador")
+                {
+                    panelMarcoDiferencial.Hide();
+                }
+                if (Usuario.usuarioActual.FotoPerfil.Equals("") == false)
+                {
+                    picPerfil.BackgroundImage = null;
+                    picPerfil.Load(Usuario.usuarioActual.FotoPerfil);
+                }
             }
-
-            if (!Usuario.usuarioActual.Suscrito)
+            else
             {
-                panelMarcoDiferencial.Hide();
+                btnEditProfile.Hide();
+                btnPic.Hide();
+                perfil = Conexion.recibeDatos(username);
+                txtUsername.Text = username;
+                List<string> amigos = Conexion.devuelveAmigos(username);
+                foreach (string a in amigos)
+                {
+                    gridUsernames.Rows.Add(a);
+                }
+                /*if (perfil.rol == "administrador" || perfil.rol == "sin rol")
+                {
+                    panelMarcoDiferencial.Hide();
+                }*/
             }
-            if (Usuario.usuarioActual.FotoPerfil.Equals("") == false)
-            {
-                picPerfil.BackgroundImage = null;
-                picPerfil.Load(Usuario.usuarioActual.FotoPerfil);
-            }
-            rellenarMedallas();
+            rellenarMedallas(perfilPropio);
             
         }
-        private void rellenarMedallas()
+        private Usuario perfil;
+        private void rellenarMedallas(bool perfilPropio)
         {
-            int[] medallas = Conexion.recibeMedallasProfile(Usuario.usuarioActual.Username);
+            int[] medallas;
+            if (perfilPropio)
+            {
+                medallas = Conexion.recibeMedallasProfile(Usuario.usuarioActual.Username);
+            }
+            else
+            {
+                medallas = Conexion.recibeMedallasProfile(perfil.Username);
+            }
             if(medallas[0] == 0)
             {
                 pictureBox20.Hide();

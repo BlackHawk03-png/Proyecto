@@ -681,7 +681,7 @@ namespace Proyecto.presentacion
             this.btnEditProfile.Name = "btnEditProfile";
             this.btnEditProfile.Size = new System.Drawing.Size(148, 71);
             this.btnEditProfile.TabIndex = 18;
-            this.btnEditProfile.Text = "Edit profile";
+            this.btnEditProfile.Text = "Editar perfil";
             this.btnEditProfile.UseVisualStyleBackColor = false;
             this.btnEditProfile.Click += new System.EventHandler(this.btnEditProfile_Click);
             // 
@@ -701,9 +701,9 @@ namespace Proyecto.presentacion
             this.btnPic.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPic.Location = new System.Drawing.Point(54, 336);
             this.btnPic.Name = "btnPic";
-            this.btnPic.Size = new System.Drawing.Size(115, 61);
+            this.btnPic.Size = new System.Drawing.Size(175, 63);
             this.btnPic.TabIndex = 20;
-            this.btnPic.Text = "Change profile pic";
+            this.btnPic.Text = "Cambiar foto\r\nde perfil";
             this.btnPic.UseVisualStyleBackColor = false;
             this.btnPic.Click += new System.EventHandler(this.btnPic_Click);
             // 

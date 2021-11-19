@@ -38,6 +38,8 @@ namespace Proyecto.presentacion
             this.gridUsernames = new System.Windows.Forms.DataGridView();
             this.Usuarios = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAgregarAmigos = new System.Windows.Forms.Button();
+            this.btnVisitarPerfil = new System.Windows.Forms.Button();
+            this.txtVistaUsuario = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.gridUsernames)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,11 +48,11 @@ namespace Proyecto.presentacion
             this.btnAdmin.BackColor = System.Drawing.Color.Transparent;
             this.btnAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdmin.Location = new System.Drawing.Point(1104, 122);
+            this.btnAdmin.Location = new System.Drawing.Point(1098, 122);
             this.btnAdmin.Name = "btnAdmin";
-            this.btnAdmin.Size = new System.Drawing.Size(148, 71);
+            this.btnAdmin.Size = new System.Drawing.Size(154, 71);
             this.btnAdmin.TabIndex = 3;
-            this.btnAdmin.Text = "Admin Panel";
+            this.btnAdmin.Text = "Panel de\r\nadministrador\r\n";
             this.btnAdmin.UseVisualStyleBackColor = false;
             this.btnAdmin.Click += new System.EventHandler(this.btnAdmin_Click);
             // 
@@ -73,11 +75,11 @@ namespace Proyecto.presentacion
             this.button1.BackColor = System.Drawing.Color.Transparent;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(1104, 199);
+            this.button1.Location = new System.Drawing.Point(1098, 199);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(148, 71);
+            this.button1.Size = new System.Drawing.Size(154, 71);
             this.button1.TabIndex = 4;
-            this.button1.Text = "Profile";
+            this.button1.Text = "Perfil";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -143,6 +145,27 @@ namespace Proyecto.presentacion
             this.btnAgregarAmigos.UseVisualStyleBackColor = true;
             this.btnAgregarAmigos.Click += new System.EventHandler(this.btnAgregarAmigos_Click);
             // 
+            // btnVisitarPerfil
+            // 
+            this.btnVisitarPerfil.BackColor = System.Drawing.Color.Transparent;
+            this.btnVisitarPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVisitarPerfil.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVisitarPerfil.Location = new System.Drawing.Point(1098, 276);
+            this.btnVisitarPerfil.Name = "btnVisitarPerfil";
+            this.btnVisitarPerfil.Size = new System.Drawing.Size(154, 71);
+            this.btnVisitarPerfil.TabIndex = 8;
+            this.btnVisitarPerfil.Text = "Perfil de otro usuario";
+            this.btnVisitarPerfil.UseVisualStyleBackColor = false;
+            this.btnVisitarPerfil.Click += new System.EventHandler(this.btnVisitarPerfil_Click);
+            // 
+            // txtVistaUsuario
+            // 
+            this.txtVistaUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtVistaUsuario.Location = new System.Drawing.Point(1098, 353);
+            this.txtVistaUsuario.Name = "txtVistaUsuario";
+            this.txtVistaUsuario.Size = new System.Drawing.Size(154, 31);
+            this.txtVistaUsuario.TabIndex = 9;
+            // 
             // Main2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -150,6 +173,8 @@ namespace Proyecto.presentacion
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1260, 677);
+            this.Controls.Add(this.txtVistaUsuario);
+            this.Controls.Add(this.btnVisitarPerfil);
             this.Controls.Add(this.btnAgregarAmigos);
             this.Controls.Add(this.gridUsernames);
             this.Controls.Add(this.btnTruco);
@@ -169,6 +194,7 @@ namespace Proyecto.presentacion
             this.Load += new System.EventHandler(this.Main2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridUsernames)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -181,5 +207,7 @@ namespace Proyecto.presentacion
         private System.Windows.Forms.DataGridView gridUsernames;
         private System.Windows.Forms.Button btnAgregarAmigos;
         private System.Windows.Forms.DataGridViewTextBoxColumn Usuarios;
+        private System.Windows.Forms.Button btnVisitarPerfil;
+        private System.Windows.Forms.TextBox txtVistaUsuario;
     }
 }

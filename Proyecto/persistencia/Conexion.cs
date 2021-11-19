@@ -75,7 +75,7 @@ namespace Proyecto.persistencia
         }
         public static Usuario recibeDatos(string username)
         {
-            Usuario devuelve = new Usuario("","","", "", "","","","",false,false,"");
+            Usuario devuelve = new Usuario("", "", "", "", "", "", "", "", false, false, "", "", 0);
             try
             {
                 MySqlCommand _comando = new MySqlCommand(String.Format(
@@ -91,9 +91,9 @@ namespace Proyecto.persistencia
                     devuelve.Mail = _reader.GetString(5);
                     devuelve.FechaNac = _reader.GetString(6);
                     devuelve.FechaIngreso = _reader.GetString(7);
-                    devuelve.Suscrito = _reader.GetBoolean(8);
-                    devuelve.Administrador = _reader.GetBoolean(9);
                     devuelve.FotoPerfil = _reader.GetString(10);
+                    devuelve.Rol = _reader.GetString(11);
+                    devuelve.Presupuesto = _reader.GetInt32(12);
                 }
                 CerrarConexion();
             }
@@ -140,9 +140,9 @@ namespace Proyecto.persistencia
                     Usuario.usuarioActual.Mail = _reader.GetString(5);
                     Usuario.usuarioActual.FechaNac = _reader.GetString(6);
                     Usuario.usuarioActual.FechaIngreso = _reader.GetString(7);
-                    Usuario.usuarioActual.Suscrito = _reader.GetBoolean(8);
-                    Usuario.usuarioActual.Administrador = _reader.GetBoolean(9);
                     Usuario.usuarioActual.FotoPerfil = "";
+                    Usuario.usuarioActual.Rol = _reader.GetString(11);
+                    Usuario.usuarioActual.Presupuesto = _reader.GetInt32(12);
                 }
                 CerrarConexion();
             }
@@ -445,7 +445,7 @@ namespace Proyecto.persistencia
             {
                 ObtenerConexion();
                 MySqlCommand myCommand = databaseConnection.CreateCommand();
-                myCommand.CommandText = "UPDATE conectado " +
+                myCommand.CommandText = "UPDATE usuario " +
                     "SET conectado = '" + conectado + "' WHERE username = '" + username + "';";
                 myCommand.ExecuteNonQuery();
                 CerrarConexion();

@@ -62,7 +62,7 @@ namespace Proyecto.presentacion
             }
             if (!admin)
             {
-                PruebaPersistencia p = new PruebaPersistencia();
+                PruebaPersistencia p = new PruebaPersistencia(true, "");
                 p.Show();
                 base.Hide();
             }

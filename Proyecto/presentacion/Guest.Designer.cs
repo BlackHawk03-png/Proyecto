@@ -54,7 +54,7 @@ namespace Proyecto.presentacion
             this.btnBlackjack.BackColor = System.Drawing.Color.Transparent;
             this.btnBlackjack.FlatAppearance.BorderSize = 2;
             this.btnBlackjack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBlackjack.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBlackjack.Font = new System.Drawing.Font("White Storm", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBlackjack.Location = new System.Drawing.Point(332, 185);
             this.btnBlackjack.Margin = new System.Windows.Forms.Padding(5);
             this.btnBlackjack.Name = "btnBlackjack";
@@ -69,8 +69,8 @@ namespace Proyecto.presentacion
             this.btnTruco.BackColor = System.Drawing.Color.Transparent;
             this.btnTruco.FlatAppearance.BorderSize = 2;
             this.btnTruco.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTruco.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTruco.Location = new System.Drawing.Point(332, 412);
+            this.btnTruco.Font = new System.Drawing.Font("White Storm", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTruco.Location = new System.Drawing.Point(332, 375);
             this.btnTruco.Name = "btnTruco";
             this.btnTruco.Size = new System.Drawing.Size(615, 136);
             this.btnTruco.TabIndex = 17;

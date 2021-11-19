@@ -32,7 +32,6 @@ namespace Proyecto.presentacion
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminPanel));
             this.btnVolver = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.btnExtra = new System.Windows.Forms.Button();
             this.btnReview = new System.Windows.Forms.Button();
             this.txtUsername1 = new System.Windows.Forms.TextBox();
             this.btnAdmin = new System.Windows.Forms.Button();
@@ -67,18 +66,9 @@ namespace Proyecto.presentacion
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(143, 50);
             this.btnDelete.TabIndex = 36;
-            this.btnDelete.Text = "Delete User Physically";
+            this.btnDelete.Text = "Eliminar usuario";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnExtra
-            // 
-            this.btnExtra.Location = new System.Drawing.Point(185, 442);
-            this.btnExtra.Name = "btnExtra";
-            this.btnExtra.Size = new System.Drawing.Size(91, 27);
-            this.btnExtra.TabIndex = 35;
-            this.btnExtra.Text = "Send Extra";
-            this.btnExtra.UseVisualStyleBackColor = true;
             // 
             // btnReview
             // 
@@ -86,7 +76,7 @@ namespace Proyecto.presentacion
             this.btnReview.Name = "btnReview";
             this.btnReview.Size = new System.Drawing.Size(143, 50);
             this.btnReview.TabIndex = 34;
-            this.btnReview.Text = "Review User";
+            this.btnReview.Text = "Revisar usuario";
             this.btnReview.UseVisualStyleBackColor = true;
             this.btnReview.Click += new System.EventHandler(this.btnReview_Click);
             // 
@@ -104,7 +94,7 @@ namespace Proyecto.presentacion
             this.btnAdmin.Name = "btnAdmin";
             this.btnAdmin.Size = new System.Drawing.Size(143, 50);
             this.btnAdmin.TabIndex = 40;
-            this.btnAdmin.Text = "Convert into Admin";
+            this.btnAdmin.Text = "Convertir en\r\nadministrador";
             this.btnAdmin.UseVisualStyleBackColor = true;
             this.btnAdmin.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -115,7 +105,7 @@ namespace Proyecto.presentacion
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(143, 50);
             this.button1.TabIndex = 41;
-            this.button1.Text = "Put default picture";
+            this.button1.Text = "Poner foto de\r\nperfil por defecto";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
@@ -124,7 +114,7 @@ namespace Proyecto.presentacion
             this.txtUsuarios.AutoSize = true;
             this.txtUsuarios.BackColor = System.Drawing.Color.Transparent;
             this.txtUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuarios.Location = new System.Drawing.Point(16, 495);
+            this.txtUsuarios.Location = new System.Drawing.Point(16, 486);
             this.txtUsuarios.Name = "txtUsuarios";
             this.txtUsuarios.Size = new System.Drawing.Size(220, 50);
             this.txtUsuarios.TabIndex = 42;
@@ -132,7 +122,7 @@ namespace Proyecto.presentacion
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Location = new System.Drawing.Point(21, 548);
+            this.btnActualizar.Location = new System.Drawing.Point(21, 539);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(91, 27);
             this.btnActualizar.TabIndex = 43;
@@ -146,7 +136,7 @@ namespace Proyecto.presentacion
             this.btnDeleteLogic.Name = "btnDeleteLogic";
             this.btnDeleteLogic.Size = new System.Drawing.Size(143, 50);
             this.btnDeleteLogic.TabIndex = 44;
-            this.btnDeleteLogic.Text = "Disable user";
+            this.btnDeleteLogic.Text = "Deshabilitar usuario";
             this.btnDeleteLogic.UseVisualStyleBackColor = true;
             this.btnDeleteLogic.Click += new System.EventHandler(this.btnDeleteLogic_Click);
             // 
@@ -157,7 +147,7 @@ namespace Proyecto.presentacion
             this.btnEditProfile.Name = "btnEditProfile";
             this.btnEditProfile.Size = new System.Drawing.Size(143, 50);
             this.btnEditProfile.TabIndex = 45;
-            this.btnEditProfile.Text = "Edit user profile";
+            this.btnEditProfile.Text = "Editar usuario";
             this.btnEditProfile.UseVisualStyleBackColor = false;
             this.btnEditProfile.Click += new System.EventHandler(this.btnEditProfile_Click);
             // 
@@ -190,7 +180,7 @@ namespace Proyecto.presentacion
             this.btnAbleUser.Name = "btnAbleUser";
             this.btnAbleUser.Size = new System.Drawing.Size(143, 50);
             this.btnAbleUser.TabIndex = 48;
-            this.btnAbleUser.Text = "Able user";
+            this.btnAbleUser.Text = "Habilitar usuario";
             this.btnAbleUser.UseVisualStyleBackColor = true;
             this.btnAbleUser.Click += new System.EventHandler(this.btnAbleUser_Click);
             // 
@@ -200,7 +190,7 @@ namespace Proyecto.presentacion
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.ClientSize = new System.Drawing.Size(1260, 677);
             this.Controls.Add(this.btnAbleUser);
             this.Controls.Add(this.gridUsernames);
             this.Controls.Add(this.btnEditProfile);
@@ -212,7 +202,6 @@ namespace Proyecto.presentacion
             this.Controls.Add(this.txtUsername1);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnExtra);
             this.Controls.Add(this.btnReview);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -233,7 +222,6 @@ namespace Proyecto.presentacion
         #endregion
         private System.Windows.Forms.Button btnVolver;
         private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnExtra;
         private System.Windows.Forms.Button btnReview;
         private System.Windows.Forms.TextBox txtUsername1;
         private System.Windows.Forms.Button btnAdmin;
