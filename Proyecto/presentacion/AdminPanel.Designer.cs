@@ -1,7 +1,7 @@
 ﻿
 namespace Proyecto.presentacion
 {
-    partial class AdminPanel
+    partial class PanelAdministrador
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace Proyecto.presentacion
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminPanel));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PanelAdministrador));
             this.btnVolver = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnReview = new System.Windows.Forms.Button();
@@ -184,7 +184,7 @@ namespace Proyecto.presentacion
             this.btnAbleUser.UseVisualStyleBackColor = true;
             this.btnAbleUser.Click += new System.EventHandler(this.btnAbleUser_Click);
             // 
-            // AdminPanel
+            // PanelAdministrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -209,7 +209,7 @@ namespace Proyecto.presentacion
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1280, 720);
             this.MinimumSize = new System.Drawing.Size(1280, 720);
-            this.Name = "AdminPanel";
+            this.Name = "PanelAdministrador";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminPanel";
             this.Load += new System.EventHandler(this.AdminPanel_Load);

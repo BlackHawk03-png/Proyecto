@@ -8,8 +8,6 @@ namespace Proyecto.logica
 {
     class PartidaTruco
     {
-        //Hacer esta clase como la CartaEspañola (tiene atributos con sus gettrs
-        //y setters para guardarlos y pasarlos a la base de datos)
         public PartidaTruco(int id, string j1, string j2, bool t) //si tipo es false es contra la CPU, sino online
         {
             idPartida = id;

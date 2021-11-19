@@ -1,7 +1,7 @@
 ﻿
 namespace Proyecto.presentacion
 {
-    partial class Register
+    partial class Registro
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace Proyecto.presentacion
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Register));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Registro));
             this.btnRegister = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtUsername = new System.Windows.Forms.TextBox();
@@ -55,7 +55,7 @@ namespace Proyecto.presentacion
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(165, 49);
             this.btnRegister.TabIndex = 11;
-            this.btnRegister.Text = "Register";
+            this.btnRegister.Text = "Registro";
             this.btnRegister.UseVisualStyleBackColor = true;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
@@ -210,7 +210,7 @@ namespace Proyecto.presentacion
             this.txtApellido.TabIndex = 4;
             this.txtApellido.TextChanged += new System.EventHandler(this.txtApellido_TextChanged);
             // 
-            // Register
+            // Registro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -238,7 +238,7 @@ namespace Proyecto.presentacion
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(1280, 720);
-            this.Name = "Register";
+            this.Name = "Registro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Register";
             this.Load += new System.EventHandler(this.Register_Load);

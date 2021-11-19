@@ -41,7 +41,7 @@ namespace Proyecto.presentacion
         {
             if (Usuario.usuarioActual.Rol == "administrador" || Usuario.usuarioActual.Rol == "ambos")
             {
-                AdminPanel a = new AdminPanel();
+                PanelAdministrador a = new PanelAdministrador();
                 a.Show();
                 base.Hide();
             }

@@ -13,9 +13,9 @@ using System.Windows.Forms;
 
 namespace Proyecto.presentacion
 {
-    public partial class AdminPanel : Form
+    public partial class PanelAdministrador : Form
     {
-        public AdminPanel()
+        public PanelAdministrador()
         {
             InitializeComponent();
             this.Closing += new CancelEventHandler(Register_Closing);

@@ -477,7 +477,7 @@ namespace Proyecto.persistencia
             try
             {
                 MySqlCommand _comando = new MySqlCommand(String.Format(
-              "SELECT amigo FROM amigos " +
+              "SELECT amigo FROM amistad " +
               "WHERE username = '" + username + "';"), ObtenerConexion());
                 MySqlDataReader _reader = _comando.ExecuteReader();
                 while (_reader.Read())
@@ -575,6 +575,41 @@ namespace Proyecto.persistencia
 
             return medallas;
         }
-
+        public static List<string>[] estadistica1Username()
+        {
+            List<string>[] estadisticas = new List<string>[2];
+            List<string> a = new List<string>();
+            try
+            {
+                MySqlCommand _comando = new MySqlCommand(String.Format(
+              "SELECT ganador, COUNT(id_partida) AS cantidad " +
+              "FROM partida_truco " +
+              "WHERE ganador != 'CPU' " +
+              "GROUP BY(ganador) " +
+              "ORDER BY(cantidad)DESC " +
+              "LIMIT 10; "), ObtenerConexion());
+                MySqlDataReader _reader = _comando.ExecuteReader();
+                while (_reader.Read())
+                {
+                    a.Add(_reader.GetString(0));
+                }
+                CerrarConexion();
+                estadisticas[0] = a;
+                a.Clear();
+                ObtenerConexion();
+                _reader = _comando.ExecuteReader();
+                while (_reader.Read())
+                {
+                    a.Add(_reader.GetString(1));
+                }
+                CerrarConexion();
+                estadisticas[1] = a;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            return estadisticas;
+        } 
     }
 }

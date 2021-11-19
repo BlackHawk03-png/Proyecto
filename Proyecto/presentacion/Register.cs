@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace Proyecto.presentacion
 {
-    public partial class Register : Form
+    public partial class Registro : Form
     {
-        public Register()
+        public Registro()
         {
             InitializeComponent();
             this.Closing += new CancelEventHandler(Register_Closing);

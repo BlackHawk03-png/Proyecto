@@ -56,7 +56,7 @@ namespace Proyecto.presentacion
         {
             if (admin)
             {
-                AdminPanel a = new AdminPanel(); 
+                PanelAdministrador a = new PanelAdministrador(); 
                 a.Show(); 
                 base.Hide();
             }
